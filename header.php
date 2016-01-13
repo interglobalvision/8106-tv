@@ -53,7 +53,26 @@
 
   <section id="main-container">
 
+  <div id="header-advert-space">
+    <div class="container">
+      <div class="row u-align-center">
+        Advert goes here
+    </div>
+  </div>
+
   <!-- start content -->
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+  <header id="header" class="container">
+    <div class="row">
+      <div class="col s8">
+        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+      </div>
+      <div class="col s16">
+        <ul class="u-inline-list">
+          <li class="js-nav-trigger" data-nav-target="categorias">Categorias</li>
+          <li class="js-nav-trigger" data-nav-target="radio">Radio</li>
+          <li class="js-nav-trigger" data-nav-target="follow">Follow</li>
+          <li class="js-nav-trigger" data-nav-target="search"><span class="genericon genericon-search"></span></li>
+        </ul>
+      </div>
+    </div>
   </header>
