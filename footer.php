@@ -6,10 +6,7 @@
           </div>
           <div class="col s6">
             <ul>
-              <li>Música</li>
-              <li>Puta portadazza</li>
-              <li>Noticias</li>
-              <li>Cats go here?</li>
+              <?php wp_list_categories(array('title_li' => '',)); ?>
             </ul>
           </div>
           <div class="col s6">
@@ -17,6 +14,7 @@
               <li><a href="https://twitter.com/8106" target="_blank">Twitter</a></li>
               <li><a href="https://www.facebook.com/8106tv" target="_blank">Facebook</a></li>
               <li><a href="http://8106.tumblr.com/" target="_blank">Tumblr</a></li>
+              <li><a href="https://www.instagram.com/8106tv/" target="_blank">Instagram</a></li>
             </ul>
           </div>
           <div class="col s6">
