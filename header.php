@@ -60,7 +60,16 @@
     </div>
   </div>
 
-  <!-- start content -->
+  <div id="drawer-radio" class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s24">
+          Radio goes here
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header id="header" class="container">
     <div class="row">
       <div class="col s8">
@@ -76,3 +85,34 @@
       </div>
     </div>
   </header>
+
+  <div id="drawer-category" class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s24">
+          <ul class="u-inline-list">
+            <?php wp_list_categories(array('title_li' => '',)); ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="drawer-follow"  class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s6">
+          <a href="https://twitter.com/8106" target="_blank">Twitter</a>
+        </div>
+        <div class="col s6">
+          <a href="https://www.facebook.com/8106tv" target="_blank">Facebook</a>
+        </div>
+        <div class="col s6">
+          <a href="http://8106.tumblr.com/" target="_blank">Tumblr</a>
+        </div>
+        <div class="col s6">
+          <a href="https://www.instagram.com/8106tv/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
