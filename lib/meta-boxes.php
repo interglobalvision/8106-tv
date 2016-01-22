@@ -42,7 +42,7 @@ function igv_cmb_metaboxes() {
   $post_meta = new_cmb2_box( array(
     'id'            => $prefix . 'metabox',
     'title'         => __( 'Meta', 'cmb2' ),
-    'object_types'  => array( 'post', ), // Post type
+    'object_types'  => array( 'post', ), // post type
   ) );
 
   $post_meta->add_field( array(
@@ -51,5 +51,43 @@ function igv_cmb_metaboxes() {
     'id'         => $prefix . 'subtitle',
     'type'       => 'text',
   ) );
+
+
+  /* Events */
+  $event_meta = new_cmb2_box( array(
+    'id'            => $prefix . 'event_metabox',
+    'title'         => __( 'Meta', 'cmb2' ),
+    'object_types'  => array( 'event', ), // post type
+  ) );
+
+  $event_meta->add_field( array(
+    'name' => 'Lugar',
+    'id' => $prefix . 'address',
+    'type' => 'textarea_small'
+  ) );
+
+  $event_meta->add_field( array(
+    'name'    => 'Precio',
+    'id' => $prefix . 'price',
+    'type'    => 'text',
+    'attributes' => array(
+      'placeholder'    => '$200',
+    ),
+  ) );
+
+  $event_meta->add_field( array(
+    'name' => 'Fecha',
+    'id' => $prefix . 'date',
+    'type' => 'text_date_timestamp',
+  ) );
+
+  $event_meta->add_field( array(
+    'name' => 'Hora',
+    'id' => $prefix . 'time',
+    'type' => 'text_time',
+  ) );
+
+
+  
 }
 ?>
