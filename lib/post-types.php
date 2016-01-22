@@ -5,8 +5,8 @@ function add_menu_icons_styles(){
 ?>
  
 <style>
-#menu-posts-project .dashicons-admin-post:before {
-    content: '\f319';
+#menu-posts-event .dashicons-admin-post:before {
+  content: "\f486";
 }
 </style>
  
@@ -16,23 +16,23 @@ add_action( 'admin_head', 'add_menu_icons_styles' );
 
 
 //Register Custom Post Types
-add_action( 'init', 'register_cpt_project' );
+add_action( 'init', 'register_cpt_event' );
 
-function register_cpt_project() {
+function register_cpt_event() {
 
     $labels = array( 
-        'name' => _x( 'Projects', 'project' ),
-        'singular_name' => _x( 'Project', 'project' ),
-        'add_new' => _x( 'Add New', 'project' ),
-        'add_new_item' => _x( 'Add New Project', 'project' ),
-        'edit_item' => _x( 'Edit Project', 'project' ),
-        'new_item' => _x( 'New Project', 'project' ),
-        'view_item' => _x( 'View Project', 'project' ),
-        'search_items' => _x( 'Search Projects', 'project' ),
-        'not_found' => _x( 'No projects found', 'project' ),
-        'not_found_in_trash' => _x( 'No projects found in Trash', 'project' ),
-        'parent_item_colon' => _x( 'Parent Project:', 'project' ),
-        'menu_name' => _x( 'Projects', 'project' ),
+        'name' => _x( 'Eventos', 'event' ),
+        'singular_name' => _x( 'Evento', 'event' ),
+        'add_new' => _x( 'Agregar Nuevo', 'event' ),
+        'add_new_item' => _x( 'Agregar nuevo Evento', 'event' ),
+        'edit_item' => _x( 'Editar Evento', 'event' ),
+        'new_item' => _x( 'Nuevo Evento', 'event' ),
+        'view_item' => _x( 'Ver Evento', 'event' ),
+        'search_items' => _x( 'Buscar Eventos', 'event' ),
+        'not_found' => _x( 'No se encontraron eventos', 'event' ),
+        'not_found_in_trash' => _x( 'No se encontraron eventos en la papelera', 'event' ),
+        'parent_item_colon' => _x( 'Parent Evento:', 'event' ),
+        'menu_name' => _x( 'Eventos', 'event' ),
     );
 
     $args = array( 
@@ -52,9 +52,12 @@ function register_cpt_project() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'post'
+        'rewrite' => array(
+          'slug' => 'evento',
+        ),
+        'capability_type' => 'post',
+        'taxonomies' => ['post_tag']
     );
 
-    register_post_type( 'project', $args );
+    register_post_type( 'event', $args );
 }
