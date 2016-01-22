@@ -6,7 +6,7 @@ function add_menu_icons_styles(){
  
 <style>
 #menu-posts-event .dashicons-admin-post:before {
-    content: '\f319';
+  content: "\f486";
 }
 </style>
  
