@@ -20,6 +20,7 @@ if( have_posts() ) {
     $event_price  = get_post_meta( get_the_ID(), '_igv_event_price', true );
     $event_date  = get_post_meta( get_the_ID(), '_igv_event_date', true );
     $event_time  = get_post_meta( get_the_ID(), '_igv_event_time', true );
+    $event_fb_link  = get_post_meta( get_the_ID(), '_igv_event_fb_link', true );
 
 ?>
 
@@ -35,6 +36,7 @@ if( have_posts() ) {
     <p><b>Precio: </b><?php echo esc_html($event_price); ?></p>
     <p><b>Fecha: </b><?php echo date_i18n('j F, Y', $event_date); ?></p>
     <p><b>Hora: </b><?php echo $event_time; ?></p>
+    <p><a href="<?php echo $event_fb_link; ?>">Evento en facebook</a></p>
 
     </article>
 
