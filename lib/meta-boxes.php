@@ -15,7 +15,6 @@ if ( $posts ) {
 return $post_options;
 }
 
-
 /**
  * Include and setup custom metaboxes and fields.
  *
@@ -31,8 +30,8 @@ return $post_options;
 add_action( 'cmb2_init', 'igv_cmb_metaboxes' );
 function igv_cmb_metaboxes() {
 
-	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_igv_';
+  // Start with an underscore to hide fields from custom fields list
+  $prefix = '_igv_';
 
 	/**
 	 * Metaboxes declarations here
@@ -40,24 +39,24 @@ function igv_cmb_metaboxes() {
 	 */
 
   $post_meta = new_cmb2_box( array(
-    'id'            => $prefix . 'metabox',
-    'title'         => __( 'Meta', 'cmb2' ),
-    'object_types'  => array( 'post', 'event', ), // post type
+    'id' => $prefix . 'metabox',
+    'title' => __( 'Meta', 'cmb2' ),
+    'object_types' => array( 'post', 'event', ), // post type
   ) );
 
   $post_meta->add_field( array(
-    'name'       => __( 'Sub-titulo', 'cmb2' ),
-    'desc'       => __( '', 'cmb2' ),
-    'id'         => $prefix . 'post_subtitle',
-    'type'       => 'text',
+    'name' => __( 'Sub-titulo', 'cmb2' ),
+    'desc' => __( '', 'cmb2' ),
+    'id' => $prefix . 'post_subtitle',
+    'type' => 'text',
   ) );
 
 
   /* Events */
   $event_meta = new_cmb2_box( array(
-    'id'            => $prefix . 'event_metabox',
-    'title'         => __( 'Meta', 'cmb2' ),
-    'object_types'  => array( 'event', ), // post type
+    'id' => $prefix . 'event_metabox',
+    'title' => __( 'Meta', 'cmb2' ),
+    'object_types' => array( 'event', ), // post type
   ) );
 
   $event_meta->add_field( array(
@@ -67,11 +66,11 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_meta->add_field( array(
-    'name'    => 'Precio',
+    'name' => 'Precio',
     'id' => $prefix . 'event_price',
-    'type'    => 'text',
+    'type' => 'text',
     'attributes' => array(
-      'placeholder'    => '$200',
+      'placeholder' => '$200',
     ),
   ) );
 
@@ -87,7 +86,5 @@ function igv_cmb_metaboxes() {
     'type' => 'text_time',
   ) );
 
-
-  
 }
 ?>
