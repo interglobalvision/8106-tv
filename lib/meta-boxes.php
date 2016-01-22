@@ -86,5 +86,14 @@ function igv_cmb_metaboxes() {
     'type' => 'text_time',
   ) );
 
+  $event_meta->add_field( array(
+    'name' => 'Facebook link',
+    'id' => $prefix . 'event_fb_link',
+    'type' => 'text',
+    'attributes' => array(
+      'placeholder' => 'https://www.facebook.com/events/123456789012345',
+    ),
+  ) );
+
 }
 ?>
