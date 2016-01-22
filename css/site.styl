@@ -8,9 +8,9 @@ box-sizing-reset()
 normalize()
 
 // GRID OF 12 90px COLUMNS WITH 16px GUTTER
-$cols = 12
-$col = 90px
-$gutter = 16px
+$cols = 24
+$col = 40px
+$gutter = 14px
 .container
   margin: 0 auto
   width: ($col * $cols)+($gutter * $cols)
@@ -114,29 +114,12 @@ img
   max-width: 100%
   height: auto
 
-
-//the 100% widths are just so stylus can compile delete as desired
+// STRUCTURE
 
 // HEADER
 
-#header
-  width: 100%
-
-// POSTS LOOP
-#posts
-  width: 100%
-
-.post
-  width: 100%
-
-#pagination
-  width: 100%
-
-
-// FOOTER
-
-#footer
-  width: 100%
+.header-drawer
+  display: none
 
 
 // MEDIA QUERIES

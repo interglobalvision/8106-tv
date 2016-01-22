@@ -53,7 +53,66 @@
 
   <section id="main-container">
 
-  <!-- start content -->
-  <header id="header">
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+  <div id="header-advert-space">
+    <div class="container">
+      <div class="row u-align-center">
+        Advert goes here
+    </div>
+  </div>
+
+  <div id="drawer-radio" class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s24">
+          Radio goes here
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header id="header" class="container">
+    <div class="row">
+      <div class="col s8">
+        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+      </div>
+      <div class="col s16">
+        <ul class="u-inline-list">
+          <li class="js-nav-trigger" data-nav-target="categorias">Categorias</li>
+          <li class="js-nav-trigger" data-nav-target="radio">Radio</li>
+          <li class="js-nav-trigger" data-nav-target="follow">Follow</li>
+          <li class="js-nav-trigger" data-nav-target="search"><span class="genericon genericon-search"></span></li>
+        </ul>
+      </div>
+    </div>
   </header>
+
+  <div id="drawer-category" class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s24">
+          <ul class="u-inline-list">
+            <?php wp_list_categories(array('title_li' => '',)); ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="drawer-follow"  class="header-drawer">
+    <div class="container">
+      <div class="row">
+        <div class="col s6">
+          <a href="https://twitter.com/8106" target="_blank">Twitter</a>
+        </div>
+        <div class="col s6">
+          <a href="https://www.facebook.com/8106tv" target="_blank">Facebook</a>
+        </div>
+        <div class="col s6">
+          <a href="http://8106.tumblr.com/" target="_blank">Tumblr</a>
+        </div>
+        <div class="col s6">
+          <a href="https://www.instagram.com/8106tv/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
