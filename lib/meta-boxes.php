@@ -42,13 +42,13 @@ function igv_cmb_metaboxes() {
   $post_meta = new_cmb2_box( array(
     'id'            => $prefix . 'metabox',
     'title'         => __( 'Meta', 'cmb2' ),
-    'object_types'  => array( 'post', ), // post type
+    'object_types'  => array( 'post', 'event', ), // post type
   ) );
 
   $post_meta->add_field( array(
     'name'       => __( 'Sub-titulo', 'cmb2' ),
     'desc'       => __( '', 'cmb2' ),
-    'id'         => $prefix . 'subtitle',
+    'id'         => $prefix . 'post_subtitle',
     'type'       => 'text',
   ) );
 
@@ -62,13 +62,13 @@ function igv_cmb_metaboxes() {
 
   $event_meta->add_field( array(
     'name' => 'Lugar',
-    'id' => $prefix . 'address',
+    'id' => $prefix . 'event_address',
     'type' => 'textarea_small'
   ) );
 
   $event_meta->add_field( array(
     'name'    => 'Precio',
-    'id' => $prefix . 'price',
+    'id' => $prefix . 'event_price',
     'type'    => 'text',
     'attributes' => array(
       'placeholder'    => '$200',
@@ -77,13 +77,13 @@ function igv_cmb_metaboxes() {
 
   $event_meta->add_field( array(
     'name' => 'Fecha',
-    'id' => $prefix . 'date',
+    'id' => $prefix . 'event_date',
     'type' => 'text_date_timestamp',
   ) );
 
   $event_meta->add_field( array(
     'name' => 'Hora',
-    'id' => $prefix . 'time',
+    'id' => $prefix . 'event_time',
     'type' => 'text_time',
   ) );
 
