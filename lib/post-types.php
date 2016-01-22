@@ -56,7 +56,7 @@ function register_cpt_event() {
           'slug' => 'evento',
         ),
         'capability_type' => 'post',
-        'taxonomies' => ['post_tag']
+        'taxonomies' => array('post_tag')
     );
 
     register_post_type( 'event', $args );
