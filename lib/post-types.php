@@ -52,7 +52,9 @@ function register_cpt_event() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        'rewrite' => true,
+        'rewrite' => array(
+          'slug' => 'evento',
+        ),
         'capability_type' => 'post',
         'taxonomies' => ['post_tag']
     );
