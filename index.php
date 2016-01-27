@@ -23,22 +23,12 @@ get_header();
   </section>
 
 
-  <section> <!-- Puta porta, Noticias, Ads -->
+  <section> <!-- Puta portadazza, Noticias, Ads -->
 
   </section>
 
 
-  <section> <!-- Twitter ticker -->
-
-    <?php 
-      $twitter_handle = IGV_get_option( '_igv_twitter_handle' ); 
-
-      if ($twitter_handle) {
-        echo '@' . $twitter_handle;
-      }
-    ?>
-
-  </section>
+  <?php get_template_part('partials/twitter'); ?><!-- Twitter feed -->
 
 
   <!-- main posts loop -->
@@ -74,17 +64,7 @@ if( have_posts() ) {
   </section>
 
 
-  <section> <!-- Instagram ticker -->
-
-    <?php 
-      $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
-
-      if ($instagram_handle) {
-        echo '@' . $instagram_handle;
-      }
-    ?>
-
-  </section>
+  <?php get_template_part('partials/instagram'); ?><!-- Instagram ticker -->
 
 
   <section> <!-- Agenda -->
