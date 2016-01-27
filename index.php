@@ -30,6 +30,14 @@ get_header();
 
   <section> <!-- Twitter ticker -->
 
+    <?php 
+      $twitter_handle = IGV_get_option( '_igv_twitter_handle' ); 
+
+      if ($twitter_handle) {
+        echo '@' . $twitter_handle;
+      }
+    ?>
+
   </section>
 
 
@@ -67,6 +75,14 @@ if( have_posts() ) {
 
 
   <section> <!-- Instagram ticker -->
+
+    <?php 
+      $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
+
+      if ($instagram_handle) {
+        echo '@' . $instagram_handle;
+      }
+    ?>
 
   </section>
 
