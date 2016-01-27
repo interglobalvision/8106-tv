@@ -104,13 +104,20 @@ class IGV_Admin {
 		// Set our CMB2 fields
 
 		$cmb->add_field( array(
-			'name' => __( 'Test Text', 'IGV' ),
-			'desc' => __( 'field description (optional)', 'IGV' ),
-			'id'   => $this->prefix . 'test_text',
+			'name' => __( 'Twitter handle', 'IGV' ),
+			'id'   => $this->prefix . 'twitter_handle',
 			'type' => 'text',
-			'default' => 'Default Text',
+			'default' => '8106tv',
 		) );
 
+		$cmb->add_field( array(
+			'name' => __( 'Instagram handle', 'IGV' ),
+			'id'   => $this->prefix . 'instagram_handle',
+			'type' => 'text',
+			'default' => '8106tv',
+		) );
+
+		/*
 		$cmb->add_field( array(
 			'name'    => __( 'Test Color Picker', 'IGV' ),
 			'desc'    => __( 'field description (optional)', 'IGV' ),
@@ -118,7 +125,7 @@ class IGV_Admin {
 			'type'    => 'colorpicker',
 			'default' => '#bada55',
 		) );
-
+		*/
 	}
 
 	/**
