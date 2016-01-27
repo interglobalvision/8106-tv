@@ -6,6 +6,33 @@ get_header();
 
 <main id="main-content" class="container">
 
+  <section id="featured-post">
+
+    <article <?php post_class('col s24'); ?> id="post-<?php // the_ID(); ?>">
+
+      <a href="<?php // the_permalink() ?>">
+
+        <?php // the_title(); ?>
+
+        <?php // the_post_thumbnail(); ?>
+
+      </a>
+
+    </article>
+
+  </section>
+
+
+  <section> <!-- Puta porta, Noticias, Ads -->
+
+  </section>
+
+
+  <section> <!-- Twitter ticker -->
+
+  </section>
+
+
   <!-- main posts loop -->
   <section id="posts" class="row">
 
@@ -17,9 +44,13 @@ if( have_posts() ) {
 
     <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
 
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+      <a href="<?php the_permalink() ?>">
 
-      <?php the_content(); ?>
+        <?php the_title(); ?>
+
+        <?php the_post_thumbnail(); ?>
+
+      </a>
 
     </article>
 
@@ -33,6 +64,17 @@ if( have_posts() ) {
 
   <!-- end posts -->
   </section>
+
+
+  <section> <!-- Instagram ticker -->
+
+  </section>
+
+
+  <section> <!-- Agenda -->
+
+  </section>
+
 
   <?php get_template_part('partials/pagination'); ?>
 
