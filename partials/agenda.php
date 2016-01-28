@@ -13,7 +13,7 @@
   if ( $agenda_query->have_posts() ) { 
 ?>
 
-  <section id="featured-post">
+  <section id="featured-post" class="row">
 
 <?php
     while ( $agenda_query->have_posts() ) {

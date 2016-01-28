@@ -65,7 +65,7 @@ get_header();
 ?>
 
 
-  <section> <!-- Puta portadazza, Noticias, Ads -->
+  <section class="row"> <!-- Puta portadazza, Noticias, Ads -->
 
 
   </section>

@@ -1,7 +1,7 @@
 <?php 
   $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
 ?>
-<section> 
+<section class="row"> 
 
   <?php
     if ($instagram_handle) {
