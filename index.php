@@ -6,21 +6,63 @@ get_header();
 
 <main id="main-content" class="container">
 
+
+  <!-- Featured Post -->
+<?php 
+  // WP_Query arguments
+  $args = array (
+    'category_name'          => 'featured',
+    'posts_per_page'         => '1',
+  );
+
+  // The Query
+  $featured_query = new WP_Query( $args );
+
+
+  // The Loop
+  if ( $featured_query->have_posts() ) { 
+?>
+
   <section id="featured-post">
 
-    <article <?php post_class('col s24'); ?> id="post-<?php // the_ID(); ?>">
+<?php
+    while ( $featured_query->have_posts() ) {
+      $featured_query->the_post();
+?>
 
-      <a href="<?php // the_permalink() ?>">
+    <article <?php post_class('col s24'); ?> id="post-<?php the_ID(); ?>">
 
-        <?php // the_title(); ?>
+      <a href="<?php the_permalink() ?>">
 
-        <?php // the_post_thumbnail(); ?>
+        <h3 class="featured-title">
+          <?php the_title(); ?>
+        </h3>
+
+        <div class="featured-subtitle">
+          <?php echo get_post_meta( $post->ID, '_igv_post_subtitle', true ); ?>
+        </div>
+
+        <?php the_post_thumbnail(); ?>
 
       </a>
 
     </article>
 
+<?php 
+  }
+?>
+
   </section>
+
+<?php
+  } else {
+    // no posts found
+  }
+
+  // Restore original Post Data
+  wp_reset_postdata();
+?>
+  <!-- End Featured Post -->
 
 
   <section> <!-- Puta portadazza, Noticias, Ads -->
@@ -38,15 +80,25 @@ get_header();
 if( have_posts() ) {
   while( have_posts() ) {
     the_post();
+
+    $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
     <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink() ?>">
 
-        <?php the_title(); ?>
+        <h3 class="feed-title">
+          <?php the_title(); ?>
+        </h3>
 
         <?php the_post_thumbnail(); ?>
+
+        <?php if ($subtitle) { ?>
+        <div class="feed-subtitle">
+          <?php echo $subtitle; ?>
+        </div>
+        <?php } ?>
 
       </a>
 
