@@ -67,6 +67,58 @@ get_header();
 
   <section class="row"> <!-- Puta portadazza, Noticias, Ads -->
 
+    <div class="col s8">
+
+<?php 
+  // WP_Query arguments
+  $args = array (
+    'category_name'          => 'puta-portadazza',
+    'posts_per_page'         => '1',
+  );
+
+  // The Query
+  $puta_query = new WP_Query( $args );
+
+  // The Loop
+  if ( $puta_query->have_posts() ) { 
+    while ( $puta_query->have_posts() ) {
+      $puta_query->the_post();
+
+      $puta_id = $post->ID;
+?>
+      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
+        <a href="<?php the_permalink() ?>">
+
+          <h3 class="featured-title">
+            <?php the_title(); ?>
+          </h3>
+
+          <?php the_post_thumbnail(); ?>
+
+        </a>
+
+        <?php the_excerpt(); ?>
+
+      </article>
+<?php 
+    }
+  } 
+  wp_reset_postdata(); 
+?>
+    </div>
+
+    <div class="col s8">
+
+      <!-- NOTICIAS -->
+
+    </div>
+
+    <div class="col s8">
+
+      <!-- ADS -->
+      
+    </div>
 
   </section>
 
@@ -76,7 +128,7 @@ get_header();
 
   <?php 
     // WP_Query arguments
-    $exclude_array = array( $featured_id );
+    $exclude_array = array( $featured_id, $puta_id );
 
     $args = array (
       'post__not_in'    => $exclude_array,
