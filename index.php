@@ -8,6 +8,7 @@ get_header();
 
 
   <!-- Featured Post -->
+
 <?php 
   // WP_Query arguments
   $args = array (
@@ -28,6 +29,8 @@ get_header();
 <?php
     while ( $featured_query->have_posts() ) {
       $featured_query->the_post();
+
+      $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
     <article <?php post_class('col s24'); ?> id="post-<?php the_ID(); ?>">
@@ -38,9 +41,11 @@ get_header();
           <?php the_title(); ?>
         </h3>
 
+        <?php if ($subtitle) { ?>
         <div class="featured-subtitle">
-          <?php echo get_post_meta( $post->ID, '_igv_post_subtitle', true ); ?>
+          <?php echo $subtitle; ?>
         </div>
+        <?php } ?>
 
         <?php the_post_thumbnail(); ?>
 
@@ -49,19 +54,16 @@ get_header();
     </article>
 
 <?php 
-  }
+    }
 ?>
 
   </section>
 
-<?php
-  } else {
-    // no posts found
-  }
-
-  // Restore original Post Data
-  wp_reset_postdata();
+<?php 
+  } 
+  wp_reset_postdata(); 
 ?>
+
   <!-- End Featured Post -->
 
 
@@ -119,9 +121,73 @@ if( have_posts() ) {
   <?php get_template_part('partials/instagram'); ?><!-- Instagram ticker -->
 
 
-  <section> <!-- Agenda -->
+  <!-- Agenda -->
+
+<?php 
+  // WP_Query arguments
+  $args = array (
+    'post_type'          => array( 'event' ),
+    'posts_per_page'     => '8',
+  );
+
+  // The Query
+  $agenda_query = new WP_Query( $args );
+
+
+  // The Loop
+  if ( $agenda_query->have_posts() ) { 
+?>
+
+  <section id="featured-post">
+
+<?php
+    while ( $agenda_query->have_posts() ) {
+      $agenda_query->the_post();
+
+      $timestamp = get_post_meta( $post->ID, '_igv_event_date', true );
+      $month = date( 'F', $timestamp );
+      $day = date( 'd', $timestamp );
+      $venue = get_post_meta( $post->ID, '_igv_event_address', true );
+
+      if ( $timestamp ) {
+?>
+      
+    <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
+
+      <a href="<?php the_permalink() ?>">
+
+        <div class="agenda-date">
+          <div class="agenda-day"><?php echo $day; ?></div>
+          <?php echo $month; ?>
+        </div>
+
+        <h3 class="agenda-title">
+          <?php the_title(); ?>
+        </h3>
+
+        <?php if ( $venue ) { ?>
+        <span class="agenda-venue">
+          <?php echo $venue; ?>
+        </span>
+        <?php } ?>
+
+      </a>
+
+    </article>
+
+<?php 
+      }
+    }
+?>
 
   </section>
+
+<?php 
+  } 
+  wp_reset_postdata(); 
+?>
+
+  <!-- End Agenda -->
 
 
   <?php get_template_part('partials/pagination'); ?>
