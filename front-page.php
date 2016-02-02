@@ -33,21 +33,29 @@ get_header();
       $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
-    <article <?php post_class('col s24'); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink() ?>">
 
-        <h3 class="featured-title">
-          <?php the_title(); ?>
-        </h3>
+        <div class="col s4">
+          <h3 class="featured-title">
+            <span class="rotate-text">
+              <?php the_title(); ?>
+            </span>
+          </h3>
+        </div>
 
         <?php if ($subtitle) { ?>
-        <div class="featured-subtitle">
-          <?php echo $subtitle; ?>
+        <div class="featured-subtitle col s4">
+          <span class="rotate-text">
+            <?php echo $subtitle; ?>
+          </span>
         </div>
         <?php } ?>
 
-        <?php the_post_thumbnail(); ?>
+        <div class="col s12">
+          <?php the_post_thumbnail(); ?>
+        </div>
 
       </a>
 
@@ -90,7 +98,9 @@ get_header();
 
       <div class="feed-category">
         <a href="<?php echo esc_url( $cat_link ); ?>">
-          <?php echo $cat_name; ?>
+          <span class="rotate-text">
+            <?php echo $cat_name; ?>
+          </span>
         </a>
       </div>
 
@@ -145,7 +155,9 @@ get_header();
 
       <div class="feed-category">
         <a href="<?php echo esc_url( $cat_link ); ?>">
-          <?php echo $cat_name; ?>
+          <span class="rotate-text">
+            <?php echo $cat_name; ?>
+          </span>
         </a>
       </div>
        
@@ -192,7 +204,6 @@ get_header();
 
     $args = array (
       'post__not_in'    => $exclude_array,
-      'post_type'       => array( 'post' ),
       'posts_per_page'  => '20',
     );
 
@@ -231,11 +242,11 @@ get_header();
 
         <a href="<?php the_permalink() ?>">
 
+          <?php the_post_thumbnail(); ?>
+
           <h3 class="feed-title">
             <?php the_title(); ?>
           </h3>
-
-          <?php the_post_thumbnail(); ?>
 
           <?php if ($subtitle) { ?>
           <div class="feed-subtitle">
@@ -261,7 +272,6 @@ get_header();
 
     <section id="posts-2" class="row">
 
-
 <?php
         }
 
@@ -271,7 +281,16 @@ get_header();
 ?>
 
     <!-- end posts -->
+
     </section>
+
+
+    <div class="row">
+
+      <button id="more-posts" class="see-more col s24">Ver Más</button>
+
+    </div>
+
 
 <?php
     } 
@@ -280,9 +299,6 @@ get_header();
 
 
   <?php get_template_part('partials/events'); ?><!-- Events -->
-
-
-  <?php get_template_part('partials/pagination'); ?>
 
 <!-- end main-content -->
 
