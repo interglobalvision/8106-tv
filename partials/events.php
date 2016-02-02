@@ -16,7 +16,7 @@
   if ( $events_query->have_posts() ) { 
 ?>
 
-  <section id="events" class="row">
+  <section id="home-events" class="row">
 
     <div class="feed-category">
       <a href="<?php echo esc_url( $events_archive_link ); ?>">
@@ -29,11 +29,12 @@
       $events_query->the_post();
 
       $timestamp = get_post_meta( $post->ID, '_igv_event_date', true );
-      $month = date( 'F', $timestamp );
-      $day = date( 'd', $timestamp );
-      $venue = get_post_meta( $post->ID, '_igv_event_address', true );
 
       if ( $timestamp ) {
+
+        $month = date( 'F', $timestamp );
+        $day = date( 'd', $timestamp );
+        $venue = get_post_meta( $post->ID, '_igv_event_address', true );
 ?>
       
     <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
