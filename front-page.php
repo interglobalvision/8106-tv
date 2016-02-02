@@ -218,11 +218,14 @@ get_header();
     // The Loop
     if ( $post_query->have_posts() ) { 
 
+    $item_num = 1;
     $post_num = 1;
   ?>
 
     <!-- main posts loop -->
-    <section id="posts" class="row">
+    <section id="posts">
+
+      <div class="row">
 
 <?php
       while ( $post_query->have_posts() ) {
@@ -236,70 +239,77 @@ get_header();
         $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
-      <article <?php if ( $post_num < 11 ) { post_class('col s8'); } else { post_class('col s8 u-hidden'); } ?> id="post-<?php the_ID(); ?>">
+        <article <?php if ( $post_num < 11 ) { post_class('col s8'); } else { post_class('col s8 u-hidden'); } ?> id="post-<?php the_ID(); ?>">
 
-        <div class="feed-category">
-          <a href="<?php echo esc_url( $cat_link ); ?>">
-            <?php echo $cat_name; ?>
+          <div class="feed-category">
+            <a href="<?php echo esc_url( $cat_link ); ?>">
+              <?php echo $cat_name; ?>
+            </a>
+          </div> 
+
+          <a href="<?php the_permalink() ?>">
+
+            <?php the_post_thumbnail(); ?>
+
+            <h3 class="feed-title">
+              <?php the_title(); ?>
+            </h3>
+
+            <?php if ($subtitle) { ?>
+            <div class="feed-subtitle">
+              <?php echo $subtitle; ?>
+            </div>
+            <?php } ?>
+
           </a>
-        </div> 
 
-        <a href="<?php the_permalink() ?>">
-
-          <?php the_post_thumbnail(); ?>
-
-          <h3 class="feed-title">
-            <?php the_title(); ?>
-          </h3>
-
-          <?php if ($subtitle) { ?>
-          <div class="feed-subtitle">
-            <?php echo $subtitle; ?>
-          </div>
-          <?php } ?>
-
-        </a>
-
-      </article>
+        </article>
 
 <?php 
-
-        if (($post_num % 5) == 0) {
-
+        if ( ( $post_num % 5 ) == 0 ) {
 ?>
 
-      <div class="ad col s8<?php if ( $post_num > 10 ) { echo ' u-hidden'; }?>">
+        <div class="ad col s8<?php if ( $post_num > 10 ) { echo ' u-hidden'; }?>">
 
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
 
-      </div>
+        </div>
 
 <?php 
+          $item_num++;
+        }
 
+        if ( ( $item_num % 3 ) == 0 ) {
+?>
+      </div>
+      <div class="row">
+
+<?php 
         }
 
         if ( $post_num == 5) {
-
 ?>
-
+      </div>
     </section>
 
 
     <?php get_template_part('partials/instagram'); ?><!-- Instagram ticker -->
 
 
-    <section id="posts-2" class="row">
+    <section id="posts-2">
+      <div class="row">
 
 <?php
         }
 
         $post_num++;
+        $item_num++;
 
       } 
 ?>
 
     <!-- end posts -->
-
+      </div>
     </section>
 
 
