@@ -218,8 +218,9 @@ get_header();
     // The Loop
     if ( $post_query->have_posts() ) { 
 
-    $item_num = 1;
-    $post_num = 1;
+    $item_count = 1;
+    $post_count = 1;
+    $ad_freq = 4;
   ?>
 
     <!-- main posts loop -->
@@ -237,9 +238,30 @@ get_header();
         $cat_link = get_category_link( $cat_id );
 
         $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
+
+
+        if ( ( $post_count % $ad_freq ) == 0 ) {
 ?>
 
-        <article <?php if ( $post_num < 11 ) { post_class('col s8'); } else { post_class('col s8 u-hidden'); } ?> id="post-<?php the_ID(); ?>">
+        <div class="ad col s8<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
+
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+
+        </div>
+
+<?php 
+          $post_count = 1;
+
+          if ( $ad_freq == 4 ) {
+            $ad_freq = 8; 
+          } else {
+            $ad_freq = 4;
+          }
+
+        } else {
+?>
+
+        <article <?php if ( $item_count > 12 ) { post_class('col s8 u-hidden'); } else { post_class('col s8'); } ?> id="post-<?php the_ID(); ?>">
 
           <div class="feed-category">
             <a href="<?php echo esc_url( $cat_link ); ?>">
@@ -266,28 +288,11 @@ get_header();
         </article>
 
 <?php 
-        if ( ( $post_num % 5 ) == 0 ) {
-?>
+          $post_count++;
 
-        <div class="ad col s8<?php if ( $post_num > 10 ) { echo ' u-hidden'; }?>">
-
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-
-        </div>
-
-<?php 
-          $item_num++;
         }
 
-        if ( ( $item_num % 3 ) == 0 ) {
-?>
-      </div>
-      <div class="row">
-
-<?php 
-        }
-
-        if ( $post_num == 5) {
+        if ( $item_count == 6 ) {
 ?>
       </div>
     </section>
@@ -300,10 +305,16 @@ get_header();
       <div class="row">
 
 <?php
+        } else if ( ( $item_count % 3 ) == 0 ) {
+?>
+      
+      </div>
+      <div class="row">
+
+<?php 
         }
 
-        $post_num++;
-        $item_num++;
+        $item_count++;
 
       } 
 ?>
