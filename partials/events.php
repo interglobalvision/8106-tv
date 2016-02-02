@@ -50,9 +50,9 @@
         </h3>
 
         <?php if ( $venue ) { ?>
-        <span class="events-venue">
+        <h4 class="events-venue">
           <?php echo $venue; ?>
-        </span>
+        </h4>
         <?php } ?>
 
       </a>
@@ -63,6 +63,8 @@
       }
     }
 ?>
+  
+    <button id="more-events" class="see-more col s8">Ver Más</button>
 
   </section>
 
