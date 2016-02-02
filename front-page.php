@@ -37,7 +37,7 @@ get_header();
 
       <a href="<?php the_permalink() ?>">
 
-        <div class="col s4">
+        <div class="col s3">
           <h3 class="featured-title">
             <span class="rotate-text">
               <?php the_title(); ?>
@@ -46,7 +46,7 @@ get_header();
         </div>
 
         <?php if ($subtitle) { ?>
-        <div class="featured-subtitle col s4">
+        <div class="featured-subtitle col s3">
           <span class="rotate-text">
             <?php echo $subtitle; ?>
           </span>
@@ -145,12 +145,14 @@ get_header();
   $noticias_query = new WP_Query( $args );
 
   $category = get_category_by_slug( 'noticias' );
-  $cat_name = $category->cat_name;
-  $cat_id = $category->term_id;
-  $cat_link = get_category_link( $cat_id );
 
   // The Loop
-  if ( $noticias_query->have_posts() ) { 
+  if ( $noticias_query->have_posts() && $category ) {
+
+    $cat_name = $category->cat_name;
+    $cat_id = $category->term_id;
+    $cat_link = get_category_link( $cat_id );
+
   ?> 
 
       <div class="feed-category">
@@ -188,7 +190,9 @@ get_header();
 
     <div class="col s8">
 
-      <!-- ADS -->
+      <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+
+      <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
       
     </div>
 
@@ -214,7 +218,7 @@ get_header();
     // The Loop
     if ( $post_query->have_posts() ) { 
 
-    $post_num = 0;
+    $post_num = 1;
   ?>
 
     <!-- main posts loop -->
@@ -232,7 +236,7 @@ get_header();
         $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
-      <article <?php if ( $post_num < 10 ) { post_class('col s8'); } else { post_class('col s8 u-hidden'); } ?> id="post-<?php the_ID(); ?>">
+      <article <?php if ( $post_num < 11 ) { post_class('col s8'); } else { post_class('col s8 u-hidden'); } ?> id="post-<?php the_ID(); ?>">
 
         <div class="feed-category">
           <a href="<?php echo esc_url( $cat_link ); ?>">
@@ -260,7 +264,21 @@ get_header();
 
 <?php 
 
-        if ( $post_num == 4) {
+        if (($post_num % 5) == 0) {
+
+?>
+
+      <div class="ad col s8<?php if ( $post_num > 10 ) { echo ' u-hidden'; }?>">
+
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+
+      </div>
+
+<?php 
+
+        }
+
+        if ( $post_num == 5) {
 
 ?>
 
