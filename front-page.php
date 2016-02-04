@@ -242,7 +242,7 @@ if ( $post_query->have_posts() ) {
     } else {
     ?>
 
-        <article <?php if ( $item_count > 12 ) { post_class('col s8 u-hidden'); } else { post_class('col s8'); } ?> id="post-<?php the_ID(); ?>">
+        <article <?php $item_count > 12 ? post_class('col s8 u-hidden') : post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
 
           <div class="feed-category">
             <a href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
