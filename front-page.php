@@ -134,6 +134,8 @@ $category = get_category_by_slug( 'noticias' );
 
 // The Loop
 if ( $noticias_query->have_posts() && $category ) {
+  $excluded_posts = wp_list_pluck( $noticias_query->posts, 'ID' );
+  pr($noticias_ids);
   $cat_name = $category->cat_name;
   $cat_id = $category->term_id;
   $cat_link = get_category_link( $cat_id );
@@ -184,10 +186,10 @@ wp_reset_postdata();
 
 <?php 
 // WP_Query arguments
-$exclude_array = array( $featured_id, $puta_id );
+array_push($excluded_posts, $featured_id, $puta_id);
 
 $args = array (
-  'post__not_in'    => $exclude_array,
+  'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '20',
 );
 
