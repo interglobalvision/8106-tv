@@ -57,6 +57,7 @@
     <div class="container">
       <div class="row u-align-center">
         Advert goes here
+      </div>
     </div>
   </div>
 
