@@ -29,13 +29,10 @@ if( have_posts() ) {
 } 
 ?>
 
-
   <!-- end posts -->
   </section>
 
-
 <!-- end main-content -->
-
 </main>
 
 <?php
