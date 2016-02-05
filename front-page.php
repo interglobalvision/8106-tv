@@ -132,9 +132,11 @@ $noticias_query = new WP_Query( $args );
 
 $category = get_category_by_slug( 'noticias' );
 
+$excluded_posts = array();
+
 // The Loop
 if ( $noticias_query->have_posts() && $category ) {
-  $excluded_posts = wp_list_pluck( $noticias_query->posts, 'ID' );
+  array_push($excluded_posts, wp_list_pluck( $noticias_query->posts, 'ID' ));
   $cat_name = $category->cat_name;
   $cat_id = $category->term_id;
   $cat_link = get_category_link( $cat_id );
