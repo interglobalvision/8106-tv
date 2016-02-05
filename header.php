@@ -77,7 +77,7 @@
         <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
       </div>
       <div class="col s16">
-        <ul class="u-inline-list">
+        <ul class="u-inline-list font-century-gothic">
           <li class="js-nav-trigger" data-nav-target="categorias">Categorias</li>
           <li class="js-nav-trigger" data-nav-target="radio">Radio</li>
           <li class="js-nav-trigger" data-nav-target="follow">Follow</li>
