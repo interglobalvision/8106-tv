@@ -1,5 +1,7 @@
 @import "kouto-swiss"
 
+@import "fonts"
+
 @import "helpers"
 @import "genericons"
 
@@ -76,20 +78,42 @@ $color-white-soft = rgb(253, 253, 253)
 
 // TYPOGRAPHY
 
+html
+  font-family: sans-serif
+
 body
-  font-family: helvetica, arial, sans-serif
+  font-family: 'Gotham HTF'
   font-size: $font-size-basic
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
 
+.font-century-gothic
+  font-family: 'Century Gothic'
+
+.font-condensed
+  font-family: 'Gotham HTF Condensed'
+
+.font-weight-medium
+  font-weight: 500
+
+.font-italic
+  font-style: italic
+
+h1, h2, h3, h4, h5, h6
+  line-height: $font-leading-basic
+  font-weight: bold
+
 h1
   font-size: 3em
+  font-family: 'Century Gothic'
 
 h2
   font-size: 2em
+  font-family: 'Century Gothic'
 
 h3
   font-size: 1.5em
+  font-family: 'Century Gothic'
 
 p
   margin-bottom: 1em

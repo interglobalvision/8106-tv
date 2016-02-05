@@ -6,7 +6,7 @@ get_header();
 <main id="main-content" class="container">
 
 
-<?php 
+<?php
 // WP_Query arguments
 $args = array (
   'category_name'   => 'featured',
@@ -17,7 +17,7 @@ $args = array (
 $featured_query = new WP_Query( $args );
 
 // The Loop
-if ( $featured_query->have_posts() ) { 
+if ( $featured_query->have_posts() ) {
 ?>
 
   <section id="featured-post">
@@ -41,7 +41,7 @@ if ( $featured_query->have_posts() ) {
 
     <?php if ($subtitle) { ?>
         <div class="featured-subtitle col s3">
-          <span class="rotate-text"><?php echo $subtitle; ?></span>
+          <span class="rotate-text font-condensed"><?php echo $subtitle; ?></span>
         </div>
     <?php } ?>
 
@@ -51,22 +51,22 @@ if ( $featured_query->have_posts() ) {
 
     </article>
 
-<?php 
+<?php
 }
 ?>
 
   </section>
 
-<?php 
-} 
-wp_reset_postdata(); 
+<?php
+}
+wp_reset_postdata();
 ?>
 
   <!-- Puta portadazza, Noticias, Ads -->
-  <section class="row"> 
+  <section class="row">
     <div class="col s8">
 
-<?php 
+<?php
 // WP_Query arguments
 $args = array (
   'category_name'   => 'puta-portadazza',
@@ -82,12 +82,12 @@ $cat_id = $category->term_id;
 $cat_link = get_category_link( $cat_id );
 
 // The Loop
-if ( $puta_query->have_posts() ) { 
+if ( $puta_query->have_posts() ) {
 ?>
 
       <div class="feed-category">
         <a href="<?php echo esc_url( $cat_link ); ?>">
-          <span class="rotate-text">
+          <span class="rotate-text font-condensed">
             <?php echo $cat_name; ?>
           </span>
         </a>
@@ -111,16 +111,16 @@ if ( $puta_query->have_posts() ) {
         <?php the_excerpt(); ?>
 
       </article>
-  <?php 
+  <?php
   }
-} 
-wp_reset_postdata(); 
+}
+wp_reset_postdata();
 ?>
     </div>
 
     <div class="col s8">
 
-<?php 
+<?php
 // WP_Query arguments
 $args = array (
   'category_name'   => 'noticias',
@@ -138,11 +138,11 @@ if ( $noticias_query->have_posts() && $category ) {
   $cat_name = $category->cat_name;
   $cat_id = $category->term_id;
   $cat_link = get_category_link( $cat_id );
-?> 
+?>
 
       <div class="feed-category">
         <a href="<?php echo esc_url( $cat_link ); ?>">
-          <span class="rotate-text"><?php echo $cat_name; ?></span>
+          <span class="rotate-text font-condensed"><?php echo $cat_name; ?></span>
         </a>
       </div>
 
@@ -161,10 +161,10 @@ if ( $noticias_query->have_posts() && $category ) {
         </a>
 
       </article>
-  <?php 
+  <?php
   }
-} 
-wp_reset_postdata(); 
+}
+wp_reset_postdata();
 ?>
 
     </div>
@@ -183,7 +183,7 @@ wp_reset_postdata();
 <?php get_template_part('partials/twitter'); ?><!-- Twitter feed -->
 
 
-<?php 
+<?php
 // WP_Query arguments
 array_push($excluded_posts, $featured_id, $puta_id);
 
@@ -197,7 +197,7 @@ $post_query = new WP_Query( $args );
 
 
 // The Loop
-if ( $post_query->have_posts() ) { 
+if ( $post_query->have_posts() ) {
 
   $item_count = 1;
   $post_count = 1;
@@ -230,11 +230,11 @@ if ( $post_query->have_posts() ) {
 
         </div>
 
-    <?php 
+    <?php
       $post_count = 1;
 
       if ( $ad_freq == 4 ) {
-        $ad_freq = 8; 
+        $ad_freq = 8;
       } else {
         $ad_freq = 4;
       }
@@ -245,14 +245,14 @@ if ( $post_query->have_posts() ) {
         <article <?php $item_count > 12 ? post_class('col s8 u-hidden') : post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
 
           <div class="feed-category">
-            <a href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
-          </div> 
+            <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
+          </div>
 
           <a href="<?php the_permalink() ?>">
 
             <?php the_post_thumbnail(); ?>
 
-            <h3 class="feed-title"><?php the_title(); ?></h3> 
+            <h3 class="feed-title"><?php the_title(); ?></h3>
 
       <?php if ($subtitle) { ?>
             <div class="feed-subtitle"><?php echo $subtitle; ?></div>
@@ -262,7 +262,7 @@ if ( $post_query->have_posts() ) {
 
         </article>
 
-      <?php 
+      <?php
       $post_count++;
 
     }
@@ -284,12 +284,12 @@ if ( $post_query->have_posts() ) {
       </div>
       <div class="row">
 
-    <?php 
+    <?php
     }
 
     $item_count++;
 
-  } 
+  }
   ?>
 
     <!-- end posts -->
@@ -305,8 +305,8 @@ if ( $post_query->have_posts() ) {
 
 
 <?php
-} 
-wp_reset_postdata(); 
+}
+wp_reset_postdata();
 ?>
 
 
