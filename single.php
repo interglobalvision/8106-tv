@@ -15,9 +15,9 @@ if( have_posts() ) {
     the_post();
 
     if ( has_category( 'featured' ) ) {
-      get_template_part( 'partials/single', 'featured' );
+      get_template_part( 'partials/featured-single', 'layout' );
     } else {
-      get_template_part( 'partials/single', 'post' );
+      get_template_part( 'partials/post', 'layout' );
     }
 
   }
