@@ -80,6 +80,53 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
+// Instagram Feed
+function instagram_feed() {
+  $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
+  
+  $feed = get_transient( 'instagram_feed' );
+  // Transient yis a piece of informtion that may be or not stored in 
+  // ifast memory instead of in the db. This data es expected to expire,
+  // or could expire at any time. 
+
+  // If feed doesn't exist
+  if ( empty($feed) ) {
+    $url      = 'https://instagram.com/' . $instagram_handle . '/media/';
+
+    // Make API call to instagram
+    $response = wp_remote_get( $url );
+
+    if( !is_wp_error( $response ) ) {
+      $body = json_decode( $response['body'] );
+      $feed = $body->items;
+
+      // Slice first 5 elements
+      $feed = array_slice($feed, 0, 5);
+
+      // Remove unimportant data
+      foreach( $feed as &$feed_item ) {
+        unset(
+          $feed_item->can_delete_comments,
+          $feed_item->code,
+          $feed_item->location,
+          $feed_item->can_view_comments,
+          $feed_item->comments->data,
+          $feed_item->likes->data,
+          $feed_item->created_time,
+          $feed_item->user
+        );
+      }
+
+      // Set response item's as transient with expiration time of 30 min
+      set_transient( 'instagram_feed', $feed, 30 * 'MINUTE_IN_SECONDS' );
+
+    }
+
+  }
+  return $feed;
+}
+
+
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
