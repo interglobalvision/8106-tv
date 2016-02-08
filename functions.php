@@ -81,12 +81,15 @@ function new_display_post_thumbnail_column($col, $id){
 }
 
 // Instagram Feed
-function get_instagram_feed() {
-  $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
+function get_instagram_feed($instagram_handle) {
   
-  $feed = get_transient( 'instagram_feed' );
-  // Transient yis a piece of informtion that may be or not stored in 
-  // ifast memory instead of in the db. This data es expected to expire,
+  if( empty($instagram_handle) ) {
+    return new WP_ERROR('no-instragram-handle', 'Missing Instagram handle');
+  }
+
+  $feed = get_transient( 'instagram_feed_' . $instagram_handle );
+  // Transient is a piece of information that may be or not stored in 
+  // fast memory instead of in the db. This data is expected to expire,
   // or could expire at any time. 
 
   // If feed doesn't exist
@@ -103,22 +106,8 @@ function get_instagram_feed() {
       // Slice first 5 elements
       $feed = array_slice($feed, 0, 5);
 
-      // Remove unimportant data
-      foreach( $feed as &$feed_item ) {
-        unset(
-          $feed_item->can_delete_comments,
-          $feed_item->code,
-          $feed_item->location,
-          $feed_item->can_view_comments,
-          $feed_item->comments->data,
-          $feed_item->likes->data,
-          $feed_item->created_time,
-          $feed_item->user
-        );
-      }
-
       // Set response item's as transient with expiration time of 30 min
-      set_transient( 'instagram_feed', $feed, 30 * 'MINUTE_IN_SECONDS' );
+      set_transient( 'instagram_feed_' . $instagram_handle, $feed, 30 * 'MINUTE_IN_SECONDS' );
 
     }
 
