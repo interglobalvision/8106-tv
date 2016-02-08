@@ -81,7 +81,7 @@ function new_display_post_thumbnail_column($col, $id){
 }
 
 // Instagram Feed
-function instagram_feed() {
+function get_instagram_feed() {
   $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
   
   $feed = get_transient( 'instagram_feed' );
@@ -91,7 +91,7 @@ function instagram_feed() {
 
   // If feed doesn't exist
   if ( empty($feed) ) {
-    $url      = 'https://instagram.com/' . $instagram_handle . '/media/';
+    $url = 'https://instagram.com/' . $instagram_handle . '/media/';
 
     // Make API call to instagram
     $response = wp_remote_get( $url );
@@ -123,6 +123,7 @@ function instagram_feed() {
     }
 
   }
+  //delete_transient( 'instagram_feed');
   return $feed;
 }
 
