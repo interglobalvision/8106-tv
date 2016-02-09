@@ -80,6 +80,43 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
+// Instagram Feed
+function get_instagram_feed($instagram_handle) {
+  
+  if( empty($instagram_handle) ) {
+    return new WP_ERROR('no-instragram-handle', 'Missing Instagram handle');
+  }
+
+  $feed = get_transient( 'instagram_feed_' . $instagram_handle );
+  // Transient is a piece of information that may be or not stored in 
+  // fast memory instead of in the db. This data is expected to expire,
+  // or could expire at any time. 
+
+  // If feed doesn't exist
+  if ( empty($feed) ) {
+    $url = 'https://instagram.com/' . $instagram_handle . '/media/';
+
+    // Make API call to instagram
+    $response = wp_remote_get( $url );
+
+    if( !is_wp_error( $response ) ) {
+      $body = json_decode( $response['body'] );
+      $feed = $body->items;
+
+      // Slice first 5 elements
+      $feed = array_slice($feed, 0, 5);
+
+      // Set response item's as transient with expiration time of 30 min
+      set_transient( 'instagram_feed_' . $instagram_handle, $feed, 30 * 'MINUTE_IN_SECONDS' );
+
+    }
+
+  }
+  //delete_transient( 'instagram_feed');
+  return $feed;
+}
+
+
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
