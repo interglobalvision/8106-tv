@@ -2,6 +2,9 @@
 
     // Get meta
     $subtitle  = get_post_meta( get_the_ID(), '_igv_post_subtitle', true );
+    $author = get_the_author();
+    $date = get_the_date( 'j F Y' );
+    $tags = get_the_tag_list('',', ','');
 
 ?>
   <div class="row">
@@ -20,9 +23,13 @@
 
     </article>
     <div class="col s8">
-      <strong>Autor:</strong> <br>
-      <strong>Fecha:</strong> <br>
-      <strong>Tags:</strong>
+      <?php if ($author) { ?>
+      <strong>Autor:</strong> <?php echo $author; ?>
+      <?php } if ($date) { ?>
+      <br><strong>Fecha:</strong> <?php echo $date; ?>
+      <?php } if ($tags) { ?>
+      <br><strong>Tags:</strong> <?php echo $tags; ?>
+      <?php } ?>
       <div>
         Facebook / Twitter
       </div>
