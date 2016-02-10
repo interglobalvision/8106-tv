@@ -117,6 +117,17 @@ class IGV_Admin {
 			'default' => '8106tv',
 		) );
 
+		$cmb->add_field( array(
+			'name' => __( 'Twitter Consumer Key (NO TOCAR)', 'IGV' ),
+			'id'   => $this->prefix . 'twitter_key',
+			'type' => 'text',
+		) );
+
+		$cmb->add_field( array(
+			'name' => __( 'Twitter Consumer secret (NO TOCAR)', 'IGV' ),
+			'id'   => $this->prefix . 'twitter_secret',
+			'type' => 'text',
+		) );
 		/*
 		$cmb->add_field( array(
 			'name'    => __( 'Test Color Picker', 'IGV' ),
