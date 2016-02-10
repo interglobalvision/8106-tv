@@ -7,7 +7,7 @@ get_header();
 <main id="main-content" class="container">
 
   <!-- main posts loop -->
-  <section id="posts" class="row">
+  <section id="posts">
 
 <?php
 if( have_posts() ) {
@@ -24,7 +24,9 @@ if( have_posts() ) {
 
 } else {
 ?>
-    <article class="u-alert col s16"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    <div class="row">
+      <article class="u-alert col s16"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
+    </div>
 <?php
 } 
 ?>
