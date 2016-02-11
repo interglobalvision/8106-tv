@@ -1,4 +1,7 @@
 <?php
+// Use namespace for TwitterOAuth
+use Abraham\TwitterOAuth\TwitterOAuth;
+
 function scripts_and_styles_method() {
 
   $templateuri = get_template_directory_uri() . '/js/';
@@ -84,7 +87,7 @@ function new_display_post_thumbnail_column($col, $id){
 function get_instagram_feed($instagram_handle) {
   
   if( empty($instagram_handle) ) {
-    return new WP_ERROR('no-instragram-handle', 'Missing Instagram handle');
+    return new WP_ERROR('no-instagram-handle', 'Missing Instagram handle');
   }
 
   $feed = get_transient( 'instagram_feed_' . $instagram_handle );
@@ -112,7 +115,51 @@ function get_instagram_feed($instagram_handle) {
     }
 
   }
-  //delete_transient( 'instagram_feed');
+  return $feed;
+}
+
+// Twitter Feed
+function get_twitter_feed($twitter_handle) {
+  
+  if( empty($twitter_handle) ) {
+    return new WP_ERROR('no-twitter-handle', 'Missing twitter handle');
+  }
+
+  $feed = get_transient( 'twitter_feed_' . $twitter_handle );
+
+  // If feed is not cached
+  if ( empty($feed) ) {
+
+    // Require TwitterOAuth lib
+     if ( ! class_exists('TwitterOAuth')) {
+      require "lib/twitteroauth/autoload.php";
+     }
+
+    // Get keys
+    $twitter_key = IGV_get_option( '_igv_twitter_key' ); 
+    $twitter_secret = IGV_get_option( '_igv_twitter_secret' ); 
+
+    // Connect to twitter
+    $twitter = new TwitterOAuth($twitter_key, $twitter_secret);
+
+    // Get Timeline
+    $feed = $twitter->get('statuses/user_timeline', array(
+      'count'         =>  10,
+      'screen_name'   =>  $twitter_handle,
+      'trim_user'     => 'true',
+      'exclude_replies' => 'true',
+      'contributor_details' => 'false',
+      'include_rts'   => 'false'
+    ));
+
+    if($feed->errors) {
+      return false;
+    }
+
+    // Set timeline as transient with expiration time of 5 min
+    set_transient( 'twitter_feed_' . $twitter_handle, $feed, 5 * 'MINUTE_IN_SECONDS' );
+  }
+
   return $feed;
 }
 
