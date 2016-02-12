@@ -1,13 +1,13 @@
 <?php
-$twitter_handle = IGV_get_option( '_igv_twitter_handle' ); 
-if ($twitter_handle) {
+// Get twitter feed
+$twitter_feed = get_twitter_feed( IGV_get_option( '_igv_twitter_handle' ) );
+
+if( $twitter_feed ) {
 ?>
 
 <section id="twitter-feed" class="">
 
   <?php
-  $twitter_feed = get_twitter_feed($twitter_handle);
-
   foreach($twitter_feed as $twitter_item) {
     $url = $twitter_item->link->url;
     $target = $twitter_item->link->blank === TRUE ? '_blank' : '_self';

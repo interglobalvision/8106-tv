@@ -1,15 +1,13 @@
 <?php
-$instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
-if ($instagram_handle) {
+// Get instagram feed
+$instagram_feed = get_instagram_feed( IGV_get_option( '_igv_instagram_handle' ) );
+
+if ($instagram_feed) {
 ?>
 
 <section id="instagram-feed" class="row"> 
 
   <?php
-  //echo '@' . $instagram_handle;
-  // Get instagram feed
-  $instagram_feed = get_instagram_feed($instagram_handle);
-
   foreach($instagram_feed as $index => $instagram_item) {
     $likes = $instagram_item->likes->count;
     $comments = $instagram_item->comments->count;
