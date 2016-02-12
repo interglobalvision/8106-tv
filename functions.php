@@ -170,7 +170,7 @@ function get_twitter_feed($twitter_handle) {
       // If the twit links to a post inside the site, link that twit to that post
       // else link it to twitter and set "blank" as TRUE
       // we don't care about link to other sites inside the twit
-      if( strpos( $urls[0]->display_url,'8106') !== FALSE ) {
+      if( strpos( $urls[0]->display_url,'8106.tv') !== FALSE ) {
         $link->url = $urls[0]->expanded_url;
       } else {
         $link->url = 'https://twitter.com/statuses/' . $twit->id;
