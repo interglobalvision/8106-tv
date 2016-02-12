@@ -128,7 +128,7 @@ function get_twitter_feed($twitter_handle) {
   $feed = get_transient( 'twitter_feed_' . $twitter_handle );
 
   // If feed is not cached
-  if ( empty($feed) ) {
+  if( empty($feed) ) {
 
     // Require TwitterOAuth lib
      if ( ! class_exists('TwitterOAuth')) {
@@ -152,14 +152,39 @@ function get_twitter_feed($twitter_handle) {
       'include_rts'   => 'false'
     ));
 
-    if($feed->errors) {
+    if( $feed->errors ) {
       return false;
+    }
+
+    // Regex for URLs
+    $url_regex = "@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@";
+
+    foreach($feed as &$twit) {
+      // Remove URLs from the text
+      $twit->text = preg_replace($url_regex, '', $twit->text);
+
+      $urls = $twit->entities->urls;
+
+      $link = new StdClass();
+      
+      // If the twit links to a post inside the site, link that twit to that post
+      // else link it to twitter and set "blank" as TRUE
+      // we don't care about link to other sites inside the twit
+      if( strpos( $urls[0]->display_url,'8106') !== FALSE ) {
+        $link->url = $urls[0]->expanded_url;
+      } else {
+        $link->url = 'https://twitter.com/statuses/' . $twit->id;
+        $link->blank = TRUE;
+      }
+
+      $twit->link = $link;
     }
 
     // Set timeline as transient with expiration time of 5 min
     set_transient( 'twitter_feed_' . $twitter_handle, $feed, 5 * 'MINUTE_IN_SECONDS' );
   }
 
+  //delete_transient( 'twitter_feed_' . $twitter_handle);
   return $feed;
 }
 

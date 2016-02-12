@@ -6,19 +6,15 @@
   <?php
     if ($twitter_handle) {
       $twitter_feed = get_twitter_feed($twitter_handle);
-      //pr($twitter_feed);
 
-      $url_regex = "@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@";
-      foreach($twitter_feed as $index => $twitter_item) {
-
-        // Clean twit text from urls
-        $twit_text = preg_replace($url_regex, '', $twitter_item->text);
-
+      foreach($twitter_feed as $twitter_item) {
+        $url = $twitter_item->link->url;
+        $target = $twitter_item->link->blank === TRUE ? '_blank' : '_self';
+        // NOTE: we can also check $blank to add the ajax-link class
+        $text = $twitter_item->text;
       ?>
 
-      <div class="">
-        <a href="#"><?php echo $twit_text; ?></a>
-      </div>
+    <a href="<?php echo $url; ?>" target="<?php echo $target; ?>"><?php echo $text; ?></a>
 
       <?php
       }
