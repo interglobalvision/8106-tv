@@ -1,8 +1,11 @@
-<section id="instagram-feed" class="row"> 
-
 <?php
 $instagram_handle = IGV_get_option( '_igv_instagram_handle' ); 
 if ($instagram_handle) {
+?>
+
+<section id="instagram-feed" class="row"> 
+
+  <?php
   //echo '@' . $instagram_handle;
   // Get instagram feed
   $instagram_feed = get_instagram_feed($instagram_handle);
@@ -33,8 +36,10 @@ if ($instagram_handle) {
 
   <?php
   }
-
-}
-?>
+  ?>
 
 </section>
+
+<?php
+}
+?>
