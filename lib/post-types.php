@@ -53,7 +53,7 @@ function register_cpt_event() {
         'query_var' => true,
         'can_export' => true,
         'rewrite' => array(
-          'slug' => 'evento',
+          'slug' => 'eventos',
         ),
         'capability_type' => 'post',
         'taxonomies' => array('post_tag')
