@@ -7,12 +7,14 @@ get_header();
 
 <?php
 if( have_posts() ) {
+  $events_obj = get_post_type_object( 'event' );
+  $events_archive_link = get_post_type_archive_link( 'event' );
 ?>
 
   <!-- main posts loop -->
   <section id="events" class="row">
     <div class="col s2 feed-category">
-      <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
+      <a href="<?php echo esc_url( $events_archive_link ); ?>">Agenda</a>
     </div>
 
   <?php
