@@ -1311,6 +1311,9 @@ img {
 .header-drawer {
   display: none;
 }
+.event-item .event-date {
+  margin: 0;
+}
 @media screen and (max-width: 1104px) {
   html {
     width: 100%;
