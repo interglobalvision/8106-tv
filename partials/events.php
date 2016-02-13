@@ -16,45 +16,24 @@ $events_archive_link = get_post_type_archive_link( 'event' );
 if ( $events_query->have_posts() ) { 
 ?>
 
-  <section id="home-events" class="row">
+<section id="events" class="row">
 
-    <div class="feed-category">
-      <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
-    </div>
+  <div class="col s2 feed-category">
+    <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
+  </div>
 
   <?php
+  $post_index = 0;
   while ( $events_query->have_posts() ) {
     $events_query->the_post();
 
-    $timestamp = get_post_meta( $post->ID, '_igv_event_date', true );
+    get_template_part('partials/event_item');
+    $post_index++;
 
-    if ( $timestamp ) {
-
-      $month = date( 'F', $timestamp );
-      $day = date( 'd', $timestamp );
-      $venue = get_post_meta( $post->ID, '_igv_event_address', true );
-  ?>
-
-    <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
-
-      <a href="<?php the_permalink() ?>">
-
-        <div class="events-date">
-          <div class="events-day"><?php echo $day; ?></div>
-          <span><?php echo $month; ?><span>
-        </div>
-
-        <h3 class="events-title"><?php the_title(); ?></h3>
-
-    <?php if ( $venue ) { ?>
-        <h4 class="events-venue"><?php echo $venue; ?></h4>
-    <?php } ?>
-
-      </a>
-
-    </article>
-
-    <?php 
+    if( $post_index % 5 == 0 ) {
+?>
+  <div class="col s2">&#8200;</div>
+  <?php
     }
   }
   ?>
