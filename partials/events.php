@@ -27,7 +27,7 @@ if ( $events_query->have_posts() ) {
   while ( $events_query->have_posts() ) {
     $events_query->the_post();
 
-    get_template_part('partials/event_item');
+    get_template_part('partials/event-item');
     $post_index++;
 
     if( $post_index % 5 == 0 ) {

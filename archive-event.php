@@ -22,7 +22,7 @@ if( have_posts() ) {
   while( have_posts() ) {
     the_post();
 
-    get_template_part('partials/event_item');
+    get_template_part('partials/event-item');
     $post_index++;
 
     if( $post_index % 5 == 0 ) {
