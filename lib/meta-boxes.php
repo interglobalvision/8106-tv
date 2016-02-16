@@ -60,7 +60,13 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_meta->add_field( array(
-    'name' => 'Lugar',
+    'name' => 'Lugar / Venue',
+    'id' => $prefix . 'event_venue',
+    'type' => 'text'
+  ) );
+
+  $event_meta->add_field( array(
+    'name' => 'Dirección',
     'id' => $prefix . 'event_address',
     'type' => 'textarea_small'
   ) );
