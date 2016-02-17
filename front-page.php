@@ -312,7 +312,7 @@ wp_reset_postdata();
 ?>
 
 
-<?php get_template_part('partials/events'); ?><!-- Events -->
+<?php get_template_part('partials/home-events-grid'); ?><!-- Events -->
 
 <!-- end main-content -->
 </main>

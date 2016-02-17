@@ -1,4 +1,4 @@
-<?php 
+<?php
 // WP_Query arguments
 $args = array (
   'post_type'          => array( 'event' ),
@@ -13,7 +13,7 @@ $events_name = $events_obj->labels->singular_name;
 $events_archive_link = get_post_type_archive_link( 'event' );
 
 // The Loop
-if ( $events_query->have_posts() ) { 
+if ( $events_query->have_posts() ) {
 ?>
 
 <section id="events" class="row">
@@ -27,7 +27,7 @@ if ( $events_query->have_posts() ) {
   while ( $events_query->have_posts() ) {
     $events_query->the_post();
 
-    get_template_part('partials/event-item');
+    get_template_part('partials/events-grid-item');
     $post_index++;
 
     if( $post_index % 5 == 0 ) {
@@ -42,7 +42,7 @@ if ( $events_query->have_posts() ) {
 
   </section>
 
-<?php 
-} 
-wp_reset_postdata(); 
+<?php
+}
+wp_reset_postdata();
 ?>
