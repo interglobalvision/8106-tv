@@ -1,7 +1,8 @@
 <?php
 // WP_Query arguments
 $args = array (
-  'posts_per_page'         => '5',
+  'posts_per_page' => '5',
+  'post__not_in'   => array($post->ID,),
 );
 
 // The Query

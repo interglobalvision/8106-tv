@@ -28,6 +28,7 @@ if( have_posts() ) {
   // WP_Query arguments
   $args = array (
     'category_name'          => $cat_name,
+    'post__not_in'           => array($post->ID,),
     'posts_per_page'         => '9',
   );
 
@@ -51,6 +52,7 @@ if( have_posts() ) {
 <?php
     while ( $query->have_posts() ) {
       $query->the_post();
+      $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
       <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
@@ -74,7 +76,7 @@ if( have_posts() ) {
 ?>
     </div>
 <?php
-     } else if ( ( $item_count % 3 ) == 0 ) {
+      } else if ( ( $item_count % 3 ) == 0 ) {
 ?>
 
     </div>
@@ -82,6 +84,7 @@ if( have_posts() ) {
 
 <?php
       }
+      $item_count++;
     }   
   } else {
     // no posts found
