@@ -41,7 +41,7 @@ function igv_cmb_metaboxes() {
   $post_meta = new_cmb2_box( array(
     'id' => $prefix . 'metabox',
     'title' => __( 'Meta', 'cmb2' ),
-    'object_types' => array( 'post', 'event', ), // post type
+    'object_types' => array( 'post' ), // post type
   ) );
 
   $post_meta->add_field( array(
@@ -60,7 +60,13 @@ function igv_cmb_metaboxes() {
   ) );
 
   $event_meta->add_field( array(
-    'name' => 'Lugar',
+    'name' => 'Lugar / Venue',
+    'id' => $prefix . 'event_venue',
+    'type' => 'text'
+  ) );
+
+  $event_meta->add_field( array(
+    'name' => 'Dirección',
     'id' => $prefix . 'event_address',
     'type' => 'textarea_small'
   ) );
