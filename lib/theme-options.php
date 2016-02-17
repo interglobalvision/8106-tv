@@ -128,15 +128,15 @@ class IGV_Admin {
 			'id'   => $this->prefix . 'twitter_secret',
 			'type' => 'text',
 		) );
-		/*
+
 		$cmb->add_field( array(
-			'name'    => __( 'Test Color Picker', 'IGV' ),
-			'desc'    => __( 'field description (optional)', 'IGV' ),
-			'id'      => $this->prefix . 'test_colorpicker',
+			'name'    => __( 'Color', 'IGV' ),
+			'desc'    => __( '', 'IGV' ),
+			'id'      => $this->prefix . 'theme_color',
 			'type'    => 'colorpicker',
-			'default' => '#bada55',
+			'default' => '#a5cfca',
 		) );
-		*/
+
 	}
 
 	/**
