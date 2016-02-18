@@ -20,7 +20,7 @@ $featured_query = new WP_Query( $args );
 if ( $featured_query->have_posts() ) {
 ?>
 
-  <section id="featured-post" class="u-cf">
+  <section id="featured-post" class="theme-grad-bg u-cf">
     <div class="container">
 
   <?php

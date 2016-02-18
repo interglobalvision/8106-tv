@@ -16,12 +16,13 @@ $events_archive_link = get_post_type_archive_link( 'event' );
 if ( $events_query->have_posts() ) {
 ?>
 
-<section id="events" class="container">
-  <div class="row">
+<section id="events" class="theme-hard-grad-bg">
+  <div class="container">
+    <div class="row">
 
-    <div class="col s2 feed-category">
-      <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
-    </div>
+      <div class="col s2 feed-category">
+        <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
+      </div>
 
   <?php
   $post_index = 0;
@@ -33,14 +34,15 @@ if ( $events_query->have_posts() ) {
 
     if( $post_index % 5 == 0 ) {
 ?>
-    <div class="col s2">&#8200;</div>
+      <div class="col s2">&#8200;</div>
   <?php
     }
   }
   ?>
 
-    <button id="more-events" class="see-more col s8">Ver Más</button>
+      <button id="more-events" class="see-more col s8">Ver Más</button>
 
+    </div>
   </div>
 </section>
 
