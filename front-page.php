@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <!-- main content -->
-<main id="main-content" class="container">
+<main id="main-content">
 
 
 <?php
@@ -20,7 +20,8 @@ $featured_query = new WP_Query( $args );
 if ( $featured_query->have_posts() ) {
 ?>
 
-  <section id="featured-post">
+  <section id="featured-post" class="u-cf">
+    <div class="container">
 
   <?php
   while ( $featured_query->have_posts() ) {
@@ -29,32 +30,32 @@ if ( $featured_query->have_posts() ) {
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
   ?>
 
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-      <a href="<?php the_permalink() ?>">
+        <a href="<?php the_permalink() ?>">
 
-        <div class="col s3">
-          <h3 class="featured-title">
-            <span class="rotate-text"><?php the_title(); ?></span>
-          </h3>
-        </div>
+          <div class="col s3">
+            <h3 class="featured-title">
+              <span class="rotate-text"><?php the_title(); ?></span>
+            </h3>
+          </div>
 
     <?php if ($subtitle) { ?>
-        <div class="featured-subtitle col s3">
-          <span class="rotate-text font-condensed"><?php echo $subtitle; ?></span>
-        </div>
+          <div class="featured-subtitle col s3">
+            <span class="rotate-text font-condensed"><?php echo $subtitle; ?></span>
+          </div>
     <?php } ?>
 
-        <div class="col s12"><?php the_post_thumbnail(); ?></div>
+          <div class="col s12"><?php the_post_thumbnail(); ?></div>
 
-      </a>
+        </a>
 
-    </article>
+      </article>
 
 <?php
 }
 ?>
-
+    <div>
   </section>
 
 <?php
@@ -63,8 +64,9 @@ wp_reset_postdata();
 ?>
 
   <!-- Puta portadazza, Noticias, Ads -->
-  <section class="row">
-    <div class="col s8">
+  <section class="container">
+    <div class="row">
+      <div class="col s8">
 
 <?php
 // WP_Query arguments
@@ -85,40 +87,40 @@ $cat_link = get_category_link( $cat_id );
 if ( $puta_query->have_posts() ) {
 ?>
 
-      <div class="feed-category">
-        <a href="<?php echo esc_url( $cat_link ); ?>">
-          <span class="rotate-text font-condensed">
-            <?php echo $cat_name; ?>
-          </span>
-        </a>
-      </div>
+        <div class="feed-category">
+          <a href="<?php echo esc_url( $cat_link ); ?>">
+            <span class="rotate-text font-condensed">
+              <?php echo $cat_name; ?>
+            </span>
+          </a>
+        </div>
 
   <?php
   while ( $puta_query->have_posts() ) {
     $puta_query->the_post();
     $puta_id = $post->ID;
   ?>
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-        <a href="<?php the_permalink() ?>">
+          <a href="<?php the_permalink() ?>">
 
-          <h3 class="featured-title"><?php the_title(); ?></h3>
+            <h3 class="featured-title"><?php the_title(); ?></h3>
 
-          <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail(); ?>
 
-        </a>
+          </a>
 
-        <?php the_excerpt(); ?>
+          <?php the_excerpt(); ?>
 
-      </article>
+        </article>
   <?php
   }
 }
 wp_reset_postdata();
 ?>
-    </div>
+      </div>
 
-    <div class="col s8">
+      <div class="col s8">
 
 <?php
 // WP_Query arguments
@@ -142,40 +144,42 @@ if ( $noticias_query->have_posts() && $category ) {
   $cat_link = get_category_link( $cat_id );
 ?>
 
-      <div class="feed-category">
-        <a href="<?php echo esc_url( $cat_link ); ?>">
-          <span class="rotate-text font-condensed"><?php echo $cat_name; ?></span>
-        </a>
-      </div>
+        <div class="feed-category">
+          <a href="<?php echo esc_url( $cat_link ); ?>">
+            <span class="rotate-text font-condensed"><?php echo $cat_name; ?></span>
+          </a>
+        </div>
 
   <?php
   while ( $noticias_query->have_posts() ) {
     $noticias_query->the_post();
   ?>
-      <article <?php post_class('noticias'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('noticias'); ?> id="post-<?php the_ID(); ?>">
 
-        <a href="<?php the_permalink() ?>">
+          <a href="<?php the_permalink() ?>">
 
-          <h3 class="noticias-title"><?php the_title(); ?></h3>
+            <h3 class="noticias-title"><?php the_title(); ?></h3>
 
-          <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail(); ?>
 
-        </a>
+          </a>
 
-      </article>
+        </article>
   <?php
   }
 }
 wp_reset_postdata();
 ?>
 
-    </div>
+      </div>
 
-    <div class="col s8">
+      <div class="col s8">
 
-      <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
 
-      <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+
+      </div>
 
     </div>
 
@@ -207,7 +211,7 @@ if ( $post_query->have_posts() ) {
 ?>
 
     <!-- main posts loop -->
-    <section id="posts">
+    <section id="posts" class="container">
 
       <div class="row">
 
@@ -276,7 +280,7 @@ if ( $post_query->have_posts() ) {
 
     <?php get_template_part('partials/instagram'); ?><!-- Instagram ticker -->
 
-    <section id="posts-2">
+    <section id="posts-2" class="container">
       <div class="row">
 
     <?php
@@ -298,11 +302,12 @@ if ( $post_query->have_posts() ) {
       </div>
     </section>
 
+    <div class="container">
+      <div class="row">
 
-    <div class="row">
+        <button id="more-posts" class="see-more col s24">Ver Más</button>
 
-      <button id="more-posts" class="see-more col s24">Ver Más</button>
-
+      </div>
     </div>
 
 
