@@ -68,7 +68,7 @@ $radio_embed = IGV_get_option('_igv_radio_embed');
 
 if ($radio_embed) {
 ?>
-  <div id="drawer-radio" class="header-drawer">
+  <div id="drawer-radio" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
@@ -97,7 +97,7 @@ if ($radio_embed) {
     </div>
   </header>
 
-  <div id="drawer-category" class="header-drawer">
+  <div id="drawer-category" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">

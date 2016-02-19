@@ -5,7 +5,7 @@ $twitter_feed = get_twitter_feed( IGV_get_option( '_igv_twitter_handle' ) );
 if( $twitter_feed ) {
 ?>
 
-<section id="twitter-feed" class="">
+<section id="twitter-feed" class="theme-bg">
 
   <?php
   foreach($twitter_feed as $twitter_item) {
