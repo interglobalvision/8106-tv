@@ -62,7 +62,7 @@
     </div>
   </div>
 
-  <div id="drawer-radio" class="header-drawer">
+  <div id="drawer-radio" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
@@ -88,7 +88,7 @@
     </div>
   </header>
 
-  <div id="drawer-category" class="header-drawer">
+  <div id="drawer-category" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
