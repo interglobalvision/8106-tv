@@ -137,6 +137,14 @@ class IGV_Admin {
 			'default' => '#a5cfca',
 		) );
 
+		$cmb->add_field( array(
+			'name'    => __( 'Radio', 'IGV' ),
+			'desc'    => __( 'Mixcloud embed code', 'IGV' ),
+			'id'      => $this->prefix . 'radio_embed',
+			'type'    => 'textarea_code',
+		) );
+
+
 	}
 
 	/**

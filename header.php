@@ -62,15 +62,24 @@
     </div>
   </div>
 
+<?php
+// Get radio embed code
+$radio_embed = IGV_get_option('_igv_radio_embed');
+
+if ($radio_embed) {
+?>
   <div id="drawer-radio" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
-          Radio goes here
+<?php echo $radio_embed; ?>
         </div>
       </div>
     </div>
   </div>
+<?php
+}
+?>
 
   <header id="header" class="container">
     <div class="row">
