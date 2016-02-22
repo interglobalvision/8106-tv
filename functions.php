@@ -32,6 +32,7 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'opengraph', 1200, 630, true );
 
   add_image_size( 'name', 199, 299, true );
+  add_image_size( 'small-thumb', 124, 75, true );
 }
 
 // Register Nav Menus
@@ -110,7 +111,7 @@ function get_instagram_feed($instagram_handle) {
       $feed = array_slice($feed, 0, 5);
 
       // Set response item's as transient with expiration time of 30 min
-      set_transient( 'instagram_feed_' . $instagram_handle, $feed, 30 * 'MINUTE_IN_SECONDS' );
+      set_transient( 'instagram_feed_' . $instagram_handle, $feed, 3 * 'MINUTE_IN_SECONDS' );
 
     }
 

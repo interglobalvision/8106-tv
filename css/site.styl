@@ -150,17 +150,32 @@ img
   display: none
 
 // HOME POSTS FEED
-.posts-feed
-  article
-    position: relative
+.feed-post,
+.noticias-container
+  position: relative
 
 .feed-post-container
+  margin: 0
   float: right
 
+$col-center = $col + ($gutter / 2)
 .feed-category
   position: absolute
   top: 0
-  left: 39px
+  left: $col-center
+
+.noticias-post
+  border-top: 1px solid
+  margin-bottom: $margin-tiny
+
+  img
+    float: left
+
+.see-more
+  background: none
+  border-style: solid
+  box-sizing: border-box
+
 
 // EVENTS
 .event-item

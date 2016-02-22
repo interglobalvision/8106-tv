@@ -92,7 +92,7 @@ if ( $puta_query->have_posts() ) {
     $puta_query->the_post();
     $puta_id = $post->ID;
   ?>
-        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('feed-post'); ?> id="post-<?php the_ID(); ?>">
 
           <div class="feed-category">
             <a href="<?php echo esc_url( $cat_link ); ?>">
@@ -119,7 +119,7 @@ wp_reset_postdata();
 ?>
       </div>
 
-      <div class="col s8">
+      <div class="noticias-container col s8">
 
 <?php
 // WP_Query arguments
@@ -153,13 +153,12 @@ if ( $noticias_query->have_posts() && $category ) {
   while ( $noticias_query->have_posts() ) {
     $noticias_query->the_post();
   ?>
-        <article <?php post_class('noticias'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class('noticias-post theme-border-color feed-post-container col s6'); ?> id="post-<?php the_ID(); ?>">
 
           <a href="<?php the_permalink() ?>">
 
-            <h3 class="noticias-title"><?php the_title(); ?></h3>
-
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('small-thumb'); ?>
+            <h3 class="noticias-title col s3"><?php the_title(); ?></h3>
 
           </a>
 
@@ -245,9 +244,10 @@ if ( $post_query->have_posts() ) {
       }
 
     } else {
+      $post_class = $item_count > 12 ? 'feed-post col s8 u-hidden' : 'feed-post col s8'
     ?>
 
-        <article <?php $item_count > 12 ? post_class('col s8 u-hidden') : post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
+        <article <?php post_class($post_class); ?> id="post-<?php the_ID(); ?>">
 
           <div class="feed-category">
             <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
@@ -306,7 +306,7 @@ if ( $post_query->have_posts() ) {
     <div class="container">
       <div class="row">
 
-        <button id="more-posts" class="see-more col s24">Ver Más</button>
+        <button id="more-posts" class="see-more col s24 theme-border-color">Ver Más</button>
 
       </div>
     </div>
