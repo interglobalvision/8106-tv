@@ -64,7 +64,7 @@ wp_reset_postdata();
 ?>
 
   <!-- Puta portadazza, Noticias, Ads -->
-  <section class="container">
+  <section class="container posts-feed">
     <div class="row">
       <div class="col s8">
 
@@ -87,14 +87,6 @@ $cat_link = get_category_link( $cat_id );
 if ( $puta_query->have_posts() ) {
 ?>
 
-        <div class="feed-category">
-          <a href="<?php echo esc_url( $cat_link ); ?>">
-            <span class="rotate-text font-condensed">
-              <?php echo $cat_name; ?>
-            </span>
-          </a>
-        </div>
-
   <?php
   while ( $puta_query->have_posts() ) {
     $puta_query->the_post();
@@ -102,15 +94,22 @@ if ( $puta_query->have_posts() ) {
   ?>
         <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-          <a href="<?php the_permalink() ?>">
+          <div class="feed-category">
+            <a href="<?php echo esc_url( $cat_link ); ?>">
+              <span class="rotate-text font-condensed">
+                <?php echo $cat_name; ?>
+              </span>
+            </a>
+          </div>
 
-            <h3 class="featured-title"><?php the_title(); ?></h3>
+          <div class="feed-post-container col s6">
+            <a href="<?php the_permalink() ?>">
+              <?php the_post_thumbnail(); ?>
+            </a>
 
-            <?php the_post_thumbnail(); ?>
+            <?php the_excerpt(); ?>
 
-          </a>
-
-          <?php the_excerpt(); ?>
+          </div>
 
         </article>
   <?php
@@ -211,7 +210,7 @@ if ( $post_query->have_posts() ) {
 ?>
 
     <!-- main posts loop -->
-    <section id="posts" class="container">
+    <section id="posts" class="container posts-feed">
 
       <div class="row">
 
@@ -254,17 +253,19 @@ if ( $post_query->have_posts() ) {
             <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
           </div>
 
-          <a href="<?php the_permalink() ?>">
+          <div class="feed-post-container col s6">
+            <a href="<?php the_permalink() ?>">
 
-            <?php the_post_thumbnail(); ?>
+              <?php the_post_thumbnail(); ?>
 
-            <h3 class="feed-title"><?php the_title(); ?></h3>
+              <h3 class="feed-title"><?php the_title(); ?></h3>
 
       <?php if ($subtitle) { ?>
-            <div class="feed-subtitle"><?php echo $subtitle; ?></div>
+              <div class="feed-subtitle"><?php echo $subtitle; ?></div>
       <?php } ?>
 
-          </a>
+            </a>
+          </div>
 
         </article>
 
@@ -280,7 +281,7 @@ if ( $post_query->have_posts() ) {
 
     <?php get_template_part('partials/instagram'); ?><!-- Instagram ticker -->
 
-    <section id="posts-2" class="container">
+    <section id="posts-2" class="container posts-feed">
       <div class="row">
 
     <?php
