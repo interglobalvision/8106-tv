@@ -1311,7 +1311,11 @@ img {
 }
 #header {
   margin-top: 28px;
-  margin-bottom: 14px;
+  margin-bottom: 28px;
+}
+#header .logo {
+  height: 3rem;
+  width: auto;
 }
 .header-drawer {
   display: none;

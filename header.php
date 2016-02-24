@@ -84,7 +84,7 @@ if ($radio_embed) {
   <header id="header" class="container">
     <div class="row">
       <div class="col s13">
-        <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+        <a href="<?php echo home_url(); ?>"><?php echo url_get_contents(get_bloginfo('stylesheet_directory') . '/img/dist/8106-logo.svg'); ?></a>
       </div>
       <div class="col s3 font-century-gothic u-align-center">
         <a class="js-nav-trigger u-pointer" data-nav-target="categorias">Categorias</a>
