@@ -21,7 +21,7 @@ if ( $featured_query->have_posts() ) {
 ?>
 
   <section id="featured-post" class="theme-grad-bg u-cf">
-    <div class="container">
+    <div class="container" id="featured-post-container">
 
   <?php
   while ( $featured_query->have_posts() ) {
@@ -32,23 +32,15 @@ if ( $featured_query->have_posts() ) {
 
       <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-        <a href="<?php the_permalink() ?>">
 
-          <div class="col s3">
-            <h3 class="featured-title">
-              <span class="rotate-text"><?php the_title(); ?></span>
-            </h3>
-          </div>
+          <h3 id="featured-post-title" class="rotate-text js-fix-widows"><?php the_title(); ?></h3>
 
     <?php if ($subtitle) { ?>
-          <div class="featured-subtitle col s3">
-            <span class="rotate-text font-condensed"><?php echo $subtitle; ?></span>
-          </div>
+          <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows"><h4><?php echo $subtitle; ?></h4></div>
     <?php } ?>
 
-          <div class="col s12"><?php the_post_thumbnail(); ?></div>
+          <?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?>
 
-        </a>
 
       </article>
 
