@@ -1314,6 +1314,24 @@ img {
 .event-item .event-date {
   margin: 0;
 }
+#instagram-feed {
+  padding: 28px 0;
+  margin: 70px 0;
+}
+.instagram-item {
+  position: relative;
+  text-decoration: none;
+  color: #fdfdfd;
+}
+.instagram-item-header {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+.instagram-item-header .genericon {
+  vertical-align: sub;
+  font-size: 1.2rem;
+}
 @media screen and (max-width: 1104px) {
   html {
     width: 100%;
