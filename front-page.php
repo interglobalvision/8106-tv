@@ -102,7 +102,7 @@ if ( $puta_query->have_posts() ) {
             </a>
           </div>
 
-          <div class="feed-post-container col s6">
+          <div id="puta-portadazza-container" class="feed-post-container col s6">
             <a href="<?php the_permalink() ?>">
               <?php the_post_thumbnail(); ?>
             </a>
@@ -173,9 +173,10 @@ wp_reset_postdata();
 
       <div class="col s8">
 
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        <div class="feed-post-container col s6">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        </div>
 
       </div>
 
@@ -230,7 +231,9 @@ if ( $post_query->have_posts() ) {
 
         <div class="ad col s8<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
 
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          <div class="feed-post-container col s6">
+            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          </div>
 
         </div>
 
@@ -301,16 +304,14 @@ if ( $post_query->have_posts() ) {
 
     <!-- end posts -->
       </div>
-    </section>
-
-    <div class="container">
       <div class="row">
 
-        <button id="more-posts" class="see-more col s24 theme-border-color">Ver Más</button>
+        <div class="col s24">
+          <button id="more-posts" class="see-more theme-border-color">Ver Más</button>
+        </div>
 
       </div>
-    </div>
-
+    </section>
 
 <?php
 }
