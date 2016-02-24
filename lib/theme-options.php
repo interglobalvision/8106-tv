@@ -107,7 +107,7 @@ class IGV_Admin {
 			'name' => __( 'Twitter handle', 'IGV' ),
 			'id'   => $this->prefix . 'twitter_handle',
 			'type' => 'text',
-			'default' => '8106tv',
+			'default' => '8106',
 		) );
 
 		$cmb->add_field( array(

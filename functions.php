@@ -159,7 +159,7 @@ function get_twitter_feed($twitter_handle) {
       'include_rts'   => 'false'
     ));
 
-    if( $feed->errors ) {
+    if( isset($feed->errors) ) {
       return false;
     }
 
@@ -179,6 +179,7 @@ function get_twitter_feed($twitter_handle) {
       // we don't care about link to other sites inside the twit
       if( strpos( $urls[0]->display_url,'8106.tv') !== FALSE ) {
         $link->url = $urls[0]->expanded_url;
+        $link->blank = FALSE;
       } else {
         $link->url = 'https://twitter.com/statuses/' . $twit->id;
         $link->blank = TRUE;
@@ -191,7 +192,7 @@ function get_twitter_feed($twitter_handle) {
     set_transient( 'twitter_feed_' . $twitter_handle, $feed, 5 * 'MINUTE_IN_SECONDS' );
   }
 
-  //delete_transient( 'twitter_feed_' . $twitter_handle);
+/*   delete_transient( 'twitter_feed_' . $twitter_handle); */
   return $feed;
 }
 
