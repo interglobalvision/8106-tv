@@ -53,6 +53,13 @@ function cmb_initialize_cmb_meta_boxes() {
     require_once 'lib/CMB2/init.php';
 }
 
+
+// Add HTML5 theme support.
+function wpdocs_after_setup_theme() {
+  add_theme_support( 'html5', array( 'search-form' ) );
+}
+add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );
+
 // Remove WP Emoji
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');

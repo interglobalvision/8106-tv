@@ -57,7 +57,7 @@
   <div id="header-advert-space">
     <div class="container">
       <div class="row u-align-center">
-        Advert goes here
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=800&h=100">
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@ if ($radio_embed) {
     </div>
   </header>
 
-  <div id="drawer-category" class="header-drawer theme-grad-bg u-fc">
+  <div id="drawer-categorias" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
@@ -125,5 +125,11 @@ if ($radio_embed) {
           <a href="https://www.instagram.com/8106tv/" target="_blank">Instagram</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="drawer-search"  class="header-drawer">
+    <div class="container">
+      <?php get_search_form(); ?>
     </div>
   </div>
