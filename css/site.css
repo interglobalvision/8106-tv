@@ -1337,6 +1337,10 @@ img {
   display: inline-block;
   width: 538px;
   padding: 0 28px;
+  vertical-align: middle;
+}
+.twitter-feed-tweet:visited {
+  color: #fdfdfd;
 }
 @media screen and (max-width: 1104px) {
   html {
