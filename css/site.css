@@ -1314,6 +1314,30 @@ img {
 .event-item .event-date {
   margin: 0;
 }
+#twitter-feed {
+  padding: 28px 0;
+  margin: 70px 0;
+  overflow-x: hidden;
+}
+#twitter-marquee-outer {
+  width: 59049px;
+}
+#twitter-marquee-holder,
+.twitter-marquee {
+  display: inline-block;
+}
+#twitter-marquee-holder {
+  position: relative;
+  left: 0;
+}
+.twitter-feed-tweet {
+  color: #fdfdfd;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  width: 538px;
+  padding: 0 28px;
+}
 @media screen and (max-width: 1104px) {
   html {
     width: 100%;

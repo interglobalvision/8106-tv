@@ -153,6 +153,31 @@ img
     margin: 0
 
 
+// HOME TWITTER
+
+#twitter-feed
+  padding: $margin-basic 0
+  margin: $margin-large 0
+  overflow-x: hidden
+
+#twitter-marquee-outer
+  width: 9*9*9*9*9px
+
+#twitter-marquee-holder, .twitter-marquee
+  display: inline-block
+
+#twitter-marquee-holder
+  position: relative
+  left: 0
+
+.twitter-feed-tweet
+  color: $color-white-soft
+  font-weight: bold
+  text-decoration: none
+  display: inline-block
+  width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
+  padding: 0 $margin-basic
+
 // MEDIA QUERIES
 
 @media screen and (max-width: ($col * $cols)+($gutter * $cols))
