@@ -85,15 +85,15 @@ function new_display_post_thumbnail_column($col, $id){
 
 // Instagram Feed
 function get_instagram_feed($instagram_handle) {
-  
+
   if( empty($instagram_handle) ) {
     return new WP_ERROR('no-instagram-handle', 'Missing Instagram handle');
   }
 
   $feed = get_transient( 'instagram_feed_' . $instagram_handle );
-  // Transient is a piece of information that may be or not stored in 
+  // Transient is a piece of information that may be or not stored in
   // fast memory instead of in the db. This data is expected to expire,
-  // or could expire at any time. 
+  // or could expire at any time.
 
   // If feed doesn't exist
   if ( empty($feed) ) {
@@ -120,7 +120,7 @@ function get_instagram_feed($instagram_handle) {
 
 // Twitter Feed
 function get_twitter_feed($twitter_handle) {
-  
+
   if( empty($twitter_handle) ) {
     return new WP_ERROR('no-twitter-handle', 'Missing twitter handle');
   }
@@ -136,8 +136,8 @@ function get_twitter_feed($twitter_handle) {
      }
 
     // Get keys
-    $twitter_key = IGV_get_option( '_igv_twitter_key' ); 
-    $twitter_secret = IGV_get_option( '_igv_twitter_secret' ); 
+    $twitter_key = IGV_get_option( '_igv_twitter_key' );
+    $twitter_secret = IGV_get_option( '_igv_twitter_secret' );
 
     // Connect to twitter
     $twitter = new TwitterOAuth($twitter_key, $twitter_secret);
@@ -152,7 +152,7 @@ function get_twitter_feed($twitter_handle) {
       'include_rts'   => 'false'
     ));
 
-    if( $feed->errors ) {
+    if( isset($feed->errors) ) {
       return false;
     }
 
@@ -166,12 +166,13 @@ function get_twitter_feed($twitter_handle) {
       $urls = $twit->entities->urls;
 
       $link = new StdClass();
-      
+
       // If the twit links to a post inside the site, link that twit to that post
       // else link it to twitter and set "blank" as TRUE
       // we don't care about link to other sites inside the twit
       if( strpos( $urls[0]->display_url,'8106.tv') !== FALSE ) {
         $link->url = $urls[0]->expanded_url;
+        $link->blank = FALSE;
       } else {
         $link->url = 'https://twitter.com/statuses/' . $twit->id;
         $link->blank = TRUE;
@@ -184,7 +185,7 @@ function get_twitter_feed($twitter_handle) {
     set_transient( 'twitter_feed_' . $twitter_handle, $feed, 5 * 'MINUTE_IN_SECONDS' );
   }
 
-  //delete_transient( 'twitter_feed_' . $twitter_handle);
+/*   delete_transient( 'twitter_feed_' . $twitter_handle); */
   return $feed;
 }
 
