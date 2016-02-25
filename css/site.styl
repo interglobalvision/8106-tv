@@ -22,7 +22,8 @@ $gutter = 14px
   float: left
   margin-left: ($gutter/2)
   margin-right: ($gutter/2)
-  box-sizing: content-box
+  min-height: 1px
+
 for col in 1..$cols
   .s{col}
     width: ( col * $col ) + ( ( col - 1 ) * $gutter )
@@ -126,6 +127,7 @@ a, a:active, a:visited
   color:inherit
   text-decoration: none
   transition:opacity .2s
+  text-decoration: none
   &:hover
     opacity:.5
 
@@ -139,6 +141,10 @@ html
 img
   max-width: 100%
   height: auto
+
+.rotate-text
+  writing-mode: tb-rl
+  transform: rotate(180deg)
 
 // STRUCTURE
 
@@ -177,6 +183,81 @@ img
   text-align: center
 
 
+// HOME: FEATURED POST
+
+#featured-post
+  padding-top: $margin-basic
+  padding-bottom: $margin-large
+  margin-bottom: $margin-large
+
+#featured-post-container
+  article
+    max-height: 50vh
+    min-height: 400px
+    display: flex
+
+#featured-post-title
+  font-size: 3rem
+
+#featured-post-subtitle
+  font-size: 2.5rem
+  margin: 0 $margin-basic
+
+#featured-post-image
+  max-height: 50vh
+  min-height: 400px
+  width: auto;
+  margin: 0 $margin-small
+
+
+// HOME POSTS FEED
+
+.posts-feed
+  margin-bottom: $margin-large
+
+.feed-post,
+.noticias-container
+  position: relative
+  margin-bottom: $margin-large
+
+.feed-post-container
+  margin: 0
+  float: right
+
+.feed-category
+  font-size: 2.5rem
+  text-align: center
+
+.feed-title
+  font-size: 1.5rem
+
+.feed-subtitle
+  font-size: 1rem
+
+.see-more
+  background: none
+  border-style: solid
+  width: 100%
+  font-size: 1.5rem
+  font-family: 'Century Gothic'
+  padding: $margin-basic 0
+  font-style: italic
+
+
+// HOME: NOTICIAS
+
+.noticias-title
+  margin: $margin-tiny
+  font-family: 'Gotham HTF'
+
+.noticias-post
+  border-top: 2px solid
+  margin-bottom: $margin-small
+
+  img
+    float: left
+
+
 // SEARCH
 
 #search-field, #search-submit
@@ -192,6 +273,7 @@ img
     font-size: 2rem
 
 // EVENTS
+
 .event-item
 
   .event-date
