@@ -128,6 +128,9 @@ ul.u-inline-list li {
   display: table-cell;
   vertical-align: middle;
 }
+.u-float {
+  float: left;
+}
 @font-face {
   font-family: 'Genericons';
   src: url("fonts/Genericons.eot");
@@ -921,6 +924,7 @@ th {
   float: left;
   margin-left: 7px;
   margin-right: 7px;
+  min-height: 1px;
 }
 .s1 {
   width: 32px;
@@ -1340,9 +1344,6 @@ img {
   width: auto;
   margin: 0 14px;
 }
-#puta-portadazza-container {
-  font-size: 0.9rem;
-}
 .posts-feed {
   margin-bottom: 70px;
 }
@@ -1356,10 +1357,8 @@ img {
   float: right;
 }
 .feed-category {
-  font-size: 2rem;
-  position: absolute;
-  top: 0;
-  left: 39px;
+  font-size: 2.5rem;
+  text-align: center;
 }
 .feed-title {
   font-size: 1.5rem;
@@ -1378,8 +1377,6 @@ img {
 }
 .noticias-title {
   margin: 7px;
-  font-size: 0.9rem;
-  font-weight: initial;
   font-family: 'Gotham HTF';
 }
 .noticias-post {

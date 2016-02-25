@@ -58,7 +58,6 @@ wp_reset_postdata();
   <!-- Puta portadazza, Noticias, Ads -->
   <section class="container posts-feed">
     <div class="row">
-      <div class="col s8">
 
 <?php
 // WP_Query arguments
@@ -84,36 +83,28 @@ if ( $puta_query->have_posts() ) {
     $puta_query->the_post();
     $puta_id = $post->ID;
   ?>
-        <article <?php post_class('feed-post'); ?> id="post-<?php the_ID(); ?>">
+      <div class="col s2">
+        <div class="feed-category">
+          <a href="<?php echo esc_url( $cat_link ); ?>">
+            <span class="rotate-text font-condensed">
+              <?php echo $cat_name; ?>
+            </span>
+          </a>
+        </div>
+      </div>
 
-          <div class="feed-category">
-            <a href="<?php echo esc_url( $cat_link ); ?>">
-              <span class="rotate-text font-condensed">
-                <?php echo $cat_name; ?>
-              </span>
-            </a>
-          </div>
-
-          <div id="puta-portadazza-container" class="feed-post-container col s6">
-            <a href="<?php the_permalink() ?>">
-              <?php the_post_thumbnail(); ?>
-            </a>
-
-            <?php the_excerpt(); ?>
-
-          </div>
-
-        </article>
+      <div class="col s6">
+        <a href="<?php the_permalink() ?>">
+          <?php the_post_thumbnail(); ?>
+        </a>
+        <?php the_excerpt(); ?>
+      </div>
   <?php
   }
 }
 wp_reset_postdata();
-?>
-      </div>
 
-      <div class="noticias-container col s8">
 
-<?php
 // WP_Query arguments
 $args = array (
   'category_name'   => 'noticias',
@@ -134,42 +125,40 @@ if ( $noticias_query->have_posts() && $category ) {
   $cat_id = $category->term_id;
   $cat_link = get_category_link( $cat_id );
 ?>
-
+      <div class="col s2">
         <div class="feed-category">
           <a href="<?php echo esc_url( $cat_link ); ?>">
             <span class="rotate-text font-condensed"><?php echo $cat_name; ?></span>
           </a>
         </div>
+      </div>
 
+      <div class="col s6">
   <?php
   while ( $noticias_query->have_posts() ) {
     $noticias_query->the_post();
   ?>
-        <article <?php post_class('noticias-post theme-border-color feed-post-container col s6'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('noticias-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
 
-          <a href="<?php the_permalink() ?>">
+        <a href="<?php the_permalink() ?>">
 
-            <?php the_post_thumbnail('small-thumb'); ?>
-            <h3 class="noticias-title col s3"><?php the_title(); ?></h3>
+          <?php the_post_thumbnail('small-thumb'); ?>
+          <h4 class="noticias-title col s3"><?php the_title(); ?></h4>
 
-          </a>
+        </a>
 
-        </article>
+      </article>
   <?php
   }
 }
 wp_reset_postdata();
 ?>
-
       </div>
+      <div class="col s2"></div>
 
-      <div class="col s8">
-
-        <div class="feed-post-container col s6">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-        </div>
-
+      <div class="col s6">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
       </div>
 
     </div>
@@ -221,7 +210,9 @@ if ( $post_query->have_posts() ) {
     if ( ( $post_count % $ad_freq ) == 0 ) {
   ?>
 
-        <div class="ad col s8<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
+        <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
+
+          <div class="col s2"></div>
 
           <div class="feed-post-container col s6">
             <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
@@ -239,16 +230,18 @@ if ( $post_query->have_posts() ) {
       }
 
     } else {
-      $post_class = $item_count > 12 ? 'feed-post col s8 u-hidden' : 'feed-post col s8'
+      $post_class = $item_count > 12 ? 'feed-post u-float u-hidden' : 'feed-post u-float'
     ?>
 
         <article <?php post_class($post_class); ?> id="post-<?php the_ID(); ?>">
 
-          <div class="feed-category">
-            <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
+          <div class="col s2">
+            <div class="feed-category">
+              <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
+            </div>
           </div>
 
-          <div class="feed-post-container col s6">
+          <div class="col s6">
             <a href="<?php the_permalink() ?>">
 
               <?php the_post_thumbnail(); ?>
