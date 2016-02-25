@@ -67,6 +67,7 @@ $golden-ratio = 1.61803398875
 $margin-small = ($gutter)
 $margin-tiny = ($gutter / 2)
 $margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
 $font-size-basic = 15px
@@ -123,6 +124,7 @@ p
 
 a, a:active, a:visited
   color:inherit
+  text-decoration: none
   transition:opacity .2s
   &:hover
     opacity:.5
@@ -142,9 +144,52 @@ img
 
 // HEADER
 
+#header
+  margin-top: $margin-basic
+  margin-bottom: $margin-basic
+  .logo
+    height: 3rem
+    width: auto
+
+// DRAWERS
+
 .header-drawer
   display: none
+  padding: $margin-mid 0 $margin-large 0
+  margin-bottom: $margin-basic
+  font-size: 2rem
+  font-weight: bold
 
+#drawer-radio
+  padding-bottom: $margin-mid
+
+// CATEGORIES
+
+#drawer-categorias-list
+  li.cat-item
+    display: inline-block
+    padding: $margin-basic $margin-mid
+
+
+// FOLLOW
+
+#drawer-follow
+  text-align: center
+
+
+// SEARCH
+
+#search-field, #search-submit
+  box-sizing: border-box
+  width 100%
+  padding: $margin-small
+  background-color: transparent
+  border: 1px solid $color-black-soft
+  height: 5rem
+  &:focus
+    outline: none
+  .genericon
+    font-size: 2rem
 
 // EVENTS
 .event-item

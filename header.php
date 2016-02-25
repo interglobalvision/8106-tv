@@ -83,16 +83,20 @@ if ($radio_embed) {
 
   <header id="header" class="container">
     <div class="row">
-      <div class="col s8">
-        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+      <div class="col s13">
+        <a href="<?php echo home_url(); ?>"><?php echo url_get_contents(get_bloginfo('stylesheet_directory') . '/img/dist/8106-logo.svg'); ?></a>
       </div>
-      <div class="col s16">
-        <ul class="u-inline-list font-century-gothic">
-          <li class="js-nav-trigger" data-nav-target="categorias">Categorias</li>
-          <li class="js-nav-trigger" data-nav-target="radio">Radio</li>
-          <li class="js-nav-trigger" data-nav-target="follow">Follow</li>
-          <li class="js-nav-trigger" data-nav-target="search"><span class="genericon genericon-search"></span></li>
-        </ul>
+      <div class="col s3 font-century-gothic u-align-center">
+        <a class="js-nav-trigger u-pointer" data-nav-target="categorias">Categorias</a>
+      </div>
+      <div class="col s3 font-century-gothic u-align-center">
+        <a class="js-nav-trigger u-pointer" data-nav-target="radio">Radio</a>
+      </div>
+      <div class="col s3 font-century-gothic u-align-center">
+        <a class="js-nav-trigger u-pointer" data-nav-target="follow">Follow</a>
+      </div>
+      <div class="col s2 font-century-gothic u-align-center">
+        <a class="js-nav-trigger u-pointer" data-nav-target="search"><span class="genericon genericon-search"></span></a>
       </div>
     </div>
   </header>
@@ -101,7 +105,7 @@ if ($radio_embed) {
     <div class="container">
       <div class="row">
         <div class="col s24">
-          <ul class="u-inline-list">
+          <ul id="drawer-categorias-list" class="font-century-gothic">
             <?php wp_list_categories(array('title_li' => '',)); ?>
           </ul>
         </div>
@@ -109,7 +113,7 @@ if ($radio_embed) {
     </div>
   </div>
 
-  <div id="drawer-follow"  class="header-drawer">
+  <div id="drawer-follow"  class="header-drawer theme-grad-bg font-century-gothic">
     <div class="container">
       <div class="row">
         <div class="col s6">
@@ -128,7 +132,7 @@ if ($radio_embed) {
     </div>
   </div>
 
-  <div id="drawer-search"  class="header-drawer">
+  <div id="drawer-search"  class="header-drawer theme-grad-bg">
     <div class="container">
       <?php get_search_form(); ?>
     </div>
