@@ -33,6 +33,7 @@ if ( $featured_query->have_posts() ) {
       <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 
+        <a href="<?php the_permalink() ?>">
           <h3 id="featured-post-title" class="rotate-text js-fix-widows"><?php the_title(); ?></h3>
 
     <?php if ($subtitle) { ?>
@@ -41,7 +42,7 @@ if ( $featured_query->have_posts() ) {
 
           <?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?>
 
-
+        </a>
       </article>
 
 <?php
