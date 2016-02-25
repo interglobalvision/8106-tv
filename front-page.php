@@ -32,17 +32,18 @@ if ( $featured_query->have_posts() ) {
 
       <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-
-        <a href="<?php the_permalink() ?>">
-          <h3 id="featured-post-title" class="rotate-text js-fix-widows"><?php the_title(); ?></h3>
+          <h3 id="featured-post-title" class="rotate-text js-fix-widows">
+            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+          </h3>
 
     <?php if ($subtitle) { ?>
-          <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows"><h4><?php echo $subtitle; ?></h4></div>
+          <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+            <h4><a href="<?php the_permalink() ?>"><?php echo $subtitle; ?></a></h4>
+          </div>
     <?php } ?>
 
-          <?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?>
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
 
-        </a>
       </article>
 
 <?php
