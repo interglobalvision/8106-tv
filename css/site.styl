@@ -68,6 +68,7 @@ $golden-ratio = 1.61803398875
 $margin-small = ($gutter)
 $margin-tiny = ($gutter / 2)
 $margin-basic = ($gutter * 2)
+$margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
 
 $font-size-basic = 15px
@@ -124,6 +125,7 @@ p
 
 a, a:active, a:visited
   color:inherit
+  text-decoration: none
   transition:opacity .2s
   text-decoration: none
   &:hover
@@ -148,8 +150,37 @@ img
 
 // HEADER
 
+#header
+  margin-top: $margin-basic
+  margin-bottom: $margin-basic
+  .logo
+    height: 3rem
+    width: auto
+
+// DRAWERS
+
 .header-drawer
   display: none
+  padding: $margin-mid 0 $margin-large 0
+  margin-bottom: $margin-basic
+  font-size: 2rem
+  font-weight: bold
+
+#drawer-radio
+  padding-bottom: $margin-mid
+
+// CATEGORIES
+
+#drawer-categorias-list
+  li.cat-item
+    display: inline-block
+    padding: $margin-basic $margin-mid
+
+
+// FOLLOW
+
+#drawer-follow
+  text-align: center
 
 
 // HOME: FEATURED POST
@@ -227,6 +258,20 @@ img
     float: left
 
 
+// SEARCH
+
+#search-field, #search-submit
+  box-sizing: border-box
+  width 100%
+  padding: $margin-small
+  background-color: transparent
+  border: 1px solid $color-black-soft
+  height: 5rem
+  &:focus
+    outline: none
+  .genericon
+    font-size: 2rem
+
 // EVENTS
 
 .event-item
@@ -234,6 +279,54 @@ img
   .event-date
     margin: 0
 
+
+// HOME TWITTER
+
+#twitter-feed
+  padding: $margin-basic 0
+  margin: $margin-large 0
+  overflow-x: hidden
+
+#twitter-marquee-outer
+  width: 9*9*9*9*9px
+
+#twitter-marquee-holder, .twitter-marquee
+  display: inline-block
+
+#twitter-marquee-holder
+  position: relative
+  left: 0
+
+.twitter-feed-tweet
+  color: $color-white-soft
+  font-weight: bold
+  text-decoration: none
+  display: inline-block
+  width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
+  padding: 0 $margin-basic
+  vertical-align: middle
+
+  &:visited
+    color: $color-white-soft
+
+// INSTAGRAM PARTIAL
+
+#instagram-feed
+  padding: $margin-basic 0
+  margin: $margin-large 0
+
+.instagram-item
+  position: relative
+  text-decoration: none
+  color: $color-white-soft
+
+.instagram-item-header
+  position: absolute
+  top: $margin-tiny
+  left: $margin-tiny
+  .genericon
+    vertical-align: sub
+    font-size: 1.2rem
 
 // MEDIA QUERIES
 

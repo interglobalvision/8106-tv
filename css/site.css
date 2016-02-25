@@ -1293,6 +1293,7 @@ a,
 a:active,
 a:visited {
   color: inherit;
+  text-decoration: none;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
   text-decoration: none;
@@ -1317,8 +1318,30 @@ img {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+#header {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+#header .logo {
+  height: 3rem;
+  width: auto;
+}
 .header-drawer {
   display: none;
+  padding: 49px 0 70px 0;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+#drawer-radio {
+  padding-bottom: 49px;
+}
+#drawer-categorias-list li.cat-item {
+  display: inline-block;
+  padding: 28px 49px;
+}
+#drawer-follow {
+  text-align: center;
 }
 #featured-post {
   padding-top: 28px;
@@ -1388,8 +1411,71 @@ img {
 .noticias-post img {
   float: left;
 }
+#search-field,
+#search-submit {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  border: 1px solid #0e0e0e;
+  height: 5rem;
+}
+#search-field:focus,
+#search-submit:focus {
+  outline: none;
+}
+#search-field .genericon,
+#search-submit .genericon {
+  font-size: 2rem;
+}
 .event-item .event-date {
   margin: 0;
+}
+#twitter-feed {
+  padding: 28px 0;
+  margin: 70px 0;
+  overflow-x: hidden;
+}
+#twitter-marquee-outer {
+  width: 59049px;
+}
+#twitter-marquee-holder,
+.twitter-marquee {
+  display: inline-block;
+}
+#twitter-marquee-holder {
+  position: relative;
+  left: 0;
+}
+.twitter-feed-tweet {
+  color: #fdfdfd;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  width: 538px;
+  padding: 0 28px;
+  vertical-align: middle;
+}
+.twitter-feed-tweet:visited {
+  color: #fdfdfd;
+}
+#instagram-feed {
+  padding: 28px 0;
+  margin: 70px 0;
+}
+.instagram-item {
+  position: relative;
+  text-decoration: none;
+  color: #fdfdfd;
+}
+.instagram-item-header {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+}
+.instagram-item-header .genericon {
+  vertical-align: sub;
+  font-size: 1.2rem;
 }
 @media screen and (max-width: 1104px) {
   html {

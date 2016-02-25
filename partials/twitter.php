@@ -7,6 +7,10 @@ if( $twitter_feed ) {
 
 <section id="twitter-feed" class="theme-bg">
 
+  <div id="twitter-marquee-outer">
+    <div id="twitter-marquee-holder">
+      <div class="twitter-marquee">
+
   <?php
   foreach($twitter_feed as $twitter_item) {
     $url = $twitter_item->link->url;
@@ -15,11 +19,14 @@ if( $twitter_feed ) {
     $text = $twitter_item->text;
   ?>
 
-    <a href="<?php echo $url; ?>" target="<?php echo $target; ?>"><?php echo $text; ?></a>
+    <a class="twitter-feed-tweet" href="<?php echo $url; ?>" target="<?php echo $target; ?>"><?php echo $text; ?></a>
 
   <?php
   }
   ?>
+      </div>
+    </div>
+  </div>
 
 </section>
 
