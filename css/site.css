@@ -1289,6 +1289,14 @@ h3 {
 p {
   margin-bottom: 1em;
 }
+blockquote {
+  font-weight: bold;
+  font-size: 1.3rem;
+  line-height: 1.35em;
+}
+.copy {
+  max-width: 640px;
+}
 a,
 a:active,
 a:visited {
@@ -1476,6 +1484,13 @@ img {
 .instagram-item-header .genericon {
   vertical-align: sub;
   font-size: 1.2rem;
+}
+#page-header {
+  padding: 49px 0;
+  margin-bottom: 70px;
+}
+#page-content {
+  margin-bottom: 70px;
 }
 @media screen and (max-width: 1104px) {
   html {
