@@ -21,11 +21,16 @@
     while ($query->have_posts()) {
       $query->the_post();
 ?>
+      <article <?php post_class('small-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
 
-    <div>
-      <?php the_post_thumbnail(); ?>
-      <h5><?php the_title(); ?></h5>
-    </div>
+        <a href="<?php the_permalink() ?>">
+
+          <?php the_post_thumbnail('small-thumb'); ?>
+          <h4 class="small-post-title col s3"><?php the_title(); ?></h4>
+
+        </a>
+
+      </article>
 
 <?php
     }
