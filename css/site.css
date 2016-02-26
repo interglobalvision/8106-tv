@@ -1401,6 +1401,7 @@ img {
 }
 .see-more {
   background: none;
+  border-width: 2px;
   border-style: solid;
   width: 100%;
   font-size: 1.5rem;
@@ -1484,6 +1485,18 @@ img {
 .instagram-item-header .genericon {
   vertical-align: sub;
   font-size: 1.2rem;
+}
+#pagination {
+  margin-top: 49px;
+  margin-bottom: 49px;
+}
+#pagination .pagination-block {
+  padding: 28px;
+  border-width: 2px;
+  border-style: solid;
+}
+#pagination .page-numbers.current {
+  text-decoration: underline;
 }
 #page-header {
   padding: 49px 0;

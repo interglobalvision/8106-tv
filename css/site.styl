@@ -78,6 +78,8 @@ $font-tracking-basic = 0.001em
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
+$border-width = 2px
+
 // TYPOGRAPHY
 
 html
@@ -243,6 +245,7 @@ img
 
 .see-more
   background: none
+  border-width: $border-width
   border-style: solid
   width: 100%
   font-size: 1.5rem
@@ -334,6 +337,18 @@ img
   .genericon
     vertical-align: sub
     font-size: 1.2rem
+
+// PAGINATION
+
+#pagination
+  margin-top: $margin-mid
+  margin-bottom: $margin-mid
+  .pagination-block
+    padding: $margin-basic
+    border-width: $border-width
+    border-style: solid
+  .page-numbers.current
+    text-decoration: underline
 
 // PAGE
 
