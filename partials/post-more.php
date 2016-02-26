@@ -33,7 +33,8 @@ if ($query->have_posts()) {
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 ?>
 
-    <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
+    <div class="col s1"> </div>
+    <article <?php post_class('col s6'); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink(); ?>">
 
