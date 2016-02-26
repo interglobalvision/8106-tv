@@ -217,6 +217,11 @@ add_action( 'login_head', 'custom_login_logo' );
 
 // UTILITY FUNCTIONS
 
+// to get partials but also parse through variables to the partial. doesn't have the second param that get_template_part has BTW!
+function get_template_part_with_data($part, $data) {
+  include(locate_template($part . '.php', false, false));
+}
+
 // to replace file_get_contents
 function url_get_contents($Url) {
   if (!function_exists('curl_init')){
