@@ -35,8 +35,8 @@
 }
 @font-face {
   font-family: 'Century Gothic';
-  src: url("CenturyGothic-BoldItalic.eot");
-  src: url("CenturyGothic-BoldItalic.eot?#iefix") format('embedded-opentype'), url("CenturyGothic-BoldItalic.woff2") format('woff2'), url("CenturyGothic-BoldItalic.woff") format('woff'), url("CenturyGothic-BoldItalic.ttf") format('truetype');
+  src: url("fonts/CenturyGothic-BoldItalic.eot");
+  src: url("fonts/CenturyGothic-BoldItalic.eot?#iefix") format('embedded-opentype'), url("fonts/CenturyGothic-BoldItalic.woff2") format('woff2'), url("fonts/CenturyGothic-BoldItalic.woff") format('woff'), url("fonts/CenturyGothic-BoldItalic.ttf") format('truetype');
   font-weight: bold;
   font-style: italic;
 }
@@ -1402,7 +1402,6 @@ img {
 .see-more {
   background: none;
   border-style: solid;
-  width: 100%;
   font-size: 1.5rem;
   font-family: 'Century Gothic';
   padding: 28px 0;
@@ -1436,8 +1435,37 @@ img {
 #search-submit .genericon {
   font-size: 2rem;
 }
-.event-item .event-date {
+#events .row {
+  margin-bottom: 49px;
+}
+.event-date {
   margin: 0;
+  background: #fdfdfd;
+  height: 124px;
+}
+.event-date .month {
+  display: block;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+.event-date .day {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+}
+.event-name {
+  font-size: 1.2rem;
+}
+.event-venue {
+  font-size: 0.9rem;
+}
+#more-events {
+  height: 124px;
+  width: 124px;
+  border: 2px solid #fdfdfd;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: 0 28px;
 }
 #twitter-feed {
   padding: 28px 0;
