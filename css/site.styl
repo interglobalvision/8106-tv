@@ -244,7 +244,6 @@ img
 .see-more
   background: none
   border-style: solid
-  width: 100%
   font-size: 1.5rem
   font-family: 'Century Gothic'
   padding: $margin-basic 0
@@ -280,12 +279,38 @@ img
     font-size: 2rem
 
 // EVENTS
+#events
+  .row
+    margin-bottom: $margin-mid
+.event-date
+  margin: 0
+  background: $color-white-soft
+  height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
 
-.event-item
+  .month
+    display: block
+    font-size: 1.4rem
+    text-transform: capitalize
 
-  .event-date
-    margin: 0
+  .day
+    display: block
+    font-size: 2rem
+    line-height: 1
 
+
+.event-name
+  font-size: 1.2rem
+
+.event-venue
+  font-size: 0.9rem 
+
+#more-events
+  height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+  width: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+  border: 2px solid $color-white-soft
+  font-size: 1.2rem
+  line-height: 1.2
+  padding: 0 $margin-basic
 
 // HOME TWITTER
 

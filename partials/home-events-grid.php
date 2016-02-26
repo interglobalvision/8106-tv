@@ -17,30 +17,44 @@ if ( $events_query->have_posts() ) {
 ?>
 
 <section id="events" class="theme-hard-grad-bg">
-  <div class="container">
+  <div class="container u-cf">
     <div class="row">
 
-      <div class="col s2 feed-category">
-        <a href="<?php echo esc_url( $events_archive_link ); ?>"><?php echo $events_name; ?></a>
+      <div class="col s3 feed-category">
+        <a class="rotate-text font-condensed" href="<?php echo esc_url( $events_archive_link ); ?>">Agenda</a>
       </div>
 
   <?php
-  $post_index = 0;
+  $post_index = 1;
   while ( $events_query->have_posts() ) {
     $events_query->the_post();
 
     get_template_part('partials/events-grid-item');
-    $post_index++;
 
-    if( $post_index % 5 == 0 ) {
+    if( $post_index % 3 == 0 ) {
+    ?>
+      </div>
+      <div class="row">
+    <?php
+    }
+    if( $post_index == 8 ) {
+    ?>
+      <div class="col s3">
+        <a id="more-events" href="<?php echo esc_url( $events_archive_link ); ?>" class="see-more u-align-center u-held">Ver Más</a>
+      </div>
+      </div>
+    <?php
+    }
+    if( $post_index % 6 == 0 ) {
 ?>
-      <div class="col s2">&#8200;</div>
+      <div class="col s3">&#8200;</div>
   <?php
     }
+
+    $post_index++;
   }
   ?>
 
-      <button id="more-events" class="see-more col s8">Ver Más</button>
 
     </div>
   </div>

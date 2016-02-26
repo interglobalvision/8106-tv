@@ -293,9 +293,8 @@ if ( $post_query->have_posts() ) {
       </div>
       <div class="row">
 
-        <div class="col s24">
-          <button id="more-posts" class="see-more theme-border-color">Ver Más</button>
-        </div>
+          <button id="more-posts" class="see-more theme-border-color col s24">Ver Más</button>
+
 
       </div>
     </section>
