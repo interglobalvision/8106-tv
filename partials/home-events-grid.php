@@ -1,8 +1,18 @@
 <?php
-// >>> this query needs to be way more clever
+$now = time();
 $args = array (
   'post_type'          => array( 'event' ),
   'posts_per_page'     => '8',
+  // Order by _igv_event_date
+  'orderby'            => 'meta_value_num',
+  'order'              => 'ASC',
+  'meta_key'           => '_igv_event_date',
+  // Only grater/equal today
+  'meta_query'         => array(
+    'key'     => '_igv_event_date',
+    'value'   => $now,
+    'compare' => '>='
+  ),
 );
 
 $events_query = new WP_Query( $args );
