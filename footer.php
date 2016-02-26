@@ -1,12 +1,12 @@
-    <footer id="footer" class="u-align-center">
+    <footer id="footer" class="u-align-center font-condensed">
       <div class="container">
         <div class="row">
           <div class="col s6">
-            logo
+            <a href="<?php echo home_url(); ?>"><?php echo url_get_contents(get_bloginfo('stylesheet_directory') . '/img/dist/8106-logo.svg'); ?></a>
           </div>
           <div class="col s6">
             <ul>
-              <?php wp_list_categories(array('title_li' => '',)); ?>
+              <?php wp_list_categories(array('title_li' => '', 'orderby' => 'count', 'order' => 'DESC', 'hide_empty' => true)); ?>
             </ul>
           </div>
           <div class="col s6">
