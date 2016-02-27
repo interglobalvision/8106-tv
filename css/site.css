@@ -1408,15 +1408,15 @@ img {
   padding: 28px 0;
   font-style: italic;
 }
-.noticias-title {
+.small-post-title {
   margin: 7px;
   font-family: 'Gotham HTF';
 }
-.noticias-post {
+.small-post {
   border-top: 2px solid;
   margin-bottom: 14px;
 }
-.noticias-post img {
+.small-post img {
   float: left;
 }
 #search-field,

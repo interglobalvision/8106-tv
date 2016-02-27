@@ -140,12 +140,12 @@ if ( $noticias_query->have_posts() && $category ) {
   while ( $noticias_query->have_posts() ) {
     $noticias_query->the_post();
   ?>
-      <article <?php post_class('noticias-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class('small-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
 
         <a href="<?php the_permalink() ?>">
 
           <?php the_post_thumbnail('small-thumb'); ?>
-          <h4 class="noticias-title col s3"><?php the_title(); ?></h4>
+          <h4 class="small-post-title col s3"><?php the_title(); ?></h4>
 
         </a>
 
