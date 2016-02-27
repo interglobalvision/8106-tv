@@ -7,11 +7,7 @@ if (get_next_posts_link() || get_previous_posts_link()) {
   <nav id="pagination" class="row u-align-center font-italic">
 <?php
   if ($previous) {
-?>
-    <div class="col s8 theme-border-color pagination-block">
-      <h3><?php echo $previous; ?></h3>
-    </div>
-<?php
+    echo $previous;
   } else {
 ?>
     <div class="col s8"></div>
@@ -23,11 +19,7 @@ if (get_next_posts_link() || get_previous_posts_link()) {
     </div>
 <?php
   if ($next) {
-?>
-    <div class="col s8 theme-border-color pagination-block">
-     <h3> <?php echo $next; ?></h3>
-    </div>
-<?php
+    echo $next;
   } else {
 ?>
     <div class="col s8"></div>

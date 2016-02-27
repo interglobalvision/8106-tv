@@ -1498,6 +1498,12 @@ img {
 #pagination .page-numbers.current {
   text-decoration: underline;
 }
+.next-prev {
+  font-size: 1.5em;
+  font-family: 'Century Gothic';
+  line-height: 1.35em;
+  font-weight: bold;
+}
 #page-header {
   padding: 49px 0;
   margin-bottom: 70px;
