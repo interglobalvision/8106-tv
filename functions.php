@@ -91,6 +91,19 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
+// Overwrite template for default /page/2
+function front_page_template_include() {
+  global $paged;
+  if( is_front_page() && $paged > 0  ) {
+    $new_template = locate_template( array( 'index.php' ) );
+    if ( '' != $new_template ) {
+      return $new_template ;
+    }
+
+  }
+}
+add_filter( 'template_include', 'front_page_template_include' );
+
 // Instagram Feed
 function get_instagram_feed($instagram_handle) {
 
