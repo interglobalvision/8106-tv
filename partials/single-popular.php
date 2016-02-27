@@ -8,7 +8,7 @@
   if ($query->have_posts()) {
 ?>
 
-  <div>
+  <div id="single-popular" class="u-cf single-sidebar-item">
     <div class="col s1 feed-category">
       <span class="rotate-text font-condensed">
         Populares

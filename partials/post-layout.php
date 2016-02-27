@@ -8,12 +8,13 @@
 
 <article <?php post_class(); ?> id="page-<?php the_ID(); ?>">
 
-  <header id="post-header" class="theme-grad-bg">
+  <header id="single-header" class="theme-grad-bg">
     <div class="container">
       <div class="row">
-        <div class="col s16">
-          <h1 class="js-fix-widows"><?php the_title(); ?></h1>
-          <h2 class="js-fix-widows"><?php echo $subtitle; ?></h2>
+        <div class="col s1"></div>
+        <div class="col s15">
+          <h1 id="single-title" class="js-fix-widows"><?php the_title(); ?></h1>
+          <h2 class="font-condensed js-fix-widows"><?php echo $subtitle; ?></h2>
         </div>
         <div class="col s8">
           <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
@@ -30,8 +31,8 @@
         </div>
       </div>
 
-      <div id="post-sidebar" class="u-float">
-        <div class="col s8">
+      <div id="single-sidebar" class="u-float">
+        <div class="col s8 single-sidebar-item">
           <?php if ($author) { ?>
           <strong>Autor:</strong> <?php echo $author; ?>
           <?php } if ($date) { ?>
@@ -39,9 +40,9 @@
           <?php } if ($tags) { ?>
           <br><strong>Tags:</strong> <?php echo $tags; ?>
           <?php } ?>
-          <div id="post-share-widgets">
-            Facebook / Twitter
-          </div>
+        </div>
+        <div class="col s8 single-sidebar-item">
+          Facebook / Twitter
         </div>
         <?php get_template_part('partials/single-popular'); ?>
         <div class="col s8">

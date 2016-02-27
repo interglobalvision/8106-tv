@@ -21,9 +21,7 @@ if ($query->have_posts()) {
 <div id="single-more-posts" class="container">
 
   <div class="row">
-    <div class="col s24">
-      <button><?php echo 'Más ' . $cat_name; ?></button>
-    </div>
+    <button id="more-music" class="see-more theme-border-color col s24"><?php echo 'Más ' . $cat_name; ?></button>
   </div>
 
   <div class="row">
@@ -34,7 +32,7 @@ if ($query->have_posts()) {
 ?>
 
     <div class="col s1"> </div>
-    <article <?php post_class('col s6'); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class('col s6 single-more-post'); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink(); ?>">
 

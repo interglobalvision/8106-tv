@@ -1294,8 +1294,37 @@ blockquote {
   font-size: 1.3rem;
   line-height: 1.35em;
 }
-.copy {
-  max-width: 640px;
+.copy p,
+.copy h1,
+.copy h2,
+.copy h3,
+.copy h4,
+.copy h5,
+.copy h6,
+.copy blockquote {
+  max-width: 500px;
+  margin-left: 53px;
+}
+.copy p iframe,
+.copy h1 iframe,
+.copy h2 iframe,
+.copy h3 iframe,
+.copy h4 iframe,
+.copy h5 iframe,
+.copy h6 iframe,
+.copy blockquote iframe {
+  margin-left: -53px;
+}
+.copy p .wp-image,
+.copy h1 .wp-image,
+.copy h2 .wp-image,
+.copy h3 .wp-image,
+.copy h4 .wp-image,
+.copy h5 .wp-image,
+.copy h6 .wp-image,
+.copy blockquote .wp-image {
+  display: block;
+  margin: 0 auto;
 }
 a,
 a:active,
@@ -1531,6 +1560,31 @@ img {
   font-family: 'Century Gothic';
   line-height: 1.35em;
   font-weight: bold;
+}
+#single-header {
+  margin-bottom: 49px;
+  padding-bottom: 28px;
+}
+#single-title {
+  margin-top: 14px;
+  margin-bottom: 7px;
+}
+#single-sidebar,
+#single-popular {
+  width: 368px;
+}
+.single-sidebar-item {
+  margin-bottom: 28px;
+}
+#more-music {
+  margin-bottom: 70px;
+}
+.single-more-post {
+  margin-bottom: 70px;
+}
+.single-more-post .wp-post-image,
+.single-more-post .feed-title {
+  margin-bottom: 7px;
 }
 #page-header {
   padding: 49px 0;
