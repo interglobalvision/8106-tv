@@ -92,15 +92,15 @@ function new_display_post_thumbnail_column($col, $id){
 }
 
 // Overwrite template for default /page/2
-function front_page_template_include() {
+function front_page_template_include($template) {
   global $paged;
   if( is_front_page() && $paged > 0  ) {
     $new_template = locate_template( array( 'index.php' ) );
     if ( '' != $new_template ) {
       return $new_template ;
     }
-
   }
+  return $template;
 }
 add_filter( 'template_include', 'front_page_template_include' );
 
