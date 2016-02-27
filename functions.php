@@ -197,6 +197,16 @@ function get_twitter_feed($twitter_handle) {
   return $feed;
 }
 
+/*
+ * Add classes to next/prev posts links
+ */
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+  return 'class="next-prev col s8 theme-border-color pagination-block"';
+}
+
 
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {

@@ -78,6 +78,8 @@ $font-tracking-basic = 0.001em
 $color-black-soft = rgb(14, 14, 14)
 $color-white-soft = rgb(253, 253, 253)
 
+$border-width = 2px
+
 // TYPOGRAPHY
 
 html
@@ -243,6 +245,7 @@ img
 
 .see-more
   background: none
+  border-width: $border-width
   border-style: solid
   font-size: 1.5rem
   font-family: 'Century Gothic'
@@ -302,7 +305,7 @@ img
   font-size: 1.2rem
 
 .event-venue
-  font-size: 0.9rem 
+  font-size: 0.9rem
 
 #more-events
   height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
@@ -359,6 +362,24 @@ img
   .genericon
     vertical-align: sub
     font-size: 1.2rem
+
+// PAGINATION
+
+#pagination
+  margin-top: $margin-mid
+  margin-bottom: $margin-mid
+  .pagination-block
+    padding: $margin-basic
+    border-width: $border-width
+    border-style: solid
+  .page-numbers.current
+    text-decoration: underline
+
+.next-prev
+  font-size: 1.5em
+  font-family: 'Century Gothic'
+  line-height: $font-leading-basic
+  font-weight: bold
 
 // PAGE
 
