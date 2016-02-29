@@ -91,6 +91,18 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
+// Remove <p> tags around images in wp_content
+
+function filter_ptags_on_images($content){
+   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+
+function filter_ptags_on_iframes($content){
+   return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_iframes');
+
 // Overwrite template for default /page/2
 function front_page_template_include($template) {
   global $paged;
