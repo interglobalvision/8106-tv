@@ -25,11 +25,13 @@
 
   <div id="page-content" class="container">
     <div class="row">
-      <div class="col s16">
+      <div class="col s15">
         <div class="copy">
           <?php the_content(); ?>
         </div>
       </div>
+
+      <div class="col s1"></div>
 
       <div id="single-sidebar" class="u-float">
         <div class="col s8 single-sidebar-item">
