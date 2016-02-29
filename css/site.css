@@ -1326,6 +1326,15 @@ blockquote {
   display: block;
   margin: 0 auto;
 }
+#featured-copy p,
+#featured-copy h1,
+#featured-copy h2,
+#featured-copy h3,
+#featured-copy h4,
+#featured-copy h5,
+#featured-copy h6 {
+  margin: 0 auto 1em auto;
+}
 a,
 a:active,
 a:visited {
@@ -1387,7 +1396,7 @@ img {
   padding-bottom: 70px;
   margin-bottom: 70px;
 }
-#featured-post-container article {
+#featured-post-container {
   max-height: 50vh;
   min-height: 400px;
   display: -webkit-box;
@@ -1609,6 +1618,10 @@ img {
 }
 #footer .logo path {
   fill: #fdfdfd;
+}
+#featured-single-header {
+  padding-bottom: 70px;
+  margin-bottom: 70px;
 }
 @media screen and (max-width: 1104px) {
   html {

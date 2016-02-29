@@ -21,7 +21,7 @@ if ( $featured_query->have_posts() ) {
 ?>
 
   <section id="featured-post" class="theme-grad-bg u-cf">
-    <div class="container" id="featured-post-container">
+    <div class="container">
 
   <?php
   while ( $featured_query->have_posts() ) {
@@ -30,7 +30,7 @@ if ( $featured_query->have_posts() ) {
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
   ?>
 
-      <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+      <article <?php post_class(); ?> id="featured-post-container">
 
           <h3 id="featured-post-title" class="rotate-text js-fix-widows">
             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
