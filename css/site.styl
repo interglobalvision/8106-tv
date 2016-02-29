@@ -128,14 +128,17 @@ blockquote
   line-height: $font-leading-basic
 
 .copy
-  p, h1, h2, h3, h4, h5, h6, blockquote
-    max-width: 500px
+  font-size: 1.1rem
+  line-height: $font-leading-basic
+  p, h1, h2, h3, h4, h5, h6
     margin-left: $col + ($gutter * 1.5)
-    iframe
-      margin-left: - ($col + ($gutter * 1.5))
-    .wp-image
-      display: block
-      margin: 0 auto
+    margin-right: $col + ($gutter * 1.5)
+  iframe
+    margin: 0 auto $margin-basic auto
+    width: 100%
+  img
+    display: block
+    margin: 0 auto $margin-basic auto
 
 
 // LINKS
@@ -268,7 +271,7 @@ img
   font-family: 'Gotham HTF'
 
 .small-post
-  border-top: 2px solid
+  border-top: $border-width solid
   margin-bottom: $margin-small
 
   img
