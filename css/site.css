@@ -1355,6 +1355,9 @@ img {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+#main-content {
+  padding-top: 28px;
+}
 #header {
   margin-top: 28px;
   margin-bottom: 28px;
@@ -1381,7 +1384,6 @@ img {
   text-align: center;
 }
 #featured-post {
-  padding-top: 28px;
   padding-bottom: 70px;
   margin-bottom: 70px;
 }
