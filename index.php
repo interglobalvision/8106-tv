@@ -3,51 +3,98 @@ get_header();
 ?>
 
 <!-- main content -->
-<main id="main-content" class="container">
+<main id="main-content">
+
+<?php
+// The Loop
+if ( have_posts() ) {
+  $item_count = 1;
+  ?>
 
   <!-- main posts loop -->
-  <section id="posts" class="row">
+  <section id="posts" class="container posts-feed">
+    <div class="row">
 
-<?php
-if( have_posts() ) {
-  while( have_posts() ) {
+  <?php
+  while (have_posts() ) {
+   
     the_post();
-
+    $category = get_the_category( $post->ID );
+    $cat_name = $category[0]->cat_name;
+    $cat_id = $category[0]->term_id;
+    $cat_link = get_category_link( $cat_id );
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
-?>
+   
+  ?>
 
-    <article <?php post_class('col s8'); ?> id="post-<?php the_ID(); ?>">
-
-      <a href="<?php the_permalink() ?>">
-
-        <h3 class="feed-title">
-    <?php the_title(); ?>
-        </h3>
-
-    <?php the_post_thumbnail(); ?>
-
-    <?php if ($subtitle) { ?>
-        <div class="feed-subtitle">
-      <?php echo $subtitle; ?>
+      <article <?php post_class('feed-post u-float'); ?> id="post-<?php the_ID(); ?>">
+        <div class="col s2">
+          <div class="feed-category">
+            <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
+          </div>
         </div>
-    <?php } ?>
 
-      </a>
+        <div class="col s6">
+          <a href="<?php the_permalink() ?>"> 
+            <?php the_post_thumbnail(); ?>
+            <h3 class="feed-title"><?php the_title(); ?></h3>
+      <?php if ($subtitle) { ?>
+            <div class="feed-subtitle"><?php echo $subtitle; ?></div>
+      <?php } ?>
+          </a>
+        </div>
 
-    </article>
+      </article>
 
-<?php
+    <?php
+    if ( ( $item_count % 3 ) == 0 ) {
+    ?>
+
+    </div>
+    <div class="row">
+
+    <?php
+    }
+
+    $item_count++;
+    ?>
+
+    <?php
+    // AD
+    if ( $item_count == 4 || $item_count == 12  || $item_count == 16 || $item_count == 24) {
+    ?>
+
+      <div class="ad u-float">
+        <div class="col s2"></div>
+        <div class="feed-post-container col s6">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        </div>
+      </div>
+
+      <?php
+      if ( ( $item_count % 3 ) == 0 ) {
+      ?>
+
+    </div>
+    <div class="row">
+
+      <?php
+      }
+      $item_count++;
+    }
   }
-} else {
-?>
-    <article class="u-alert col s16"><?php _e('Sorry, no posts matched your criteria :{'); ?></article>
-<?php
-} ?>
+  ?>
+  <?php get_template_part('partials/pagination'); ?>
+
+    <!-- end posts -->
+      </div>
 
   <!-- end posts -->
   </section>
 
-<?php get_template_part('partials/pagination'); ?>
+<?php
+}
+?>
 
 <!-- end main-content -->
 </main>
