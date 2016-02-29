@@ -128,7 +128,15 @@ blockquote
   line-height: $font-leading-basic
 
 .copy
-  max-width: 640px
+  p, h1, h2, h3, h4, h5, h6, blockquote
+    max-width: 500px
+    margin-left: $col + ($gutter * 1.5)
+    iframe
+      margin-left: - ($col + ($gutter * 1.5))
+    .wp-image
+      display: block
+      margin: 0 auto
+
 
 // LINKS
 
@@ -382,6 +390,32 @@ img
   font-family: 'Century Gothic'
   line-height: $font-leading-basic
   font-weight: bold
+
+// SINGLE POST
+
+#single-header
+  margin-bottom: $margin-mid
+  padding-bottom: $margin-basic
+
+#single-title
+  margin-top: $margin-small
+  margin-bottom: $margin-tiny
+
+#single-sidebar, #single-popular
+  width: ($col * 8) + ($gutter * 8)
+
+.single-sidebar-item
+  margin-bottom: $margin-basic
+
+#more-music
+  margin-bottom: $margin-large
+
+.single-more-post
+  margin-bottom: $margin-large
+  .wp-post-image, .feed-title
+    margin-bottom: $margin-tiny
+
+
 
 // PAGE
 
