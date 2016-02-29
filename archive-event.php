@@ -4,7 +4,7 @@ get_header();
 $now = time();
 $args = array (
   'post_type'          => array( 'event' ),
-  'posts_per_page'     => '0',
+  'posts_per_page'     => '-1',
   // Order by _igv_event_date
   'orderby'            => 'meta_value_num',
   'order'              => 'ASC',
@@ -50,16 +50,19 @@ if( have_posts() ) {
     ?>
       </div>
       <div class="row">
-    <?php
+      <?php
+      // When even lines
+      if ( $post_index > 1 && $post_index % 6 == 0) {
+      ?>
+        <div class="col s3"></div>
+      <?php
+      // When odd lines
+      } else {
+      ?>
+        <div class="col s2"></div>
+      <?php
+      }
     }
-
-    // if start of 2rd row
-    if ($post_index == 3) {
-?>
-      <div class="col s2"></div>
-  <?php
-    }
-
     $post_index++;
   }
 } else {
