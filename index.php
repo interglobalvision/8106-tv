@@ -17,25 +17,25 @@ if ( have_posts() ) {
 
   <?php
   while (have_posts() ) {
-   
+
     the_post();
     $category = get_the_category( $post->ID );
     $cat_name = $category[0]->cat_name;
     $cat_id = $category[0]->term_id;
     $cat_link = get_category_link( $cat_id );
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
-   
+
   ?>
 
       <article <?php post_class('feed-post u-float'); ?> id="post-<?php the_ID(); ?>">
-        <div class="col s2">
+        <div class="col s1">
           <div class="feed-category">
             <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
           </div>
         </div>
 
-        <div class="col s6">
-          <a href="<?php the_permalink() ?>"> 
+        <div class="col s7">
+          <a href="<?php the_permalink() ?>">
             <?php the_post_thumbnail(); ?>
             <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
@@ -65,8 +65,8 @@ if ( have_posts() ) {
     ?>
 
       <div class="ad u-float">
-        <div class="col s2"></div>
-        <div class="feed-post-container col s6">
+        <div class="col s1"></div>
+        <div class="feed-post-container col s7">
           <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
         </div>
       </div>

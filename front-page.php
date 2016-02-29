@@ -85,7 +85,7 @@ if ( $puta_query->have_posts() ) {
     $puta_query->the_post();
     $puta_id = $post->ID;
   ?>
-      <div class="col s2">
+      <div class="col s1">
         <div class="feed-category">
           <a href="<?php echo esc_url( $cat_link ); ?>">
             <span class="rotate-text font-condensed">
@@ -95,12 +95,13 @@ if ( $puta_query->have_posts() ) {
         </div>
       </div>
 
-      <div class="col s6">
+      <div class="col s7">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail(); ?>
         </a>
         <?php the_excerpt(); ?>
       </div>
+      <div class="col s1"></div>
   <?php
   }
 }
@@ -127,7 +128,7 @@ if ( $noticias_query->have_posts() && $category ) {
   $cat_id = $category->term_id;
   $cat_link = get_category_link( $cat_id );
 ?>
-      <div class="col s2">
+      <div class="col s1">
         <div class="feed-category">
           <a href="<?php echo esc_url( $cat_link ); ?>">
             <span class="rotate-text font-condensed"><?php echo $cat_name; ?></span>
@@ -156,9 +157,9 @@ if ( $noticias_query->have_posts() && $category ) {
 wp_reset_postdata();
 ?>
       </div>
-      <div class="col s2"></div>
+      <div class="col s1"></div>
 
-      <div class="col s6">
+      <div class="col s7">
         <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
         <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
       </div>
@@ -214,9 +215,9 @@ if ( $post_query->have_posts() ) {
 
         <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
 
-          <div class="col s2"></div>
+          <div class="col s1"></div>
 
-          <div class="feed-post-container col s6">
+          <div class="feed-post-container col s7">
             <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
           </div>
 
@@ -237,13 +238,13 @@ if ( $post_query->have_posts() ) {
 
         <article <?php post_class($post_class); ?> id="post-<?php the_ID(); ?>">
 
-          <div class="col s2">
+          <div class="col s1">
             <div class="feed-category">
               <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
             </div>
           </div>
 
-          <div class="col s6">
+          <div class="col s7">
             <a href="<?php the_permalink() ?>">
 
               <?php the_post_thumbnail(); ?>
