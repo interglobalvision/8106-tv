@@ -91,6 +91,18 @@ function new_display_post_thumbnail_column($col, $id){
   }
 }
 
+// Remove <p> tags around images in wp_content
+
+function filter_ptags_on_images($content){
+   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+
+function filter_ptags_on_iframes($content){
+   return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_iframes');
+
 // Overwrite template for default /page/2
 function front_page_template_include($template) {
   global $paged;
@@ -281,6 +293,24 @@ function pr($var) {
   echo '<pre>';
   print_r($var);
   echo '</pre>';
+}
+
+// Debug page and template request
+function debug_page_request() {
+  global $wp, $template;
+  define("D4P_EOL", "\r\n");
+  echo '<!-- Request: ';
+  echo empty($wp->request) ? "None" : esc_html($wp->request);
+  echo ' -->'.D4P_EOL;
+  echo '<!-- Matched Rewrite Rule: ';
+  echo empty($wp->matched_rule) ? None : esc_html($wp->matched_rule);
+  echo ' -->'.D4P_EOL;
+  echo '<!-- Matched Rewrite Query: ';
+  echo empty($wp->matched_query) ? "None" : esc_html($wp->matched_query);
+  echo ' -->'.D4P_EOL;
+  echo '<!-- Loaded Template: ';
+  echo basename($template);
+  echo ' -->'.D4P_EOL;
 }
 
 ?>

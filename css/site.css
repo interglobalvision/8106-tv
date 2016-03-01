@@ -1294,37 +1294,28 @@ blockquote {
   font-size: 1.3rem;
   line-height: 1.35em;
 }
+.copy {
+  font-size: 1.1rem;
+  line-height: 1.35em;
+}
 .copy p,
 .copy h1,
 .copy h2,
 .copy h3,
 .copy h4,
 .copy h5,
-.copy h6,
-.copy blockquote {
-  max-width: 500px;
+.copy h6 {
   margin-left: 53px;
+  margin-right: 53px;
+  margin-bottom: 28px;
 }
-.copy p iframe,
-.copy h1 iframe,
-.copy h2 iframe,
-.copy h3 iframe,
-.copy h4 iframe,
-.copy h5 iframe,
-.copy h6 iframe,
-.copy blockquote iframe {
-  margin-left: -53px;
+.copy iframe {
+  margin: 0 auto 28px auto;
+  width: 100%;
 }
-.copy p .wp-image,
-.copy h1 .wp-image,
-.copy h2 .wp-image,
-.copy h3 .wp-image,
-.copy h4 .wp-image,
-.copy h5 .wp-image,
-.copy h6 .wp-image,
-.copy blockquote .wp-image {
+.copy img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 28px auto;
 }
 #featured-copy p,
 #featured-copy h1,
@@ -1333,7 +1324,7 @@ blockquote {
 #featured-copy h4,
 #featured-copy h5,
 #featured-copy h6 {
-  margin: 0 auto 1em auto;
+  margin: 0 53px 28px 53px;
 }
 a,
 a:active,
@@ -1430,7 +1421,7 @@ img {
   float: right;
 }
 .feed-category {
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 .feed-title {
@@ -1443,6 +1434,7 @@ img {
   background: none;
   border-width: 2px;
   border-style: solid;
+  text-align: center;
   font-size: 1.5rem;
   font-family: 'Century Gothic';
   padding: 28px 0;

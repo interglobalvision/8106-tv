@@ -128,18 +128,22 @@ blockquote
   line-height: $font-leading-basic
 
 .copy
-  p, h1, h2, h3, h4, h5, h6, blockquote
-    max-width: 500px
+  font-size: 1.1rem
+  line-height: $font-leading-basic
+  p, h1, h2, h3, h4, h5, h6
     margin-left: $col + ($gutter * 1.5)
-    iframe
-      margin-left: - ($col + ($gutter * 1.5))
-    .wp-image
-      display: block
-      margin: 0 auto
+    margin-right: $col + ($gutter * 1.5)
+    margin-bottom: $margin-basic
+  iframe
+    margin: 0 auto $margin-basic auto
+    width: 100%
+  img
+    display: block
+    margin: 0 auto $margin-basic auto
 
 #featured-copy
   p, h1, h2, h3, h4, h5, h6
-    margin: 0 auto 1em auto
+    margin: 0 $col + ($gutter * 1.5) $margin-basic $col + ($gutter * 1.5)
 
 // LINKS
 
@@ -246,7 +250,7 @@ img
   float: right
 
 .feed-category
-  font-size: 2.5rem
+  font-size: 2rem
   text-align: center
 
 .feed-title
@@ -259,6 +263,7 @@ img
   background: none
   border-width: $border-width
   border-style: solid
+  text-align: center
   font-size: 1.5rem
   font-family: 'Century Gothic'
   padding: $margin-basic 0
@@ -272,7 +277,7 @@ img
   font-family: 'Gotham HTF'
 
 .small-post
-  border-top: 2px solid
+  border-top: $border-width solid
   margin-bottom: $margin-small
 
   img
