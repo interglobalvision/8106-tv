@@ -18,6 +18,7 @@ if ( have_posts() ) {
   $post_count = count($wp_query->posts);
   $ads_count = 4;
 
+  // In case is last page and theres less than 20 posts
   if($post_count < 20) {
     $ads_count = floor($post_count / 5) ;
   }
@@ -28,7 +29,7 @@ if ( have_posts() ) {
   ?>
 
     <?php // AD
-    if ( $item_count == 4 || $item_count == 12  || $item_count == 16 || $item_count == 24 || ($item_count == $total_items && !have_posts() ) ) {
+    if ( $item_count == 4 || $item_count == 12  || $item_count == 16 || $item_count == 24 ) {
     ?>
 
       <div class="ad u-float">
