@@ -170,7 +170,7 @@ array_push($excluded_posts, $featured_id, $puta_id);
 
 $args = array (
   'post__not_in'    => $excluded_posts,
-  'posts_per_page'  => '10',
+  'posts_per_page'  => '16',
 );
 
 // The Query
@@ -179,6 +179,7 @@ $post_query = new WP_Query( $args );
 // The Loop
 if ( $post_query->have_posts() ) {
   $item_count = 1;
+  $ads_count = 2;
 ?>
 
     <!-- main posts loop -->
@@ -186,12 +187,25 @@ if ( $post_query->have_posts() ) {
       <div class="row">
 
   <?php
-  while ( $post_query->have_posts() ) {
+  for($item_count = 1; $item_count <= $post_query->post_count + $ads_count; $item_count++) { 
+  //while ( $post_query->have_posts() ) {
   ?>
 
+    <?php // AD
+    if ( $item_count == 4 || $item_count == 12 ) {
+    ?>
 
+        <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
+          <div class="col s1"></div>
+          <div class="feed-post-container col s7">
+            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          </div>
+        </div>
     <?php
-    // POST
+    } else {// End AD
+    ?>
+
+    <?php // POST
     $post_query->the_post();
 
     $category = get_the_category( $post->ID );
@@ -200,7 +214,8 @@ if ( $post_query->have_posts() ) {
     $cat_link = get_category_link( $cat_id );
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
 
-    $post_class = $item_count > 12 ? 'feed-post u-float u-hidden' : 'feed-post u-float'
+    $post_class = $item_count > 12 ? 'feed-post u-float u-hidden' : 'feed-post u-float';
+
     ?>
 
         <article <?php post_class($post_class); ?> id="post-<?php the_ID(); ?>">
@@ -223,6 +238,9 @@ if ( $post_query->have_posts() ) {
 
         </article>
 
+    <?php 
+    } // End POST
+    ?>
       <?php
       if ( $item_count == 6 ) {
       ?>
@@ -237,36 +255,13 @@ if ( $post_query->have_posts() ) {
       <?php
       }
       ?>
-      <?php
+
+      <?php // Close row after echoing post
       if ( ( $item_count % 3 ) == 0 ) {
-      ?>
-
-      </div>
-      <div class="row">
-
-      <?php
+        echo '</div>
+          <div class="row">';
       }
       ?>
-
-    <?php
-    $item_count++; // Incremet count after echo post
-    ?>
-
-    <?php // AD
-    if ( $item_count == 4 || $item_count == 12 ) {
-    ?>
-
-        <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
-          <div class="col s1"></div>
-          <div class="feed-post-container col s7">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-          </div>
-        </div>
-
-    <?php
-      $item_count++;
-    }
-    ?>
 
   <?php
   }
@@ -274,7 +269,7 @@ if ( $post_query->have_posts() ) {
 
       </div>
       <div class="row">
-        <button id="more-posts" class="see-more theme-border-color col s24">Ver Más</button>
+        <a href="<?php echo home_url('page/2'); ?>" id="more-posts" class="see-more theme-border-color col s24">Ver Más</a>
       </div>
 
     <!-- end posts -->
