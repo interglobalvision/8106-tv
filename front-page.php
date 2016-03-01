@@ -170,7 +170,7 @@ array_push($excluded_posts, $featured_id, $puta_id);
 
 $args = array (
   'post__not_in'    => $excluded_posts,
-  'posts_per_page'  => '10',
+  'posts_per_page'  => '16',
 );
 
 // The Query
@@ -274,7 +274,7 @@ if ( $post_query->have_posts() ) {
 
       </div>
       <div class="row">
-        <button id="more-posts" class="see-more theme-border-color col s24">Ver Más</button>
+        <a href="<?php echo home_url('page/2'); ?>" id="more-posts" class="see-more theme-border-color col s24">Ver Más</a>
       </div>
 
     <!-- end posts -->

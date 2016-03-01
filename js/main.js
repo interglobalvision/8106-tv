@@ -124,5 +124,20 @@ jQuery(document).ready(function () {
   Twitter.init();
   Menu.init();
 
+  // ver mas link on homepage
+  $('#more-posts').on({
+    click: function(e) {
+      var _this = $(this);
+
+      if (_this.hasClass('js-next-page')) {
+        // trigger ajax page load? or?
+      } else {
+        e.preventDefault();
+        $('.feed-post.u-hidden').removeClass('u-hidden');
+        _this.addClass('js-next-page');
+      }
+    },
+  })
+
 });
 

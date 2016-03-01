@@ -1424,6 +1424,7 @@ img {
   background: none;
   border-width: 2px;
   border-style: solid;
+  text-align: center;
   font-size: 1.5rem;
   font-family: 'Century Gothic';
   padding: 28px 0;
