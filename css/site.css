@@ -1307,6 +1307,7 @@ blockquote {
 .copy h6 {
   margin-left: 53px;
   margin-right: 53px;
+  margin-bottom: 28px;
 }
 .copy iframe {
   margin: 0 auto 28px auto;
@@ -1315,6 +1316,15 @@ blockquote {
 .copy img {
   display: block;
   margin: 0 auto 28px auto;
+}
+#featured-copy p,
+#featured-copy h1,
+#featured-copy h2,
+#featured-copy h3,
+#featured-copy h4,
+#featured-copy h5,
+#featured-copy h6 {
+  margin: 0 53px 28px 53px;
 }
 a,
 a:active,
@@ -1377,7 +1387,7 @@ img {
   padding-bottom: 70px;
   margin-bottom: 70px;
 }
-#featured-post-container article {
+#featured-post-container {
   max-height: 50vh;
   min-height: 400px;
   display: -webkit-box;
@@ -1600,6 +1610,10 @@ img {
 }
 #footer .logo path {
   fill: #fdfdfd;
+}
+#featured-single-header {
+  padding-bottom: 70px;
+  margin-bottom: 70px;
 }
 @media screen and (max-width: 1104px) {
   html {
