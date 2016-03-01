@@ -178,8 +178,6 @@ $post_query = new WP_Query( $args );
 
 // The Loop
 if ( $post_query->have_posts() ) {
-  $item_count = 1;
-  $ads_count = 2;
 ?>
 
     <!-- main posts loop -->
@@ -187,7 +185,9 @@ if ( $post_query->have_posts() ) {
       <div class="row">
 
   <?php
-  for($item_count = 1; $item_count <= $post_query->post_count + $ads_count; $item_count++) {
+  $ads_count = 2;
+  $post_count = $post_query->post_count;
+  for($item_count = 1; $item_count <= $post_count + $ads_count; $item_count++) { 
   //while ( $post_query->have_posts() ) {
   ?>
 

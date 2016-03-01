@@ -8,24 +8,49 @@ get_header();
 <?php
 // The Loop
 if ( have_posts() ) {
-  $item_count = 1;
-  ?>
+?>
 
   <!-- main posts loop -->
   <section id="posts" class="container posts-feed">
     <div class="row">
 
   <?php
-  while (have_posts() ) {
+  $post_count = count($wp_query->posts);
+  $ads_count = 4;
 
-    the_post();
-    $category = get_the_category( $post->ID );
-    $cat_name = $category[0]->cat_name;
-    $cat_id = $category[0]->term_id;
-    $cat_link = get_category_link( $cat_id );
-    $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
+  // In case is last page and theres less than 20 posts
+  if($post_count < 20) {
+    $ads_count = floor($post_count / 5) ;
+  }
 
+  $total_items = $ads_count + $post_count;
+
+  for($item_count = 1; $item_count <= $total_items; $item_count++) {
   ?>
+
+    <?php // AD
+    if ( $item_count == 4 || $item_count == 12  || $item_count == 16 || $item_count == 24 ) {
+    ?>
+
+      <div class="ad u-float">
+        <div class="col s1"></div>
+        <div class="feed-post-container col s7">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+        </div>
+      </div>
+
+    <?php // End AD
+    } else {
+    ?>
+    
+      <?php // POST 
+      the_post();
+      $category = get_the_category( $post->ID );
+      $cat_name = $category[0]->cat_name;
+      $cat_id = $category[0]->term_id;
+      $cat_link = get_category_link( $cat_id );
+      $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
+      ?>
 
       <article <?php post_class('feed-post u-float'); ?> id="post-<?php the_ID(); ?>">
         <div class="col s1">
@@ -47,47 +72,34 @@ if ( have_posts() ) {
       </article>
 
     <?php
+    } // End POST
+    ?>
+
+    <?php // Close row when 3rd item
     if ( ( $item_count % 3 ) == 0 ) {
     ?>
-
     </div>
     <div class="row">
-
     <?php
     }
-
-    $item_count++;
     ?>
 
-    <?php
-    // AD
-    if ( $item_count == 4 || $item_count == 12  || $item_count == 16 || $item_count == 24) {
-    ?>
-
-      <div class="ad u-float">
-        <div class="col s1"></div>
-        <div class="feed-post-container col s7">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-        </div>
-      </div>
-
-      <?php
-      if ( ( $item_count % 3 ) == 0 ) {
-      ?>
-
-    </div>
-    <div class="row">
-
-      <?php
-      }
-      $item_count++;
+    <?php // Break loop when out of posts
+    if ( $item_count > $total_items && !have_posts() ) {
+      break;
     }
+    ?>
+
+  <?php
   }
   ?>
-  <?php get_template_part('partials/pagination'); ?>
 
     <!-- end posts -->
-      </div>
+  </div>
+
+  <div class="row">
+    <?php get_template_part('partials/pagination'); ?>
+  </div>
 
   <!-- end posts -->
   </section>
