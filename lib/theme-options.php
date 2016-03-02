@@ -138,6 +138,13 @@ class IGV_Admin {
 		) );
 
 		$cmb->add_field( array(
+			'name'    => __( 'Background Pattern', 'IGV' ),
+			'desc'    => __( '', 'IGV' ),
+			'id'      => $this->prefix . 'theme_pattern',
+			'type'    => 'file',
+		 );
+
+		$cmb->add_field( array(
 			'name'    => __( 'Radio', 'IGV' ),
 			'desc'    => __( 'Mixcloud embed code', 'IGV' ),
 			'id'      => $this->prefix . 'radio_embed',
