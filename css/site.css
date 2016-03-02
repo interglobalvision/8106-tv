@@ -1446,7 +1446,7 @@ img {
   max-height: 50vh;
   min-height: 400px;
   margin: 0 14px;
-  max-width: 768px;
+  max-width: 722px;
 }
 #featured-post-image {
   -webkit-flex: 1 0 auto;
@@ -1455,7 +1455,6 @@ img {
           flex: 1 0 auto;
   display: block;
   max-height: 50vh;
-  min-height: 400px;
   width: auto;
 }
 .posts-feed {
