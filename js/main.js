@@ -1,7 +1,8 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr */
+/* global $, jQuery, document, Modernizr, Ajaxy */
 
 var basicAnimationSpeed = 800;
+var fastAnimationSpeed = basicAnimationSpeed / 2;
 
 var Twitter = {
   tweetsWidth: undefined,
@@ -110,6 +111,116 @@ var Menu = {
   },
 };
 
+// AJAX
+Ajaxy = {
+  init: function() {
+    var _this = this;
+    
+    var siteURL = "http://" + top.location.host.toString();
+
+    _this.$ajaxyLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../'], a[href^='#']");
+    //_this.$elementsToHide = $('.nav, #main-container, #three-scene');
+
+    // Find all ajaxy links and bind ajax event
+    _this.$ajaxyLinks.click(function(event) {
+      event.preventDefault();
+
+      var url = event.currentTarget.href;
+
+      _this.ajaxLoad(url);
+
+    });
+
+    $(document).ready( function() {
+      // For back button
+      window.onpopstate = function() {
+        _this.ajaxLoad(document.location.origin + document.location.pathname);
+      };
+    });
+  },
+
+  reset: function() {
+    var _this = this;
+
+    // Unbind click from all ajax links
+    _this.$ajaxyLinks.unbind('click');
+
+    // Re initiate
+    _this.init();
+  },
+
+  ajaxLoad: function(url) {
+    var _this = this;
+
+    $.ajax(url, {
+      beforeSend: function() {
+        _this.ajaxBefore();
+      },
+
+      dataType: 'html',
+      error: function(jqXHR, textStatus) {
+        _this.ajaxErrorHandler(jqXHR, textStatus);
+      },
+
+      success: function(data) {
+        _this.ajaxSuccess(data, url);
+      },
+
+      complete: function() {
+        _this.ajaxAfter();
+      },
+    });
+  },
+
+  ajaxBefore: function() {
+    var _this = this;
+
+    $('body').addClass('loading');
+    $('body, html').animate({
+      scrollTop: 0,
+    }, fastAnimationSpeed);
+  },
+
+  ajaxAfter: function() {
+    var _this = this;
+
+    $('body').removeClass('loading');
+
+    _this.reset();
+
+    // Resets from other parts of the website
+    Twitter.init();
+
+  },
+
+  ajaxErrorHandler: function(jqXHR, textStatus) {
+    alert(textStatus);
+    console.log(jqXHR);
+  },
+
+  ajaxSuccess: function(data,url) {
+
+    // Convert data into proper html to be able to fully parse thru jQuery
+    var respHtml = document.createElement('html');
+
+    respHtml.innerHTML = data;
+
+    // Get changes: body classes, page title, main content, header
+    var $bodyClasses = $('body', respHtml).attr('class');
+    var $content = $('#main-content', respHtml);
+    var $title = $('title', respHtml).text();
+
+    // Push new history state and update title
+    history.pushState(null, $title, url);
+    document.title = $title;
+
+    // Update with new content and classes
+    $('#main-content').html($content.html());
+    $('body').removeAttr('class').addClass($bodyClasses + ' loading');
+
+  },
+};
+
 jQuery(document).ready(function () {
   'use strict';
 
@@ -124,12 +235,15 @@ jQuery(document).ready(function () {
   Twitter.init();
   Menu.init();
 
+  Ajaxy.init('#drawer-categorias-list a, #footer-categorias-list a');
+
   // ver mas link on homepage
   $('#more-posts').on({
     click: function(e) {
       var _this = $(this);
 
       if (_this.hasClass('js-next-page')) {
+        debugger;
         // trigger ajax page load? or?
       } else {
         e.preventDefault();
@@ -137,7 +251,7 @@ jQuery(document).ready(function () {
         _this.addClass('js-next-page');
       }
     },
-  })
+  });
 
 });
 

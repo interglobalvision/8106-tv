@@ -91,6 +91,9 @@ body
   line-height: $font-leading-basic
   letter-spacing: $font-tracking-basic
 
+  &.loading #main-content
+    opacity: 0
+
 .font-century-gothic
   font-family: 'Century Gothic'
 
@@ -174,6 +177,7 @@ img
 
 #main-content
   padding-top: $margin-basic
+  transition: opacity 300ms
 
 // HEADER
 
