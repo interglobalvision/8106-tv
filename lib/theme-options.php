@@ -142,7 +142,7 @@ class IGV_Admin {
 			'desc'    => __( '', 'IGV' ),
 			'id'      => $this->prefix . 'theme_pattern',
 			'type'    => 'file',
-		 );
+		) );
 
 		$cmb->add_field( array(
 			'name'    => __( 'Radio', 'IGV' ),
