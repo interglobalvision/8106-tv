@@ -104,6 +104,21 @@ class IGV_Admin {
 		// Set our CMB2 fields
 
 		$cmb->add_field( array(
+			'name' => __( 'Max age of popular posts', 'IGV' ),
+			'desc'    => __( 'How many weeks old can popular posts be? Just set the number', 'IGV' ),
+			'id'   => $this->prefix . 'popular_expiry',
+			'type' => 'text',
+			'default' => '3',
+		) );
+
+		$cmb->add_field( array(
+			'name'    => __( 'Radio', 'IGV' ),
+			'desc'    => __( 'Mixcloud embed code', 'IGV' ),
+			'id'      => $this->prefix . 'radio_embed',
+			'type'    => 'textarea_code',
+		) );
+
+		$cmb->add_field( array(
 			'name' => __( 'Twitter handle', 'IGV' ),
 			'id'   => $this->prefix . 'twitter_handle',
 			'type' => 'text',
@@ -135,13 +150,6 @@ class IGV_Admin {
 			'id'      => $this->prefix . 'theme_color',
 			'type'    => 'colorpicker',
 			'default' => '#a5cfca',
-		) );
-
-		$cmb->add_field( array(
-			'name'    => __( 'Radio', 'IGV' ),
-			'desc'    => __( 'Mixcloud embed code', 'IGV' ),
-			'id'      => $this->prefix . 'radio_embed',
-			'type'    => 'textarea_code',
 		) );
 
 

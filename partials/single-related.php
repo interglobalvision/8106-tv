@@ -1,26 +1,20 @@
 <?php
-  // popular posts query
+  // needs related posts query
   $args = array (
-    'posts_per_page' => '5',
+    'posts_per_page' => '3',
     'post__not_in'   => array($post->ID,),
-    'meta_key' => 'ghb_hype',
-    'orderby' => 'meta_value_num',
-    'date_query' => array(
-      'after' => date('Ymd', strtotime('-' . IGV_get_option( '_igv_popular_expiry') . ' weeks')),
-    ),
   );
   $query = new WP_Query($args);
   if ($query->have_posts()) {
 ?>
 
-  <div id="single-popular" class="u-cf single-sidebar-item">
     <div class="col s1 feed-category">
       <span class="rotate-text font-condensed">
-        Populares
+        Relacionados
       </span>
     </div>
 
-    <div class="col s7">
+    <div class="col s6">
 
 <?php
     while ($query->have_posts()) {
@@ -42,7 +36,6 @@
 ?>
 
     </div>
-  </div>
 
 <?php
   } else {

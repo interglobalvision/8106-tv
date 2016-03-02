@@ -1,17 +1,67 @@
 <?php
-
-    // Get meta
-    $subtitle  = get_post_meta( get_the_ID(), '_igv_post_subtitle', true );
-
+  // Get meta
+  $subtitle  = get_post_meta( get_the_ID(), '_igv_post_subtitle', true );
+  $author = get_the_author();
+  $date = get_the_date( 'j F Y' );
+  $tags = get_the_tag_list('',', ','');
 ?>
-<div class="row">
-  <article <?php post_class('col s16'); ?> id="post-<?php the_ID(); ?>">
 
-    <?php the_post_thumbnail(); ?>
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-    <h2><?php echo $subtitle; ?></h2>
+<article <?php post_class(); ?> id="single-featured-<?php the_ID(); ?>">
 
-    <?php the_content(); ?>
+  <header id="featured-single-header" class="theme-grad-bg">
+    <div class="container" id="featured-post-container">
 
-  </article>
-</div>
+          <h3 id="featured-post-title" class="rotate-text js-fix-widows">
+            <?php the_title(); ?>
+          </h3>
+
+    <?php if ($subtitle) { ?>
+          <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+            <h4><?php echo $subtitle; ?></h4>
+          </div>
+    <?php } ?>
+
+          <?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?>
+
+    <div>
+  </header>
+
+  <div id="page-content" class="container">
+    <div class="row">
+      <div class="col s4"></div>
+
+      <div class="col s16">
+        <div id="featured-copy" class="copy">
+          <?php the_content(); ?>
+        </div>
+      </div>
+    </div>
+
+    <footer id="featured-single-footer">
+
+      <div class="row">
+        <div class="col s24 u-align-center">
+          Facebook / Twitter
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s4"></div>
+        <?php get_template_part('partials/single-related'); ?>
+        <div class="col s2"></div>
+        <div class="col s7">
+          <?php if ($author) { ?>
+          <strong>Autor:</strong> <?php echo $author; ?>
+          <?php } if ($date) { ?>
+          <br><strong>Fecha:</strong> <?php echo $date; ?>
+          <?php } if ($tags) { ?>
+          <br><strong>Tags:</strong> <?php echo $tags; ?>
+          <?php } ?>
+        </div>
+      </div>
+
+    </footer>
+
+  </div>
+
+</article>
