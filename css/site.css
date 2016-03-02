@@ -1336,16 +1336,6 @@ a:active,
 a:visited {
   color: inherit;
   text-decoration: none;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-  text-decoration: none;
-}
-a:hover,
-a:active:hover,
-a:visited:hover {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  filter: alpha(opacity=50);
-  opacity: 0.5;
 }
 html {
   background-color: #fdfdfd;
@@ -1356,7 +1346,9 @@ img {
   height: auto;
 }
 .rotate-text {
-  writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -1364,6 +1356,10 @@ img {
   padding-top: 28px;
   -webkit-transition: opacity 300ms;
   transition: opacity 300ms;
+}
+#header-advert-space {
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 #header {
   margin-top: 28px;
@@ -1401,19 +1397,58 @@ img {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
+}
+#featured-post-title-holder {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  max-height: 50vh;
+  min-height: 400px;
 }
 #featured-post-title {
   font-size: 3rem;
+  max-height: 50vh;
+  min-height: 400px;
+}
+#featured-post-subtitle-holder {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  max-height: 50vh;
+  min-height: 400px;
+  margin: 0 28px;
 }
 #featured-post-subtitle {
   font-size: 2.5rem;
-  margin: 0 28px;
-}
-#featured-post-image {
   max-height: 50vh;
   min-height: 400px;
-  width: auto;
+}
+#featured-post-image-holder {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  -webkit-box-flex: 1;
+          flex: 1 0 auto;
+  max-height: 50vh;
+  min-height: 400px;
   margin: 0 14px;
+  max-width: 722px;
+}
+#featured-post-image {
+  display: block;
+  max-width: 722px;
+  width: auto;
 }
 .posts-feed {
   margin-bottom: 70px;
@@ -1620,6 +1655,9 @@ img {
 }
 #featured-single-header {
   padding-bottom: 70px;
+  margin-bottom: 70px;
+}
+#not-found {
   margin-bottom: 70px;
 }
 @media screen and (max-width: 1104px) {

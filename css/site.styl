@@ -153,10 +153,6 @@ blockquote
 a, a:active, a:visited
   color:inherit
   text-decoration: none
-  transition:opacity .2s
-  text-decoration: none
-  &:hover
-    opacity:.5
 
 
 // BASIC
@@ -170,7 +166,7 @@ img
   height: auto
 
 .rotate-text
-  writing-mode: tb-rl
+  writing-mode: vertical-rl
   transform: rotate(180deg)
 
 // STRUCTURE
@@ -180,6 +176,10 @@ img
   transition: opacity 300ms
 
 // HEADER
+
+#header-advert-space
+  padding-top: $margin-small
+  padding-bottom: $margin-small
 
 #header
   margin-top: $margin-basic
@@ -224,19 +224,41 @@ img
   max-height: 50vh
   min-height: 400px
   display: flex
+  justify-content: flex-start
+  align-items: flex-end
+
+#featured-post-title-holder
+  flex: 1 0 auto
+  max-height: 50vh
+  min-height: 400px
 
 #featured-post-title
   font-size: 3rem
+  max-height: 50vh
+  min-height: 400px
+
+#featured-post-subtitle-holder
+  flex: 1 0 auto
+  max-height: 50vh
+  min-height: 400px
+  margin: 0 $margin-basic
 
 #featured-post-subtitle
   font-size: 2.5rem
-  margin: 0 $margin-basic
-
-#featured-post-image
   max-height: 50vh
   min-height: 400px
-  width: auto;
+
+#featured-post-image-holder
+  flex: 1 0 auto
+  max-height: 50vh
+  min-height: 400px
   margin: 0 $margin-small
+  max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
+
+#featured-post-image
+  display: block
+  max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
+  width: auto
 
 
 // HOME POSTS FEED
@@ -458,8 +480,9 @@ img
   padding-bottom: $margin-large
   margin-bottom: $margin-large
 
-
-
+// 404
+#not-found
+  margin-bottom: $margin-large
 
 // MEDIA QUERIES
 

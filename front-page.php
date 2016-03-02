@@ -31,15 +31,21 @@ if ( $featured_query->have_posts() ) {
   ?>
 
       <article <?php post_class(); ?> id="featured-post-container">
-        <h3 id="featured-post-title" class="rotate-text js-fix-widows">
-          <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-        </h3>
+        <div id="featured-post-title-holder">
+          <h3 id="featured-post-title" class="rotate-text js-fix-widows">
+            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+          </h3>
+        </div>
     <?php if ($subtitle) { ?>
-        <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
-          <h4><a href="<?php the_permalink() ?>"><?php echo $subtitle; ?></a></h4>
+        <div id="featured-post-subtitle-holder">
+          <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+            <a href="<?php the_permalink() ?>"><?php echo $subtitle; ?></a>
+          </h4>
         </div>
     <?php } ?>
-        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+        <div id="featured-post-image-holder">
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+        </div>
       </article>
 
   <?php
@@ -187,7 +193,7 @@ if ( $post_query->have_posts() ) {
   <?php
   $ads_count = 2;
   $post_count = $post_query->post_count;
-  for($item_count = 1; $item_count <= $post_count + $ads_count; $item_count++) { 
+  for($item_count = 1; $item_count <= $post_count + $ads_count; $item_count++) {
   //while ( $post_query->have_posts() ) {
   ?>
 

@@ -1,6 +1,7 @@
 <?php
 // Get theme color
 $theme_color = IGV_get_option( '_igv_theme_color');
+$theme_pattern = IGV_get_option( '_igv_theme_pattern');
 ?>
 <style>
 .theme-bg {
@@ -25,5 +26,9 @@ $theme_color = IGV_get_option( '_igv_theme_color');
 
 .theme-border-color {
   border-color: <?php echo $theme_color; ?>;
+}
+
+.theme-pattern-bg {
+  background-image: url(<?php echo $theme_pattern; ?>);
 }
 </style>
