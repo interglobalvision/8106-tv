@@ -6,7 +6,7 @@
     'meta_key' => 'ghb_hype',
     'orderby' => 'meta_value_num',
     'date_query' => array(
-      'after' => date('Ymd', strtotime('-' . IGV_get_option( '_igv_popular_expiry') . ' months')),
+      'after' => date('Ymd', strtotime('-' . IGV_get_option( '_igv_popular_expiry') . ' weeks')),
     ),
   );
   $query = new WP_Query($args);

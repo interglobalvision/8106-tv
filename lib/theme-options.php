@@ -105,7 +105,7 @@ class IGV_Admin {
 
 		$cmb->add_field( array(
 			'name' => __( 'Max age of popular posts', 'IGV' ),
-			'desc'    => __( 'How many months old can popular posts be? Just set the number', 'IGV' ),
+			'desc'    => __( 'How many weeks old can popular posts be? Just set the number', 'IGV' ),
 			'id'   => $this->prefix . 'popular_expiry',
 			'type' => 'text',
 			'default' => '3',
