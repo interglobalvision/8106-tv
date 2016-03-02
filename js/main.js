@@ -194,7 +194,7 @@ Ajaxy = {
   },
 
   ajaxErrorHandler: function(jqXHR, textStatus) {
-    alert(textStatus);
+    //alert(textStatus);
     console.log(jqXHR);
   },
 
@@ -235,7 +235,7 @@ jQuery(document).ready(function () {
   Twitter.init();
   Menu.init();
 
-  Ajaxy.init('#drawer-categorias-list a, #footer-categorias-list a');
+  Ajaxy.init();
 
   // ver mas link on homepage
   $('#more-posts').on({
