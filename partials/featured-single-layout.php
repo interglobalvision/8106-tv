@@ -10,19 +10,23 @@
 
   <header id="featured-single-header" class="theme-grad-bg">
     <div class="container" id="featured-post-container">
-
+      <div id="featured-post-title-holder">
           <h3 id="featured-post-title" class="rotate-text js-fix-widows">
             <?php the_title(); ?>
           </h3>
+        </div>
 
     <?php if ($subtitle) { ?>
-          <div id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
-            <h4><?php echo $subtitle; ?></h4>
-          </div>
+        <div id="featured-post-subtitle-holder">
+          <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+            <?php echo $subtitle; ?>
+          </h4>
+        </div>
     <?php } ?>
 
-          <?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?>
-
+        <div id="featured-post-image-holder">
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+        </div>
     <div>
   </header>
 
