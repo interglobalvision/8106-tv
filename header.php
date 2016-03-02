@@ -54,7 +54,7 @@
 
   <section id="main-container">
 
-  <div id="header-advert-space" class="theme-pattern-bg">
+  <div id="header-advert-space" class="theme-bg theme-pattern-bg">
     <div class="container">
       <div class="row u-align-center">
         <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=800&h=100">
