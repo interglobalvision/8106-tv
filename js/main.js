@@ -243,10 +243,8 @@ jQuery(document).ready(function () {
       var _this = $(this);
 
       if (_this.hasClass('js-next-page')) {
-        debugger;
-        // trigger ajax page load? or?
+        Ajaxy.ajaxLoad(_this.data('href'));
       } else {
-        e.preventDefault();
         $('.feed-post.u-hidden').removeClass('u-hidden');
         _this.addClass('js-next-page');
       }
