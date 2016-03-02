@@ -2,8 +2,26 @@
 
 // here we get more posts from the same category
 
-$category = get_the_category($post->ID);
-$cat_name = $category[0]->cat_name;
+if (get_post_type() !== 'post') {
+
+  $categories = get_categories(array('hide_empty' => 1));
+
+  // reset indexes if empty cats are excluded
+  $categories = array_values($categories);
+
+  // get a random cat
+  $random_index = rand(0, (count($categories) - 1));
+  $random_category = $categories[$random_index];
+
+  $category = $random_category;
+  $cat_name = $random_category->cat_name;
+
+} else {
+
+  $category = get_the_category($post->ID);
+  $cat_name = $category[0]->cat_name;
+
+}
 
 $args = array (
   'category_name'          => $cat_name,
