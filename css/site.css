@@ -1350,6 +1350,10 @@ img {
 #main-content {
   padding-top: 28px;
 }
+#header-advert-space {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
 #header {
   margin-top: 28px;
   margin-bottom: 28px;
@@ -1644,6 +1648,9 @@ img {
 }
 #featured-single-header {
   padding-bottom: 70px;
+  margin-bottom: 70px;
+}
+#not-found {
   margin-bottom: 70px;
 }
 @media screen and (max-width: 1104px) {
