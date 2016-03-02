@@ -1341,7 +1341,9 @@ img {
   height: auto;
 }
 .rotate-text {
-  writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
