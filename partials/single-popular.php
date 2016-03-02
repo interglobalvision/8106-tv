@@ -3,6 +3,11 @@
   $args = array (
     'posts_per_page' => '5',
     'post__not_in'   => array($post->ID,),
+    'meta_key' => 'ghb_hype',
+    'orderby' => 'meta_value_num',
+    'date_query' => array(
+      'after' => date('Ymd', strtotime('-' . IGV_get_option( '_igv_popular_expiry') . ' weeks')),
+    ),
   );
   $query = new WP_Query($args);
   if ($query->have_posts()) {
