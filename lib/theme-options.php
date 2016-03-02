@@ -152,6 +152,12 @@ class IGV_Admin {
 			'default' => '#a5cfca',
 		) );
 
+		$cmb->add_field( array(
+			'name'    => __( 'Background Pattern', 'IGV' ),
+			'desc'    => __( '', 'IGV' ),
+			'id'      => $this->prefix . 'theme_pattern',
+			'type'    => 'file',
+		) );
 
 	}
 
