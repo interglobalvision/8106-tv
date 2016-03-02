@@ -275,7 +275,7 @@ if ( $post_query->have_posts() ) {
 
       </div>
       <div class="row">
-        <a href="<?php echo home_url('page/2'); ?>" id="more-posts" class="see-more theme-border-color col s24">Ver Más</a>
+        <a data-href="<?php echo home_url('page/2'); ?>" id="more-posts" class="see-more theme-border-color col s24 u-pointer">Ver Más</a>
       </div>
 
     <!-- end posts -->

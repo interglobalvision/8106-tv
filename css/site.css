@@ -1253,6 +1253,11 @@ body {
   line-height: 1.35em;
   letter-spacing: 0.001em;
 }
+body.loading #main-content {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
 .font-century-gothic {
   font-family: 'Century Gothic';
 }
@@ -1349,6 +1354,8 @@ img {
 }
 #main-content {
   padding-top: 28px;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
 }
 #header-advert-space {
   padding-top: 14px;
