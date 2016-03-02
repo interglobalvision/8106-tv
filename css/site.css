@@ -1615,6 +1615,9 @@ img {
   padding-bottom: 70px;
   margin-bottom: 70px;
 }
+#not-found {
+  margin-bottom: 70px;
+}
 @media screen and (max-width: 1104px) {
   html {
     width: 100%;
