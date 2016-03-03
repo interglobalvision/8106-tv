@@ -73,6 +73,7 @@ $margin-large = ($gutter * 5)
 
 $font-size-basic = 15px
 $font-leading-basic = 1.35em
+$font-leading-wider = 1.5em
 $font-tracking-basic = 0.001em
 
 $color-black-soft = rgb(14, 14, 14)
@@ -131,8 +132,8 @@ blockquote
   line-height: $font-leading-basic
 
 .copy
-  font-size: 1.1rem
-  line-height: $font-leading-basic
+  font-size: 1.2rem
+  line-height: $font-leading-wider
   p, h1, h2, h3, h4, h5, h6
     margin-left: $col + ($gutter * 1.5)
     margin-right: $col + ($gutter * 1.5)
@@ -146,7 +147,7 @@ blockquote
 
 #featured-copy
   p, h1, h2, h3, h4, h5, h6
-    margin: 0 $col + ($gutter * 1.5) $margin-basic $col + ($gutter * 1.5)
+    margin: 0 ($col + ($gutter * 1.5)) $margin-basic ($col + ($gutter * 1.5))
 
 // LINKS
 
