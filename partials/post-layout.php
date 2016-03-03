@@ -44,7 +44,10 @@
           <?php } ?>
         </div>
         <div class="col s8 single-sidebar-item">
-          Facebook / Twitter
+          <ul class="social-widgets">
+            <li class="facebook-widget">Facebook</li>
+            <li class="twitter-widget"><a class="twitter-share-button" data-via="<?php echo IGV_get_option('_igv_twitter_handle'); ?>">Tweet</a></li>
+          </ul>
         </div>
         <?php get_template_part('partials/single-popular'); ?>
         <div class="col s8">

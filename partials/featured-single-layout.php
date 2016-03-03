@@ -45,7 +45,10 @@
 
       <div class="row">
         <div class="col s24 u-align-center">
-          Facebook / Twitter
+          <ul class="social-widgets">
+            <li class="facebook-widget">Facebook</li>
+            <li class="twitter-widget"><a class="twitter-share-button" data-via="<?php echo IGV_get_option('_igv_twitter_handle'); ?>">Tweet</a></li>
+          </ul>
         </div>
       </div>
 
