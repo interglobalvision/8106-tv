@@ -44,7 +44,7 @@
     <footer id="featured-single-footer">
 
       <div class="row">
-        <div class="col s24 u-align-center">
+        <div id="featured-social-widgets" class="col s24 u-align-center">
           <?php get_template_part('partials/social-widgets'); ?>
         </div>
       </div>
