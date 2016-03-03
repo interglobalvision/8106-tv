@@ -1300,8 +1300,8 @@ blockquote {
   line-height: 1.35em;
 }
 .copy {
-  font-size: 1.1rem;
-  line-height: 1.35em;
+  font-size: 1.2rem;
+  line-height: 1.5em;
 }
 .copy p,
 .copy h1,
@@ -1330,6 +1330,9 @@ blockquote {
 #featured-copy h5,
 #featured-copy h6 {
   margin: 0 53px 28px 53px;
+}
+.indent {
+  margin-left: 32px;
 }
 a,
 a:active,

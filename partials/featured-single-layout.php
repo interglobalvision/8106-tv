@@ -32,9 +32,9 @@
 
   <div id="page-content" class="container">
     <div class="row">
-      <div class="col s4"></div>
+      <div class="col s2"></div>
 
-      <div class="col s16">
+      <div class="col s20">
         <div id="featured-copy" class="copy">
           <?php the_content(); ?>
         </div>
