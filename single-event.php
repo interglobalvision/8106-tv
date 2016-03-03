@@ -26,7 +26,6 @@ if (have_posts()) {
     $event_date  = get_post_meta( get_the_ID(), '_igv_event_date', true );
 
     if ($event_date) {
-      $event_date= strtotime($event_date);
       $event_month = date_i18n('F', $event_date);
       $event_day = date_i18n('d', $event_date);
     }
@@ -82,7 +81,7 @@ if (have_posts()) {
             <?php
                 }
                 if ($event_date) { ?>
-                  <h3>>Fecha:</h3>
+                  <h3>Fecha:</h3>
                   <p class="indent"><?php echo date_i18n('j F, Y', $event_date); ?></p>
             <?php
                 }
