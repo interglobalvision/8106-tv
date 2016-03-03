@@ -70,26 +70,30 @@ if (have_posts()) {
           <div id="single-sidebar" class="u-float">
             <div class="col s8 single-sidebar-item">
 
-              <?php
-                  if ($event_address) { ?>
-                <p><b>Ubicación: </b><?php echo esc_html($event_address); ?></p>
-              <?php
-                  }
-                  if ($event_price) { ?>
-                <p><b>Precio: </b><?php echo esc_html($event_price); ?></p>
-              <?php
-                  }
-                  if ($event_date) { ?>
-                <p><b>Fecha: </b><?php echo date_i18n('j F, Y', $event_date); ?></p>
-              <?php
-                  }
-                  if ($event_time) { ?>
-                <p><b>Hora: </b><?php echo $event_time; ?></p>
-              <?php
-                  }
-                  if ($event_fb_link) { ?>
-                <p><a href="<?php echo $event_fb_link; ?>">Evento en facebook</a></p>
-              <?php } ?>
+            <?php
+                if ($event_address) { ?>
+                  <h3>Ubicación:</h3>
+                  <p class="indent"><?php echo esc_html($event_address); ?></p>
+            <?php
+                }
+                if ($event_price) { ?>
+                  <h3>Precio:</h3>
+                  <p class="indent"><?php echo esc_html($event_price); ?></p>
+            <?php
+                }
+                if ($event_date) { ?>
+                  <h3>>Fecha:</h3>
+                  <p class="indent"><?php echo date_i18n('j F, Y', $event_date); ?></p>
+            <?php
+                }
+                if ($event_time) { ?>
+                  <h3>Hora:</h3>
+                  <p class="indent"><?php echo $event_time; ?></p>
+            <?php
+                }
+                if ($event_fb_link) { ?>
+                  <h3><a href="<?php echo $event_fb_link; ?>">Evento en facebook</a></h3>
+            <?php } ?>
 
             </div>
             <div class="col s8 single-sidebar-item">
