@@ -1331,6 +1331,9 @@ blockquote {
 #featured-copy h6 {
   margin: 0 53px 28px 53px;
 }
+.indent {
+  margin-left: 32px;
+}
 a,
 a:active,
 a:visited {
