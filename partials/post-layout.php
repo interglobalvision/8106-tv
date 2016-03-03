@@ -44,7 +44,7 @@
           <?php } ?>
         </div>
         <div class="col s8 single-sidebar-item">
-          Facebook / Twitter
+          <?php get_template_part('partials/social-widgets'); ?>
         </div>
         <?php get_template_part('partials/single-popular'); ?>
         <div class="col s8">

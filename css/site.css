@@ -1634,6 +1634,9 @@ img {
 .single-more-post .feed-title {
   margin-bottom: 7px;
 }
+.twitter-widget iframe {
+  vertical-align: bottom;
+}
 #page-header {
   padding: 49px 0;
   margin-bottom: 70px;
@@ -1658,6 +1661,10 @@ img {
 }
 #featured-single-header {
   padding-bottom: 70px;
+  margin-bottom: 70px;
+}
+#featured-social-widgets {
+  margin-top: 28px;
   margin-bottom: 70px;
 }
 #not-found {

@@ -145,6 +145,12 @@ class IGV_Admin {
 		) );
 
 		$cmb->add_field( array(
+			'name' => __( 'Facebook App ID', 'IGV' ),
+			'id'   => $this->prefix . 'facebook_app_id',
+			'type' => 'text',
+		) );
+
+		$cmb->add_field( array(
 			'name'    => __( 'Color', 'IGV' ),
 			'desc'    => __( '', 'IGV' ),
 			'id'      => $this->prefix . 'theme_color',
