@@ -31,6 +31,10 @@
 
   </section>
 
+  <div id="loading" class="u-flex-center u-align-center">
+    <div class="loader"><div class="loader-inner line-scale"><div></div><div></div><div></div><div></div><div></div></div></div>
+  </div>
+
   <?php get_template_part('partials/scripts'); ?>
 
   <script type="application/ld+json">
