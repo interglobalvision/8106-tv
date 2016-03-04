@@ -122,6 +122,7 @@ Ajaxy = {
     
     // Bind links
     _this.bindLinks();
+    _this.bindSearchForm();
 
     $(window).bind('popstate', function(event) {
       if( !_this.firstLoad ) {
@@ -152,6 +153,20 @@ Ajaxy = {
       }
 
       return;
+
+    });
+  },
+
+  bindSearchForm: function() {
+    var _this = this;
+
+    $('#search-form').submit( function(event) {
+      event.preventDefault();
+
+      // Get search string
+      var search = $('#search-field').val();
+
+      _this.load('/?s=' + search);
 
     });
   },

@@ -1,4 +1,4 @@
-<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+<form id="search-form" role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
   <div class="row">
     <div class="col s2">
     </div>
