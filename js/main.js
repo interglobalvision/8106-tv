@@ -115,12 +115,18 @@ var Menu = {
 Ajaxy = {
   init: function() {
     var _this = this;
+
+    // This var is checked below. It helps prevent Safari's popstate on load to
+    // reload (ajax) the site.
+    _this.firstLoad = true;
     
     // Bind links
     _this.bindLinks();
 
     $(window).bind('popstate', function(event) {
-      _this.load(document.location.origin + document.location.pathname, false);
+      if( !_this.firstLoad ) {
+        _this.load(document.location.origin + document.location.pathname, false);
+      }
     });
 
   },
@@ -161,6 +167,8 @@ Ajaxy = {
    */
   load: function(url, pushState) {
     var _this = this;
+
+    _this.firstLoad = false;
 
     // Default pushState to true
     pushState = typeof pushState !== 'undefined' ? pushState : true;
