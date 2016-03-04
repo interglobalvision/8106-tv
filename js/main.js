@@ -141,11 +141,17 @@ Ajaxy = {
 
     // Find all ajaxy links and bind ajax event
     _this.$ajaxyLinks.click(function(event) {
-      event.preventDefault();
 
-      var url = event.currentTarget.href;
+      // Detect if is cmd+click or ctrl+click or has been defaultPrevented somewhere else
+      if ( !event.isDefaultPrevented() && !event.metaKey && !event.ctrlKey ) {
+        event.preventDefault();
 
-      _this.load(url);
+        var url = event.currentTarget.href;
+
+        _this.load(url);
+      }
+
+      return;
 
     });
   },
