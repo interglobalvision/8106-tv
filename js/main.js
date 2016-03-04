@@ -103,11 +103,21 @@ var Menu = {
 
   },
 
-  closeBelowMenu: function() {
-    // for after AJAX loads or clicks?
+  closeBelowMenu: function(search) {
+    var _this = this;
+    var drawers = '#drawer-follow, #drawer-categorias';
+    
+    if ( !search ) {
+      drawers += ', #drawer-search';
+      _this.cleanSearch();
+    }
 
-    return $('#drawer-search, #drawer-follow, #drawer-categorias').slideUp(basicAnimationSpeed);
+    return $(drawers).slideUp(basicAnimationSpeed);
 
+  },
+
+  cleanSearch: function() {
+    $('#search-field').val('');
   },
 };
 
@@ -200,8 +210,8 @@ Ajaxy = {
     }
 
     $.ajax(url, {
-      beforeSend: function() {
-        _this.ajaxBefore();
+      beforeSend: function(xhr, settings) {
+        _this.ajaxBefore(settings.url);
       },
 
       dataType: 'html',
@@ -219,13 +229,21 @@ Ajaxy = {
     });
   },
 
-  ajaxBefore: function() {
+  ajaxBefore: function(url) {
     var _this = this;
+
+    var search = false;
+
+    if( url.indexOf('/?s=') > -1) {
+      search = true;
+    }
+
+    Menu.closeBelowMenu(search);
 
     $('body').addClass('loading');
     $('body, html').animate({
       scrollTop: 0,
-    }, fastAnimationSpeed);
+    }, basicAnimationSpeed);
   },
 
   ajaxAfter: function() {
