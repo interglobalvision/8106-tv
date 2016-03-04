@@ -116,6 +116,18 @@ Ajaxy = {
   init: function() {
     var _this = this;
     
+    // Bind links
+    _this.bindLinks();
+
+    $(window).bind('popstate', function(event) {
+      _this.load(document.location.origin + document.location.pathname, false);
+    });
+
+  },
+
+  bindLinks: function() {
+    var _this = this;
+
     var siteURL = "http://" + top.location.host.toString();
 
     _this.$ajaxyLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../'], a[href^='#']");
@@ -127,15 +139,8 @@ Ajaxy = {
 
       var url = event.currentTarget.href;
 
-      _this.ajaxLoad(url);
+      _this.load(url);
 
-    });
-
-    $(document).ready( function() {
-      // For back button
-      window.onpopstate = function() {
-        _this.ajaxLoad(document.location.origin + document.location.pathname);
-      };
     });
   },
 
@@ -146,11 +151,24 @@ Ajaxy = {
     _this.$ajaxyLinks.unbind('click');
 
     // Re initiate
-    _this.init();
+    _this.bindLinks();
   },
 
-  ajaxLoad: function(url) {
+  /* 
+   * Load a new URL thru ajax
+   * @url {String}: URL to load
+   * @pushState {Bool}: Make false if a new state doens't need to be pushed (Default: true). Ex, going back
+   */
+  load: function(url, pushState) {
     var _this = this;
+
+    // Default pushState to true
+    pushState = typeof pushState !== 'undefined' ? pushState : true;
+
+    if( pushState ) {
+      // Push new history state
+      history.pushState(null, null, url);
+    }
 
     $.ajax(url, {
       beforeSend: function() {
@@ -210,11 +228,8 @@ Ajaxy = {
     var $content = $('#main-content', respHtml);
     var $title = $('title', respHtml).text();
 
-    // Push new history state and update title
-    history.pushState(null, $title, url);
+    // Update with new title, content and classes
     document.title = $title;
-
-    // Update with new content and classes
     $('#main-content').html($content.html());
     $('body').removeAttr('class').addClass($bodyClasses + ' loading');
 
@@ -243,7 +258,7 @@ jQuery(document).ready(function () {
       var _this = $(this);
 
       if (_this.hasClass('js-next-page')) {
-        Ajaxy.ajaxLoad(_this.data('href'));
+        Ajaxy.load(_this.data('href'));
       } else {
         $('.feed-post.u-hidden').removeClass('u-hidden');
         _this.addClass('js-next-page');
