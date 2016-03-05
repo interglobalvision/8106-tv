@@ -254,7 +254,7 @@ Ajaxy = {
     _this.reset();
 
     // Resets from other parts of the website
-    Twitter.init();
+    Site.reinit();
 
   },
 
@@ -283,35 +283,60 @@ Ajaxy = {
   },
 };
 
+Site = {
+  init: function() {
+    var _this = this;
+
+    _this.bindVerMas();
+    _this.fixWidows();
+
+    Ajaxy.init();
+    Twitter.init();
+    Menu.init();
+  },
+
+  reinit: function() {
+    var _this = this;
+
+    _this.bindVerMas();
+    _this.fixWidows();
+
+    Twitter.init();
+
+  },
+
+  // ver mas link on homepage
+  bindVerMas: function() {
+    $('#more-posts').on({
+      click: function(e) {
+        var _this = $(this);
+
+        if (_this.hasClass('js-next-page')) {
+          Ajaxy.load(_this.data('href'));
+        } else {
+          $('.feed-post.u-hidden').removeClass('u-hidden');
+          _this.addClass('js-next-page');
+        }
+      },
+    });
+  },
+
+  fixWidows: function() {
+    // utility class mainly for use on headines to avoid widows [single words on a new line]
+    $('.js-fix-widows').each(function(){
+      var string = $(this).html();
+
+      string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
+      $(this).html(string);
+    });
+  },
+
+};
+
 jQuery(document).ready(function () {
   'use strict';
 
-  // utility class mainly for use on headines to avoid widows [single words on a new line]
-  $('.js-fix-widows').each(function(){
-    var string = $(this).html();
-
-    string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
-    $(this).html(string);
-  });
-
-  Twitter.init();
-  Menu.init();
-
-  Ajaxy.init();
-
-  // ver mas link on homepage
-  $('#more-posts').on({
-    click: function(e) {
-      var _this = $(this);
-
-      if (_this.hasClass('js-next-page')) {
-        Ajaxy.load(_this.data('href'));
-      } else {
-        $('.feed-post.u-hidden').removeClass('u-hidden');
-        _this.addClass('js-next-page');
-      }
-    },
-  });
+  Site.init();
 
 });
 
