@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Ajaxy */
+/* global $, jQuery, document, Modernizr, Ajaxy, WP */
 
 var basicAnimationSpeed = 800;
 var fastAnimationSpeed = basicAnimationSpeed / 2;
@@ -103,11 +103,21 @@ var Menu = {
 
   },
 
-  closeBelowMenu: function() {
-    // for after AJAX loads or clicks?
+  closeBelowMenu: function(search) {
+    var _this = this;
+    var drawers = '#drawer-follow, #drawer-categorias';
 
-    return $('#drawer-search, #drawer-follow, #drawer-categorias').slideUp(basicAnimationSpeed);
+    if ( !search ) {
+      drawers += ', #drawer-search';
+      _this.cleanSearch();
+    }
 
+    return $(drawers).slideUp(basicAnimationSpeed);
+
+  },
+
+  cleanSearch: function() {
+    $('#search-field').val('');
   },
 };
 
@@ -115,12 +125,19 @@ var Menu = {
 Ajaxy = {
   init: function() {
     var _this = this;
-    
+
+    // This var is checked below. It helps prevent Safari's popstate on load to
+    // reload (ajax) the site.
+    _this.firstLoad = true;
+
     // Bind links
     _this.bindLinks();
+    _this.bindSearchForm();
 
     $(window).bind('popstate', function(event) {
-      _this.load(document.location.origin + document.location.pathname, false);
+      if( !_this.firstLoad ) {
+        _this.load(document.location.origin + document.location.pathname, false);
+      }
     });
 
   },
@@ -135,11 +152,31 @@ Ajaxy = {
 
     // Find all ajaxy links and bind ajax event
     _this.$ajaxyLinks.click(function(event) {
+
+      // Detect if is cmd+click or ctrl+click or has been defaultPrevented somewhere else
+      if ( !event.isDefaultPrevented() && !event.metaKey && !event.ctrlKey ) {
+        event.preventDefault();
+
+        var url = event.currentTarget.href;
+
+        _this.load(url);
+      }
+
+      return;
+
+    });
+  },
+
+  bindSearchForm: function() {
+    var _this = this;
+
+    $('#search-form').submit( function(event) {
       event.preventDefault();
 
-      var url = event.currentTarget.href;
+      // Get search string
+      var search = $('#search-field').val();
 
-      _this.load(url);
+      _this.load(WP.siteUrl + '/?s=' + search);
 
     });
   },
@@ -154,13 +191,15 @@ Ajaxy = {
     _this.bindLinks();
   },
 
-  /* 
+  /*
    * Load a new URL thru ajax
    * @url {String}: URL to load
    * @pushState {Bool}: Make false if a new state doens't need to be pushed (Default: true). Ex, going back
    */
   load: function(url, pushState) {
     var _this = this;
+
+    _this.firstLoad = false;
 
     // Default pushState to true
     pushState = typeof pushState !== 'undefined' ? pushState : true;
@@ -171,8 +210,8 @@ Ajaxy = {
     }
 
     $.ajax(url, {
-      beforeSend: function() {
-        _this.ajaxBefore();
+      beforeSend: function(xhr, settings) {
+        _this.ajaxBefore(settings.url);
       },
 
       dataType: 'html',
@@ -190,13 +229,21 @@ Ajaxy = {
     });
   },
 
-  ajaxBefore: function() {
+  ajaxBefore: function(url) {
     var _this = this;
+
+    var search = false;
+
+    if( url.indexOf('/?s=') > -1) {
+      search = true;
+    }
+
+    Menu.closeBelowMenu(search);
 
     $('body').addClass('loading');
     $('body, html').animate({
       scrollTop: 0,
-    }, fastAnimationSpeed);
+    }, basicAnimationSpeed);
   },
 
   ajaxAfter: function() {
@@ -207,7 +254,7 @@ Ajaxy = {
     _this.reset();
 
     // Resets from other parts of the website
-    Twitter.init();
+    Site.reinit();
 
   },
 
@@ -236,35 +283,60 @@ Ajaxy = {
   },
 };
 
+Site = {
+  init: function() {
+    var _this = this;
+
+    _this.bindVerMas();
+    _this.fixWidows();
+
+    Ajaxy.init();
+    Twitter.init();
+    Menu.init();
+  },
+
+  reinit: function() {
+    var _this = this;
+
+    _this.bindVerMas();
+    _this.fixWidows();
+
+    Twitter.init();
+
+  },
+
+  // ver mas link on homepage
+  bindVerMas: function() {
+    $('#more-posts').on({
+      click: function(e) {
+        var _this = $(this);
+
+        if (_this.hasClass('js-next-page')) {
+          Ajaxy.load(_this.data('href'));
+        } else {
+          $('.feed-post.u-hidden').removeClass('u-hidden');
+          _this.addClass('js-next-page');
+        }
+      },
+    });
+  },
+
+  fixWidows: function() {
+    // utility class mainly for use on headines to avoid widows [single words on a new line]
+    $('.js-fix-widows').each(function(){
+      var string = $(this).html();
+
+      string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
+      $(this).html(string);
+    });
+  },
+
+};
+
 jQuery(document).ready(function () {
   'use strict';
 
-  // utility class mainly for use on headines to avoid widows [single words on a new line]
-  $('.js-fix-widows').each(function(){
-    var string = $(this).html();
-
-    string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
-    $(this).html(string);
-  });
-
-  Twitter.init();
-  Menu.init();
-
-  Ajaxy.init();
-
-  // ver mas link on homepage
-  $('#more-posts').on({
-    click: function(e) {
-      var _this = $(this);
-
-      if (_this.hasClass('js-next-page')) {
-        Ajaxy.load(_this.data('href'));
-      } else {
-        $('.feed-post.u-hidden').removeClass('u-hidden');
-        _this.addClass('js-next-page');
-      }
-    },
-  });
+  Site.init();
 
 });
 
