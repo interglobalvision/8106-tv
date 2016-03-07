@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Ajaxy */
+/* global $, jQuery, document, Modernizr, Ajaxy, WP */
 
 var basicAnimationSpeed = 800;
 var fastAnimationSpeed = basicAnimationSpeed / 2;
@@ -106,7 +106,7 @@ var Menu = {
   closeBelowMenu: function(search) {
     var _this = this;
     var drawers = '#drawer-follow, #drawer-categorias';
-    
+
     if ( !search ) {
       drawers += ', #drawer-search';
       _this.cleanSearch();
@@ -129,7 +129,7 @@ Ajaxy = {
     // This var is checked below. It helps prevent Safari's popstate on load to
     // reload (ajax) the site.
     _this.firstLoad = true;
-    
+
     // Bind links
     _this.bindLinks();
     _this.bindSearchForm();
@@ -176,7 +176,7 @@ Ajaxy = {
       // Get search string
       var search = $('#search-field').val();
 
-      _this.load('/?s=' + search);
+      _this.load(WP.siteUrl + '/?s=' + search);
 
     });
   },
@@ -191,7 +191,7 @@ Ajaxy = {
     _this.bindLinks();
   },
 
-  /* 
+  /*
    * Load a new URL thru ajax
    * @url {String}: URL to load
    * @pushState {Bool}: Make false if a new state doens't need to be pushed (Default: true). Ex, going back
