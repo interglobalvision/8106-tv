@@ -32,6 +32,38 @@ function embed_youtube_shortcode_ad($atts) {
 }
 add_shortcode( 'embed_youtube_with_ad', 'embed_youtube_shortcode_ad' );
 
+// VIMEO
+
+function embed_vimeo_shortcode($atts) {
+  $a = shortcode_atts( array(
+    'id' => false,
+  ), $atts );
+
+  if (!$a['id']) {
+    return '';
+  }
+
+  $html = '<div class="custom-embed"><div class="responsive-video"><iframe src="https://player.vimeo.com/video/' . $a['id'] . '?portrait=0" width="500" height="211" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>';
+
+  return $html;
+}
+add_shortcode( 'embed_vimeo', 'embed_vimeo_shortcode' );
+
+function embed_vimeo_shortcode_ad($atts) {
+  $a = shortcode_atts( array(
+    'id' => false,
+  ), $atts );
+
+  if (!$a['id']) {
+    return '';
+  }
+
+  $html = '<div class="custom-embed-with-ad u-cf"><div class="embed"><div class="responsive-video"><iframe src="https://player.vimeo.com/video/' . $a['id'] . '?portrait=0" width="500" height="211" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div><img class="embed-ad" src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400"></div>';
+
+  return $html;
+}
+add_shortcode( 'embed_vimeo_with_ad', 'embed_vimeo_shortcode_ad' );
+
 // SOUNDLCLOUD
 
 function embed_soundcloud_shortcode($atts) {
