@@ -5,6 +5,8 @@
 @import "helpers"
 @import "genericons"
 
+@import "loaders"
+
 meyer-reset()
 box-sizing-reset()
 normalize()
@@ -480,7 +482,22 @@ img
     path
       fill: $color-white-soft
 
+#loading
+  z-index: -999
+  position: fixed
+  opacity: 0
+  height: 100vh
+  top: 0px
+  left: 0px
+  bottom: 0px
+  right: 0px
 
+body.loading
+ #loading
+    opacity: 1
+
+.loader-inner.line-scale > div
+  background-color: $color-black-soft
 
 #featured-single-header
   padding-bottom: $margin-large
