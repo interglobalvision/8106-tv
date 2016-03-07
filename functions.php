@@ -233,6 +233,19 @@ function posts_link_attributes() {
   return 'class="next-prev col s8 theme-border-color pagination-block"';
 }
 
+/*
+ * Exclude Pages from search results
+ *
+ * This exclude pages from showing up on the search results. If the user is logged in (ex. admin)
+ * it will return pages. This is necessary for search results in the admin side.
+ *
+ */
+add_action('pre_get_posts','exclude_all_pages_search');
+function exclude_all_pages_search($query) {
+  if ( $query->is_main_query() && $query->is_search && !is_user_logged_in() ) {
+    $query->set( 'post_type', 'post' );
+  }
+}
 
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {
