@@ -17,7 +17,12 @@
           <h2 class="font-condensed js-fix-widows"><?php echo $subtitle; ?></h2>
         </div>
         <div class="col s8">
+          <?php
+            if ( has_category('puta-portadazza') ) {
+              the_post_thumbnail('single-puta-portadazza');
+            } else { ?>
           <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          <?php } ?>
         </div>
       </div>
     </div>

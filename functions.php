@@ -9,7 +9,18 @@ function scripts_and_styles_method() {
   // library.js is to bundle plugins. my.js is your scripts. enqueue more files as needed
   $jslib = $templateuri."library.js";
   wp_enqueue_script( 'jslib', $jslib,'','',true);
-  $myscripts = $templateuri."main.js";
+
+  $myscripts = $templateuri . "main.min.js";
+  wp_register_script( 'myscripts', $myscripts );
+
+  $is_admin = current_user_can('administrator') ? 1 : 0;
+  $jsVars = array(
+    'siteUrl' => get_home_url(),
+    'themeUrl' => get_template_directory_uri(),
+    'isAdmin' => $is_admin,
+  );
+
+  wp_localize_script( 'myscripts', 'WP', $jsVars );
   wp_enqueue_script( 'myscripts', $myscripts,'','',true);
 
   // enqueue stylesheet here. file does not exist until stylus file is processed
@@ -31,8 +42,9 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'name', 199, 299, true );
   add_image_size( 'small-thumb', 124, 75, true );
+
+  add_image_size( 'single-puta-portadazza', 354, 354, false );
 }
 
 // Register Nav Menus
@@ -233,6 +245,19 @@ function posts_link_attributes() {
   return 'class="next-prev col s8 theme-border-color pagination-block"';
 }
 
+/*
+ * Exclude Pages from search results
+ *
+ * This exclude pages from showing up on the search results. If the user is logged in (ex. admin)
+ * it will return pages. This is necessary for search results in the admin side.
+ *
+ */
+add_action('pre_get_posts','exclude_all_pages_search');
+function exclude_all_pages_search($query) {
+  if ( $query->is_main_query() && $query->is_search && !is_user_logged_in() ) {
+    $query->set( 'post_type', 'post' );
+  }
+}
 
 // remove automatic <a> links from images in blog
 function wpb_imagelink_setup() {

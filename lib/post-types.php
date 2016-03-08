@@ -48,7 +48,7 @@ function register_cpt_event() {
         
         'show_in_nav_menus' => true,
         'publicly_queryable' => true,
-        'exclude_from_search' => false,
+        'exclude_from_search' => true,
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
