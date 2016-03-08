@@ -58,6 +58,7 @@ get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
 get_template_part( 'lib/theme-options' );
+get_template_part( 'lib/instructions');
 
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
