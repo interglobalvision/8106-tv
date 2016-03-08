@@ -1374,7 +1374,7 @@ img {
 }
 .custom-embed-with-ad .embed-ad {
   float: left;
-  margin: 0;
+  margin-top: 0 !important;
   max-width: 216px;
 }
 .responsive-video {
