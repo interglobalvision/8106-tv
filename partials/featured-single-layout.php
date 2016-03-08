@@ -25,7 +25,7 @@
     <?php } ?>
 
         <div id="featured-post-image-holder">
-          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
     <div>
   </header>

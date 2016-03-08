@@ -44,7 +44,7 @@ if ( $featured_query->have_posts() ) {
         </div>
     <?php } ?>
         <div id="featured-post-image-holder">
-          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
       </article>
 
@@ -99,7 +99,7 @@ if ( $puta_query->have_posts() ) {
       </div>
 
       <div class="col s7">
-        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('home-puta-portadazza'); ?></a>
         <?php the_excerpt(); ?>
       </div>
   <?php
@@ -234,7 +234,7 @@ if ( $post_query->have_posts() ) {
 
           <div class="col s7">
             <a href="<?php the_permalink() ?>">
-              <?php the_post_thumbnail(); ?>
+              <?php the_post_thumbnail('index-post-thumb'); ?>
               <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
               <div class="feed-subtitle"><?php echo $subtitle; ?></div>
