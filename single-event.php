@@ -42,7 +42,7 @@ if (have_posts()) {
             <div class="col s1"></div>
             <div class="col s15">
               <h1 id="single-title" class="js-fix-widows"><?php the_title(); ?></h1>
-              <h2 class="font-condensed js-fix-widows"><?php
+              <h2 id="single-subtitle" class="font-condensed js-fix-widows"><?php
                 echo $event_day . ' ' . $event_month;
                 if ($event_venue) {
                   echo ' @ ' . $event_venue;
@@ -96,7 +96,7 @@ if (have_posts()) {
 
             </div>
             <div class="col s8 single-sidebar-item">
-              Facebook / Twitter
+              <?php get_template_part('partials/social-widgets'); ?>
             </div>
             <?php get_template_part('partials/single-popular'); ?>
             <div class="col s8">

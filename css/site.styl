@@ -513,6 +513,8 @@ body.loading
 
 // MEDIA QUERIES
 
+// Smaller screens
+
 @media screen and (max-width: ($col * $cols)+($gutter * $cols) + $gutter)
 
   $cols = 24
@@ -766,6 +768,8 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+// iPad / tablet size
 
 @media screen and (max-width: 888px + $gutter)
 
@@ -1044,6 +1048,7 @@ body.loading
   #not-found
     margin-bottom: $margin-large
 
+
 // MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
 
 @media screen and (max-aspect-ratio: 1/1)
@@ -1056,3 +1061,294 @@ body.loading
   #featured-post-image-holder
     max-height: 30vh
     min-height: 250px
+
+
+// MOBILE
+
+@media screen and (max-width: 720px)
+
+  $gutter = 14px
+
+  // VARIABLES
+
+  $golden-ratio = 1.61803398875
+
+  $margin-small = ($gutter)
+  $margin-tiny = ($gutter / 2)
+  $margin-basic = ($gutter * 2)
+  $margin-mid = ($gutter * 3.5)
+  $margin-large = ($gutter * 5)
+
+  $font-size-basic = 13px
+  $font-leading-basic = 1.35em
+  $font-leading-wider = 1.5em
+  $font-tracking-basic = 0.001em
+
+  $border-width = 2px
+
+  .container
+    width: 100%
+    padding: 0 $margin-small
+  .col
+    margin-left: 0
+    margin-right: 0
+    width: 100%
+
+  // TYPOGRAPHY
+
+  body
+    font-size: $font-size-basic
+    line-height: $font-leading-basic
+    letter-spacing: $font-tracking-basic
+
+  h1
+    font-size: 2.2em
+    font-family: 'Century Gothic'
+
+  h2
+    font-size: 1.6em
+    font-family: 'Century Gothic'
+
+  h3
+    font-size: 1.2em
+    font-family: 'Century Gothic'
+
+  .copy
+    font-size: 1rem
+    p, h1, h2, h3, h4, h5, h6
+      margin-left: 0
+      margin-right: 0
+      margin-bottom: $margin-basic
+    iframe
+      margin: 0 auto $margin-basic auto
+    img
+      margin: 0 auto $margin-basic auto
+
+  #featured-copy
+    p, h1, h2, h3, h4, h5, h6
+      margin: 0 0 $margin-basic 0
+
+  .indent
+    margin-left: ( 1 * $col ) + ( ( 1 - 1 ) * $gutter )
+
+  .feed-category
+    font-size: 1.6rem
+    text-align: left
+    margin-bottom: $margin-small
+
+  .rotate-text
+    writing-mode: unset
+    transform: rotate(0deg)
+
+  // STRUCTURE
+
+  #main-content
+    padding-top: $margin-tiny
+
+  // HEADER
+
+  #header-advert-space
+    display: none
+
+  #header
+    margin-top: $margin-small
+    margin-bottom: $margin-small
+    .row
+      display: flex
+    .logo
+      height: 2rem
+      padding-right: $margin-basic
+
+  // DRAWERS
+
+  .header-drawer
+    font-size: 1.1rem
+    padding: $margin-small 0 $margin-basic 0
+    margin-bottom: $margin-small
+
+  #drawer-radio
+    padding-bottom: $margin-small
+
+  // CATEGORIES
+
+  #drawer-categorias-list
+    li.cat-item
+      padding: $margin-small $margin-tiny
+
+
+  // HOME: FEATURED POST
+
+  #featured-post-container,
+  #featured-post-title-holder,
+  #featured-post-title,
+  #featured-post-subtitle-holder,
+  #featured-post-subtitle,
+  #featured-post-image-holder
+    max-height: initial
+    min-height: auto
+
+  #featured-post, #featured-single-header
+    padding-bottom: $margin-basic
+    margin-bottom: $margin-basic
+
+  #featured-post-container
+    display: block
+
+  #featured-post-title-holder
+    min-height: auto
+
+  #featured-post-title
+    font-size: 2rem
+
+  #featured-post-subtitle-holder
+    margin: 0 0 $margin-small 0
+
+  #featured-post-subtitle
+    font-size: 1.5rem
+
+  #featured-post-image-holder
+    margin: 0
+    max-width: 100%
+
+  #featured-post-image
+    max-width: 100%
+
+
+  // HOME POSTS FEED
+
+  .posts-feed
+    margin-bottom: $margin-large
+
+  .feed-post,
+  .noticias-container
+    margin-bottom: $margin-large
+
+  .see-more
+    border-width: $border-width
+    padding: $margin-basic 0
+
+
+  // HOME: NOTICIAS
+
+  .small-post-title
+    margin: $margin-tiny
+
+  .small-post
+    border-top: $border-width solid
+    margin-bottom: $margin-small
+    img
+      float: left
+      max-width: 48%
+      margin-right: 4%
+    h4
+      float: left
+      max-width: 48%
+
+
+  // SEARCH
+
+  #search-field, #search-submit
+    padding: $margin-small
+
+  // EVENTS
+  #events
+    .row
+      margin-bottom: $margin-mid
+  .event-date
+    height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+
+  #more-events
+    height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+    width: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+    padding: 0 $margin-basic
+
+  // HOME TWITTER
+
+  #twitter-feed
+    padding: $margin-basic 0
+    margin: $margin-basic 0
+
+  .twitter-feed-tweet
+    width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
+    padding: 0 $margin-basic
+
+  // INSTAGRAM PARTIAL
+
+  #instagram-feed
+    padding: $margin-basic 0
+    margin: $margin-large 0
+
+  .instagram-item-header
+    top: $margin-tiny
+    left: $margin-tiny
+
+  // PAGINATION
+
+  #pagination
+    margin-top: $margin-mid
+    margin-bottom: $margin-mid
+    .pagination-block
+      padding: $margin-basic
+      border-width: $border-width
+
+  // SINGLE POST
+
+  #single-header
+    margin-bottom: $margin-basic
+    padding-bottom: $margin-small
+
+  #single-title
+    margin-top: $margin-small
+    margin-bottom: $margin-tiny
+
+  #single-subtitle
+    margin-bottom: $margin-tiny
+
+  #single-sidebar, #single-popular
+    width: 100%
+    float: none
+
+  .single-sidebar-item
+    margin-bottom: $margin-basic
+
+  #more-music
+    margin-bottom: $margin-large
+
+  .single-more-post
+    margin-bottom: $margin-mid
+    .wp-post-image, .feed-title
+      float: left
+      width: 48%
+      margin-bottom: $margin-tiny
+    .wp-post-image
+      margin-right: 4%
+    .feed-subtitle
+      display: none
+
+  // PAGE
+
+  #page-header
+    padding: $margin-mid 0
+    margin-bottom: $margin-basic
+
+  #page-content
+    margin-bottom: $margin-basic
+
+  // FOOTER
+
+  #footer
+    font-size: 1.1rem
+    padding-top: $margin-mid
+    padding-bottom: $margin-mid
+    .logo
+      width: 30%
+      margin-bottom: $margin-basic
+
+
+  #featured-social-widgets
+    margin-top: $margin-basic
+    margin-bottom: $margin-large
+
+  // 404
+  #not-found
+    margin-bottom: $margin-large

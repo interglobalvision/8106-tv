@@ -3032,3 +3032,268 @@ body.loading #loading {
     min-height: 250px;
   }
 }
+@media screen and (max-width: 720px) {
+  .container {
+    width: 100%;
+    padding: 0 14px;
+  }
+  .col {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  body {
+    font-size: 13px;
+    line-height: 1.35em;
+    letter-spacing: 0.001em;
+  }
+  h1 {
+    font-size: 2.2em;
+    font-family: 'Century Gothic';
+  }
+  h2 {
+    font-size: 1.6em;
+    font-family: 'Century Gothic';
+  }
+  h3 {
+    font-size: 1.2em;
+    font-family: 'Century Gothic';
+  }
+  .copy {
+    font-size: 1rem;
+  }
+  .copy p,
+  .copy h1,
+  .copy h2,
+  .copy h3,
+  .copy h4,
+  .copy h5,
+  .copy h6 {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 28px;
+  }
+  .copy iframe {
+    margin: 0 auto 28px auto;
+  }
+  .copy img {
+    margin: 0 auto 28px auto;
+  }
+  #featured-copy p,
+  #featured-copy h1,
+  #featured-copy h2,
+  #featured-copy h3,
+  #featured-copy h4,
+  #featured-copy h5,
+  #featured-copy h6 {
+    margin: 0 0 28px 0;
+  }
+  .indent {
+    margin-left: 32px;
+  }
+  .feed-category {
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: 14px;
+  }
+  .rotate-text {
+    -webkit-writing-mode: unset;
+        -ms-writing-mode: unset;
+            writing-mode: unset;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  #main-content {
+    padding-top: 7px;
+  }
+  #header-advert-space {
+    display: none;
+  }
+  #header {
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+  #header .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #header .logo {
+    height: 2rem;
+    padding-right: 28px;
+  }
+  .header-drawer {
+    font-size: 1.1rem;
+    padding: 14px 0 28px 0;
+    margin-bottom: 14px;
+  }
+  #drawer-radio {
+    padding-bottom: 14px;
+  }
+  #drawer-categorias-list li.cat-item {
+    padding: 14px 7px;
+  }
+  #featured-post-container,
+  #featured-post-title-holder,
+  #featured-post-title,
+  #featured-post-subtitle-holder,
+  #featured-post-subtitle,
+  #featured-post-image-holder {
+    max-height: initial;
+    min-height: auto;
+  }
+  #featured-post,
+  #featured-single-header {
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+  }
+  #featured-post-container {
+    display: block;
+  }
+  #featured-post-title-holder {
+    min-height: auto;
+  }
+  #featured-post-title {
+    font-size: 2rem;
+  }
+  #featured-post-subtitle-holder {
+    margin: 0 0 14px 0;
+  }
+  #featured-post-subtitle {
+    font-size: 1.5rem;
+  }
+  #featured-post-image-holder {
+    margin: 0;
+    max-width: 100%;
+  }
+  #featured-post-image {
+    max-width: 100%;
+  }
+  .posts-feed {
+    margin-bottom: 70px;
+  }
+  .feed-post,
+  .noticias-container {
+    margin-bottom: 70px;
+  }
+  .see-more {
+    border-width: 2px;
+    padding: 28px 0;
+  }
+  .small-post-title {
+    margin: 7px;
+  }
+  .small-post {
+    border-top: 2px solid;
+    margin-bottom: 14px;
+  }
+  .small-post img {
+    float: left;
+    max-width: 48%;
+    margin-right: 4%;
+  }
+  .small-post h4 {
+    float: left;
+    max-width: 48%;
+  }
+  #search-field,
+  #search-submit {
+    padding: 14px;
+  }
+  #events .row {
+    margin-bottom: 49px;
+  }
+  .event-date {
+    height: 124px;
+  }
+  #more-events {
+    height: 124px;
+    width: 124px;
+    padding: 0 28px;
+  }
+  #twitter-feed {
+    padding: 28px 0;
+    margin: 28px 0;
+  }
+  .twitter-feed-tweet {
+    width: 538px;
+    padding: 0 28px;
+  }
+  #instagram-feed {
+    padding: 28px 0;
+    margin: 70px 0;
+  }
+  .instagram-item-header {
+    top: 7px;
+    left: 7px;
+  }
+  #pagination {
+    margin-top: 49px;
+    margin-bottom: 49px;
+  }
+  #pagination .pagination-block {
+    padding: 28px;
+    border-width: 2px;
+  }
+  #single-header {
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+  }
+  #single-title {
+    margin-top: 14px;
+    margin-bottom: 7px;
+  }
+  #single-subtitle {
+    margin-bottom: 7px;
+  }
+  #single-sidebar,
+  #single-popular {
+    width: 100%;
+    float: none;
+  }
+  .single-sidebar-item {
+    margin-bottom: 28px;
+  }
+  #more-music {
+    margin-bottom: 70px;
+  }
+  .single-more-post {
+    margin-bottom: 49px;
+  }
+  .single-more-post .wp-post-image,
+  .single-more-post .feed-title {
+    float: left;
+    width: 48%;
+    margin-bottom: 7px;
+  }
+  .single-more-post .wp-post-image {
+    margin-right: 4%;
+  }
+  .single-more-post .feed-subtitle {
+    display: none;
+  }
+  #page-header {
+    padding: 49px 0;
+    margin-bottom: 28px;
+  }
+  #page-content {
+    margin-bottom: 28px;
+  }
+  #footer {
+    font-size: 1.1rem;
+    padding-top: 49px;
+    padding-bottom: 49px;
+  }
+  #footer .logo {
+    width: 30%;
+    margin-bottom: 28px;
+  }
+  #featured-social-widgets {
+    margin-top: 28px;
+    margin-bottom: 70px;
+  }
+  #not-found {
+    margin-bottom: 70px;
+  }
+}
