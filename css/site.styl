@@ -1043,3 +1043,16 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+// MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
+
+@media screen and (max-aspect-ratio: 1/1)
+
+  #featured-post-container,
+  #featured-post-title-holder,
+  #featured-post-title,
+  #featured-post-subtitle-holder,
+  #featured-post-subtitle,
+  #featured-post-image-holder
+    max-height: 30vh
+    min-height: 250px

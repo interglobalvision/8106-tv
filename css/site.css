@@ -3021,3 +3021,14 @@ body.loading #loading {
     width: 710px;
   }
 }
+@media screen and (max-aspect-ratio: 1/1) {
+  #featured-post-container,
+  #featured-post-title-holder,
+  #featured-post-title,
+  #featured-post-subtitle-holder,
+  #featured-post-subtitle,
+  #featured-post-image-holder {
+    max-height: 30vh;
+    min-height: 250px;
+  }
+}
