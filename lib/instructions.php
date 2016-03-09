@@ -1,7 +1,7 @@
 <?php
 
 // Fire our meta box setup function on the post editor screen
-add_action( 'load-post.php', 'igv_insctuctions_meta_boxes_setup' );
+add_action( 'load-post.php', 'igv_instructions_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'igv_instructions_meta_boxes_setup' );
 
 // Meta box setup function
@@ -24,7 +24,7 @@ function igv_add_instructions_meta_boxes() {
 }
 
 // Render the box
-function igv_instructions_class_meta_box( $object, $box ) { 
+function igv_instructions_class_meta_box( $object, $box ) {
 ?>
 <h1>Featured Image</h1>
 <p>La <i>featured image</i> es muy importante. De ella se generan los thumbs que aparecen en home, categorias, relacionados, etc</p>
@@ -38,7 +38,7 @@ function igv_instructions_class_meta_box( $object, $box ) {
 <h1>Tags / Etiquetas</h1>
 <p>Hay que usar las etiquetas con cautela. Evitar etiquetas repetidas y no usar variaciones de la misma etiqueta.</p>
 <p><b>¡Usa tu criterio editorial!</b></p>
-<p><i>Ex. Nueva York, <del>NYC</del>,<del>New York</del>,<del>New York City</del></p>
+<p><i>Ex. Nueva York, <del>NYC</del>,<del>New York</del>,<del>New York City</del></i></p>
 
 <h1>Embeds / Shortcodes</h1>
 <p>Los embeds de youtube, vimeo, soundcloud y spotify utilizan un <i>id</i> o <i>url</i>.</p>
@@ -64,6 +64,6 @@ function igv_instructions_class_meta_box( $object, $box ) {
 <p>Utiliza el url de la pista o playlist. Este lo obtienes directamente del codigo embed que te ofrece la aplicacíon de Spotify <i>Ej.</i></p>
 <p><code>[embed_spotify url="https://embed.spotify.com/?uri=spotify%3Aalbum%3A4S0W0okk5PWd4SW7c4lY1T" ]</code></p>
 <p><code>[embed_spotify url="https://embed.spotify.com/?uri=spotify%3Aalbum%3A4S0W0okk5PWd4SW7c4lY1T" ad="2"]</code></p>
-<?php 
-} 
+<?php
+}
 ?>
