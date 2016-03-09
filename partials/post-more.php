@@ -54,7 +54,7 @@ if ($query->have_posts()) {
 
       <a href="<?php the_permalink(); ?>">
 
-        <?php the_post_thumbnail(); ?>
+        <?php the_post_thumbnail('index-post-thumb'); ?>
 
         <h3 class="feed-title"><?php the_title(); ?></h3>
 

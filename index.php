@@ -42,8 +42,8 @@ if ( have_posts() ) {
     <?php // End AD
     } else {
     ?>
-    
-      <?php // POST 
+
+      <?php // POST
       the_post();
       $category = get_the_category( $post->ID );
       $cat_name = $category[0]->cat_name;
@@ -61,7 +61,7 @@ if ( have_posts() ) {
 
         <div class="col s7">
           <a href="<?php the_permalink() ?>">
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('index-post-thumb'); ?>
             <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
             <div class="feed-subtitle"><?php echo $subtitle; ?></div>
