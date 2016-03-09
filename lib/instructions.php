@@ -28,7 +28,7 @@ function igv_instructions_class_meta_box( $object, $box ) {
 ?>
 <h1>Featured Image</h1>
 <p>La <i>featured image</i> es muy importante. De ella se generan los thumbs que aparecen en home, categorias, relacionados, etc</p>
-<p>Las fotos verticales lucen bien, pero de preferencia utiliza imagenes <b>horizontales</b> con un ancho minimo de <b>680px</b>.</p>
+<p>Las fotos verticales lucen bien pero de preferencia utiliza imagenes <b>horizontales</b> con un ancho minimo de <b>680px</b>.</p>
 <p>En articulos <i>featured</i> la foto tiene que ser horizontal</p>
 
 <h1>Categorias</h1>
@@ -42,12 +42,13 @@ function igv_instructions_class_meta_box( $object, $box ) {
 
 <h1>Embeds / Shortcodes</h1>
 <p>Los embeds de youtube, vimeo, soundcloud y spotify utilizan un <i>id</i> o <i>url</i>.</p>
-<p><i>En posts Featured</i>: El parametro <i>ad</i> sirve para seleccionar el anuncio que acompaña al embed. Puede ser <i>1</i> o  <i>2</i></p>
+<p><i>En posts Featured</i>: El parametro <i>ad</i> sirve para seleccionar el anuncio que acompaña al embed. Puede ser <i>1</i> o  <i>2</i>.</p>
 
 <b>Youtube</b>
 <p>Utiliza el id del video. <i>Ej.</i></p>
 <p><code>[embed_youtube id="OBoP82cTc3s"]</code></p>
 <p><code>[embed_youtube id="OBoP82cTc3s" ad="1"]</code></p>
+<p><code>[embed_youtube id="2M2m_pNw7AI&list=RD2M2m_pNw7AI" ad="1"]</code></p>
 
 <b>Vimeo</b>
 <p>Utiliza el id del video. <i>Ej.</i></p>
