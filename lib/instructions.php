@@ -26,29 +26,31 @@ function igv_add_instructions_meta_boxes() {
 // Render the box
 function igv_instructions_class_meta_box( $object, $box ) {
 ?>
-<h1>Title</h1>
-<p>Do not CAPITALIZE the title.</p>
-<p>Do not put the category or tag in the title. e.g. never put 'Feature: [title]'</p>
+<h1>Titulos</h1>
+<p>Nunca uses titulos en MAYUSCULAS.</p>
+<p>No es necesario poner la categoría o una etiqueta como parte del titulo, es redundante. Ej.</p>
+<p><i>'Feature: ¿Qué esta sonando en las cdjs de la CDMX?'</i> &#10007;</p>
+<p><i>¿Qué esta sonando en las cdjs de la CDMX?'</i> &#10004;</p>
 
 <h1>Featured Image</h1>
 <p>La <i>featured image</i> es muy importante. De ella se generan los thumbs que aparecen en home, categorias, relacionados, etc</p>
 <p>Las fotos verticales lucen bien pero de preferencia utiliza imagenes <b>horizontales</b> con un ancho minimo de <b>680px</b>.</p>
-<p>En articulos <i>featured</i> la foto tiene que ser horizontal</p>
+<p>En articulos <i>featured</i> la foto tiene que ser horizontal.</p>
 
 <h1>Categorias</h1>
 <p>Recuerda, es muy importante ser cuidadoso con las categorias.</p>
-<p><i>Featured</i> destaca cualquier nota en el home</p>
+<p><i>Featured</i> destaca cualquier nota en el home.</p>
 
 <h1>Tags / Etiquetas</h1>
 <p>Hay que usar las etiquetas con cautela. Evitar etiquetas repetidas y no usar variaciones de la misma etiqueta.</p>
 <p><b>¡Usa tu criterio editorial!</b></p>
-<p><i>Ex. Nueva York, <del>NYC</del>,<del>New York</del>,<del>New York City</del></i></p>
+<p><i>Ej. Nueva York, <del>NYC</del>,<del>New York</del>,<del>New York City</del></i></p>
 
-<h1>Post formatting</h1>
-<p>You don't need to do much in the post editor, rely on the default styling to keep everything consistent</p>
-<p>Never manually align anything. No center or justified</p>
-<p>Use h3 for heading and to split up the paragraphs</p>
-<p>Use blockquote for quotes or short important pieces of content</p>
+<h1>Formato del Post</h1>
+<p>No hay porque dar estilo al contenido en el editor, deja que el sitio se encarge de ello para mantener todo uniforme. <b>Negritas</b> e <i>italicas</i> estan bien, pero no abuses.</p>
+<p>No es necesario alinear el texto. No, no centrado, ni justificado, ni nada. :)</p>
+<p>¿Subtítulos? Utiliza <i>Título 3</i>.</p>
+<p>¿Citas y quotes? Usa blockquote para citas o partes cortas del contenido.</p>
 
 <h1>Embeds / Shortcodes</h1>
 <p>Los embeds de youtube, vimeo, soundcloud y spotify utilizan un <i>id</i> o <i>url</i>.</p>
