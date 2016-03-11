@@ -99,3 +99,28 @@ function embed_spotify_shortcode($atts) {
   return $html;
 }
 add_shortcode( 'embed_spotify', 'embed_spotify_shortcode' );
+
+// BANDCAMP
+// [embed_bandcamp width=350 height=470 album=93340823 size=large bgcol=ffffff linkcol=0687f5 tracklist=false track=2205921216]
+// [embed_bandcamp width=350 height=470 album=93340823 size=large bgcol=ffffff linkcol=0687f5 tracklist=false]
+function embed_bandcamp_shortcode($atts) {
+  $a = shortcode_atts( array(
+    'ad' => false,
+    'album' => false,
+    'track' => false,
+  ), $atts );
+
+  if (!$a['album'] ) {
+    return '';
+  }
+
+  if($a['ad']) {
+    // TODO: Get ad from field
+    $html = '<div class="custom-embed-with-ad u-cf"><div class="embed"><iframe style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album='. $a['album'] .'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/track='. $a['track'] .'/transparent=true/" seamless></iframe></div><img class="embed-ad" src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400"></div>';
+  } else {
+    $html = '<div class="custom-embed u-cf"><div class="embed"><iframe style="border: 0; width: 100%; max-width: 700px; height: 120px; margin: 0 auto; display: block" src="https://bandcamp.com/EmbeddedPlayer/album='. $a['album'] .'/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track='. $a['track'] .'/transparent=true/" seamless></iframe></div></div>';
+  }
+
+  return $html;
+}
+add_shortcode( 'embed_bandcamp', 'embed_bandcamp_shortcode' );
