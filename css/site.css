@@ -2120,6 +2120,9 @@ img {
   margin-bottom: 49px;
   padding-bottom: 28px;
 }
+#single-header .feed-category {
+  margin-top: 14px;
+}
 #single-title {
   margin-top: 14px;
   margin-bottom: 7px;

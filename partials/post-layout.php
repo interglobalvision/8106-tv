@@ -4,6 +4,11 @@
   $author = get_the_author();
   $date = get_the_date( 'j F Y' );
   $tags = get_the_tag_list('',', ','');
+
+  $category = get_the_category( $post->ID );
+  $cat_name = $category[0]->cat_name;
+  $cat_id = $category[0]->term_id;
+  $cat_link = get_category_link( $cat_id );
 ?>
 
 <article <?php post_class(); ?> id="page-<?php the_ID(); ?>">
@@ -11,7 +16,11 @@
   <header id="single-header" class="theme-grad-bg">
     <div class="container">
       <div class="row">
-        <div class="col s1"></div>
+        <div class="col s1">
+          <div class="feed-category">
+            <a class="rotate-text font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
+          </div>
+        </div>
         <div class="col s15">
           <h1 id="single-title" class="js-fix-widows"><?php the_title(); ?></h1>
           <h2 class="font-condensed js-fix-widows"><?php echo $subtitle; ?></h2>
