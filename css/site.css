@@ -2195,6 +2195,9 @@ body.loading #loading {
   margin-top: 28px;
   margin-bottom: 70px;
 }
+#pattern-space {
+  height: 28px;
+}
 #not-found {
   margin-bottom: 70px;
 }
