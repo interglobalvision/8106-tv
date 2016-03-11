@@ -1,3 +1,4 @@
+    <div id="pattern-space" class="theme-pattern-bg"></div>
     <footer id="footer" class="u-align-center font-condensed">
       <div class="container">
         <div class="row">
