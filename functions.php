@@ -46,7 +46,7 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'featured-post-image', 722, 481, true );
 
-  add_image_size( 'index-post-thumb', 308, 246, true );
+  add_image_size( 'index-post-thumb', 262, 262, false );
 
   add_image_size( 'home-puta-portadazza', 308, 9999, false );
   add_image_size( 'single-puta-portadazza', 354, 354, false );
