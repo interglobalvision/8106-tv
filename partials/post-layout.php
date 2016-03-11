@@ -41,7 +41,7 @@
       <div id="single-sidebar" class="u-float">
         <div class="col s8 single-sidebar-item">
           <?php if ($author) { ?>
-          <strong>Autor:</strong> <?php echo $author; ?>
+          <strong>Autor:</strong> <?php the_author_posts_link(); ?>
           <?php } if ($date) { ?>
           <br><strong>Fecha:</strong> <?php echo $date; ?>
           <?php } if ($tags) { ?>
