@@ -1874,7 +1874,7 @@ img {
 }
 #header .logo {
   height: 3rem;
-  width: auto;
+  width: 140px;
 }
 .header-drawer {
   display: none;
@@ -2161,7 +2161,7 @@ img {
 }
 #footer .logo {
   width: 70%;
-  height: auto;
+  height: 63px;
 }
 #footer .logo path {
   fill: #fdfdfd;
