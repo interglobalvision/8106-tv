@@ -55,7 +55,7 @@
         <div class="col s2"></div>
         <div class="col s7">
           <?php if ($author) { ?>
-          <strong>Autor:</strong> <?php echo $author; ?>
+          <strong>Autor:</strong> <?php the_author_posts_link(); ?>
           <?php } if ($date) { ?>
           <br><strong>Fecha:</strong> <?php echo $date; ?>
           <?php } if ($tags) { ?>
