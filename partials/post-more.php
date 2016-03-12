@@ -50,7 +50,7 @@ if ($query->have_posts()) {
 ?>
 
     <div class="col s1"> </div>
-    <article <?php post_class('col s6 single-more-post'); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class('col s7 single-more-post'); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink(); ?>">
 
