@@ -76,6 +76,17 @@ function igv_instructions_class_meta_box( $object, $box ) {
 <p>Utiliza el url de la pista o playlist. Este lo obtienes directamente del codigo embed que te ofrece la aplicacíon de Spotify <i>Ej.</i></p>
 <p><code>[embed_spotify url="https://embed.spotify.com/?uri=spotify%3Aalbum%3A4S0W0okk5PWd4SW7c4lY1T" ]</code></p>
 <p><code>[embed_spotify url="https://embed.spotify.com/?uri=spotify%3Aalbum%3A4S0W0okk5PWd4SW7c4lY1T" ad="2"]</code></p>
+
+<b>Bandcamp</b>
+<p>Utiliza el shortcode para wordpress que te da bandcamp y cambia "bandcamp" por "embed_bandcamp". <i>Ej.</i></p>
+<p><code>[embed_bandcamp album=93340823]</code></p>
+<p><code>[embed_bandcamp album=93340823 track=2205921216]</code></p>
+<p><code>[embed_bandcamp album=93340823 ad=1]</code></p>
+
+<b>Apple Music</b>
+<p>Utiliza el id que te brinda Apple. <i>Ej.</i></p>
+<p><code>[embed_apple id=idsa.e01e836d-dbf3-11e5-ae92-08d9ecf56e8d]</code></p>
+<p><code>[embed_apple id=idsa.e01e836d-dbf3-11e5-ae92-08d9ecf56e8d ad=1]</code></p>
 <?php
 }
 ?>
