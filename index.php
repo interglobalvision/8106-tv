@@ -61,7 +61,18 @@ if ( have_posts() ) {
 
         <div class="col s7">
           <a href="<?php the_permalink() ?>">
-            <?php the_post_thumbnail('index-post-thumb'); ?>
+            <?php
+              $uncropped_thumb_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
+
+              if ($uncropped_thumb_meta) {
+                if ($uncropped_thumb_meta['width'] >= $uncropped_thumb_meta['height']) {
+                  // landscape thumbnail
+                  the_post_thumbnail('index-post-thumb');
+                } else {
+                  the_post_thumbnail('index-post-thumb-portrait');
+                }
+              }
+            ?>
             <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
             <div class="feed-subtitle"><?php echo $subtitle; ?></div>
