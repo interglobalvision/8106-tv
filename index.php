@@ -35,7 +35,17 @@ if ( have_posts() ) {
       <div class="ad u-float">
         <div class="col s1"></div>
         <div class="feed-post-container col s7">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+      <?php
+      if ( $item_count == 4 ) {
+        echo IGV_get_option('_igv_ads_grid_1');
+      } else if ( $item_count == 12 ) { 
+        echo IGV_get_option('_igv_ads_grid_2');
+      } else if ( $item_count == 16 ) { 
+        echo IGV_get_option('_igv_ads_grid_3');
+      } else { 
+        echo IGV_get_option('_igv_ads_grid_4');
+      }
+      ?>
         </div>
       </div>
 

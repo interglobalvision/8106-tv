@@ -203,45 +203,45 @@ class IGV_Admin {
 
     // -- Home: Main squares
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Main Square 1', 'IGV' ),
+			'name'    => __( 'Home 1', 'IGV' ),
 			'desc'    => __( 'Usados en los primeros bloques del Home', 'IGV' ),
-			'id'      => $this->ads_prefix . 'main_square_1',
+			'id'      => $this->ads_prefix . 'home_1',
 			'type'    => 'textarea_code',
 		) );
 
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Main Square 2', 'IGV' ),
+			'name'    => __( 'Home 2', 'IGV' ),
 			'desc'    => __( 'Usados en los primeros bloques del Home', 'IGV' ),
-			'id'      => $this->ads_prefix . 'main_square_2',
+			'id'      => $this->ads_prefix . 'home_2',
 			'type'    => 'textarea_code',
 		) );
 
     // -- Home: Grid squares
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Grid Square 1', 'IGV' ),
+			'name'    => __( 'Grid 1', 'IGV' ),
 			'desc'    => __( 'Usados en el grid del Home, categorias, etc', 'IGV' ),
-			'id'      => $this->ads_prefix . 'grid_square_1',
+			'id'      => $this->ads_prefix . 'grid_1',
 			'type'    => 'textarea_code',
 		) );
 
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Grid Square 2', 'IGV' ),
+			'name'    => __( 'Grid 2', 'IGV' ),
 			'desc'    => __( 'Usados en el grid del Home, categorias, etc', 'IGV' ),
-			'id'      => $this->ads_prefix . 'grid_square_2',
+			'id'      => $this->ads_prefix . 'grid_2',
 			'type'    => 'textarea_code',
 		) );
 
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Grid Square 3', 'IGV' ),
+			'name'    => __( 'Grid 3', 'IGV' ),
 			'desc'    => __( 'Usados en el grid de categorias', 'IGV' ),
-			'id'      => $this->ads_prefix . 'grid_square_3',
+			'id'      => $this->ads_prefix . 'grid_3',
 			'type'    => 'textarea_code',
 		) );
 
 		$ads_cmb->add_field( array(
-			'name'    => __( 'Grid Square 4', 'IGV' ),
+			'name'    => __( 'Grid 4', 'IGV' ),
 			'desc'    => __( 'Usados en el grid de categorias', 'IGV' ),
-			'id'      => $this->ads_prefix . 'grid_square_4',
+			'id'      => $this->ads_prefix . 'grid_4',
 			'type'    => 'textarea_code',
 		) );
 

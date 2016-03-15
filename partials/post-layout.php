@@ -20,9 +20,10 @@
           <?php
             if ( has_category('puta-portadazza') ) {
               the_post_thumbnail('single-puta-portadazza');
-            } else { ?>
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-          <?php } ?>
+            } else {
+              echo IGV_get_option('_igv_ads_single_1');
+            }
+          ?>
         </div>
       </div>
     </div>
@@ -53,7 +54,13 @@
         </div>
         <?php get_template_part('partials/single-popular'); ?>
         <div class="col s8">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+          <?php
+            if ( has_category('puta-portadazza') ) {
+              echo IGV_get_option('_igv_ads_single_1');
+            } else {
+              echo IGV_get_option('_igv_ads_single_2');
+            }
+          ?>
         </div>
       </div>
 
