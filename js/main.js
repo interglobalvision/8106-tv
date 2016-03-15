@@ -288,6 +288,7 @@ Site = {
     var _this = this;
 
     _this.bindVerMas();
+    _this.bindMoreScroll();
     _this.fixWidows();
 
     Ajaxy.init();
@@ -299,6 +300,7 @@ Site = {
     var _this = this;
 
     _this.bindVerMas();
+    _this.bindMoreScroll();
     _this.fixWidows();
 
     Twitter.init();
@@ -325,6 +327,21 @@ Site = {
         }
       },
     });
+  },
+
+  bindMoreScroll: function() {
+    $('#more-music').on({
+      click: function(e) {
+        var $this = $(this);
+        var offset = $this.offset();
+
+        $('body, html').animate({
+          scrollTop: offset.top - 35,
+        }, basicAnimationSpeed);
+
+      },
+    });
+
   },
 
   fixWidows: function() {
