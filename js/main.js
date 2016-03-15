@@ -302,6 +302,11 @@ Site = {
     _this.fixWidows();
 
     Twitter.init();
+    
+    // Reload Ads
+    googletag.cmd.push(function() {
+      googletag.pubads().refresh();
+    });
 
   },
 
