@@ -309,13 +309,19 @@ Site = {
   bindVerMas: function() {
     $('#more-posts').on({
       click: function(e) {
-        var _this = $(this);
+        var $this = $(this);
+        var offset = $this.offset();
 
-        if (_this.hasClass('js-next-page')) {
-          Ajaxy.load(_this.data('href'));
+        if ($this.hasClass('js-next-page')) {
+          Ajaxy.load($this.data('href'));
         } else {
           $('.feed-post.u-hidden').removeClass('u-hidden');
-          _this.addClass('js-next-page');
+          $this.addClass('js-next-page');
+
+          $('body, html').animate({
+            scrollTop: offset.top - 35,
+          }, basicAnimationSpeed);
+
         }
       },
     });
