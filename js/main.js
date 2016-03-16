@@ -147,7 +147,7 @@ Ajaxy = {
 
     var siteURL = "http://" + top.location.host.toString();
 
-    _this.$ajaxyLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../'], a[href^='#']");
+    _this.$ajaxyLinks = $("a[href^='" + siteURL + "'], a[href^='/'], a[href^='./'], a[href^='../'], a[href^='#']").not('#wpadminbar a');
     //_this.$elementsToHide = $('.nav, #main-container, #three-scene');
 
     // Find all ajaxy links and bind ajax event
@@ -280,8 +280,15 @@ Ajaxy = {
     $('#main-content').html($content.html());
     $('body').removeAttr('class').addClass($bodyClasses + ' loading');
 
+    // Update Admin Bar
+    if( WP.isAdmin ) {
+      $('#wpadminbar').html( $('#wpadminbar', respHtml) );
+    }
+
     // Update Hype
-    GlobieHypeBeast.urlLoaded(url);
+    if( typeof GlobieHypeBeast !== 'undefined') {
+      GlobieHypeBeast.urlLoaded(url);
+    }
 
   },
 };
@@ -309,14 +316,20 @@ Site = {
     Twitter.init();
 
     // Re render fb/tw buttons
-    twttr.widgets.load();
-    FB.XFBML.parse();
-
+    if( typeof twttr !== 'undefined') {
+      twttr.widgets.load();
+    }
+    
+    if( typeof FB !== 'undefined') {
+      FB.XFBML.parse();
+    }
     
     // Reload Ads
-    googletag.cmd.push(function() {
-      googletag.pubads().refresh();
-    });
+    if( typeof googletag !== 'undefined') {
+      googletag.cmd.push(function() {
+        googletag.pubads().refresh();
+      });
+    }
 
   },
 
