@@ -280,6 +280,9 @@ Ajaxy = {
     $('#main-content').html($content.html());
     $('body').removeAttr('class').addClass($bodyClasses + ' loading');
 
+    // Update Hype
+    GlobieHypeBeast.urlLoaded(url);
+
   },
 };
 
