@@ -4,6 +4,11 @@
   $author = get_the_author();
   $date = get_the_date( 'j F Y' );
   $tags = get_the_tag_list('',', ','');
+
+  $category = get_the_category( $post->ID );
+  $cat_name = $category[0]->cat_name;
+  $cat_id = $category[0]->term_id;
+  $cat_link = get_category_link( $cat_id );
 ?>
 
 <article <?php post_class(); ?> id="page-<?php the_ID(); ?>">
@@ -41,6 +46,7 @@
 
       <div id="single-sidebar" class="u-float">
         <div class="col s8 single-sidebar-item">
+          <h2><a class="font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a></h2>
           <?php if ($author) { ?>
           <strong>Autor:</strong> <?php the_author_posts_link(); ?>
           <?php } if ($date) { ?>
