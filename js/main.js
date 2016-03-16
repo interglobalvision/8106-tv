@@ -288,6 +288,7 @@ Site = {
     var _this = this;
 
     _this.bindVerMas();
+    _this.bindMoreScroll();
     _this.fixWidows();
 
     Ajaxy.init();
@@ -299,6 +300,7 @@ Site = {
     var _this = this;
 
     _this.bindVerMas();
+    _this.bindMoreScroll();
     _this.fixWidows();
 
     Twitter.init();
@@ -314,16 +316,37 @@ Site = {
   bindVerMas: function() {
     $('#more-posts').on({
       click: function(e) {
-        var _this = $(this);
+        var $this = $(this);
+        var offset = $this.offset();
 
-        if (_this.hasClass('js-next-page')) {
-          Ajaxy.load(_this.data('href'));
+        if ($this.hasClass('js-next-page')) {
+          Ajaxy.load($this.data('href'));
         } else {
           $('.feed-post.u-hidden').removeClass('u-hidden');
-          _this.addClass('js-next-page');
+          $this.addClass('js-next-page');
+
+          $('body, html').animate({
+            scrollTop: offset.top - 35,
+          }, basicAnimationSpeed);
+
         }
       },
     });
+  },
+
+  bindMoreScroll: function() {
+    $('#more-music').on({
+      click: function(e) {
+        var $this = $(this);
+        var offset = $this.offset();
+
+        $('body, html').animate({
+          scrollTop: offset.top - 35,
+        }, basicAnimationSpeed);
+
+      },
+    });
+
   },
 
   fixWidows: function() {

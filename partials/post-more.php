@@ -39,7 +39,7 @@ if ($query->have_posts()) {
 <div id="single-more-posts" class="container">
 
   <div class="row">
-    <button id="more-music" class="see-more theme-border-color col s24"><?php echo 'Más ' . $cat_name; ?></button>
+    <a id="more-music" class="see-more theme-border-color col s24 u-pointer"><?php echo 'Más ' . $cat_name; ?></a>
   </div>
 
   <div class="row">
