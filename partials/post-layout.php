@@ -46,9 +46,9 @@
 
       <div id="single-sidebar" class="u-float">
         <div class="col s8 single-sidebar-item">
-          <h2><a class="font-condensed" href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a></h2>
+          <strong>Categoría:</strong> <a href="<?php echo esc_url( $cat_link ); ?>"><?php echo $cat_name; ?></a>
           <?php if ($author) { ?>
-          <strong>Autor:</strong> <?php the_author_posts_link(); ?>
+          <br><strong>Autor:</strong> <?php the_author_posts_link(); ?>
           <?php } if ($date) { ?>
           <br><strong>Fecha:</strong> <?php echo $date; ?>
           <?php } if ($tags) { ?>
