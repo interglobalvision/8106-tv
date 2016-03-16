@@ -47,6 +47,10 @@
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php wp_head(); ?>
+  <?php
+  // Google DFP Header code
+  echo IGV_get_option('_igv_ads_doc_header_code');
+  ?>
   <?php get_template_part('partials/theme-style'); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -57,7 +61,10 @@
   <div id="header-advert-space" class="theme-bg theme-pattern-bg">
     <div class="container">
       <div class="row u-align-center">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=800&h=100">
+      <?php
+      // Leaderboard Ad
+      echo IGV_get_option('_igv_ads_top_leaderboard');
+      ?>
       </div>
     </div>
   </div>

@@ -160,8 +160,11 @@ wp_reset_postdata();
       <div class="col s1"></div>
 
       <div class="col s7">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+<?php
+// Leaderboard Ad
+echo IGV_get_option('_igv_ads_main_square_1');
+echo IGV_get_option('_igv_ads_main_square_2');
+?>
       </div>
 
     </div>
@@ -204,7 +207,13 @@ if ( $post_query->have_posts() ) {
         <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
           <div class="col s1"></div>
           <div class="feed-post-container col s7">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+      <?php
+      if ( $item_count == 4 ) {
+        echo IGV_get_option('_igv_ads_grid_1');
+      } else { 
+        echo IGV_get_option('_igv_ads_grid_2');
+      }
+      ?>
           </div>
         </div>
     <?php
