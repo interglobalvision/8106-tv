@@ -307,6 +307,11 @@ Site = {
     _this.fixWidows();
 
     Twitter.init();
+
+    // Re render fb/tw buttons
+    twttr.widgets.load();
+    FB.XFBML.parse();
+
     
     // Reload Ads
     googletag.cmd.push(function() {
