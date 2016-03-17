@@ -13,7 +13,8 @@ if ($instagram_feed) {
   foreach($instagram_feed as $index => $instagram_item) {
     $likes = $instagram_item->likes->count;
     $comments = $instagram_item->comments->count;
-    $url = $instagram_item->images->standard_resolution->url;
+    $img = $instagram_item->images->low_resolution->url;
+    $hi_res_img = $instagram_item->images->standard_resolution->url;
     $caption = $instagram_item->caption->text;
   ?>
 
@@ -29,7 +30,7 @@ if ($instagram_feed) {
             <?php echo $comments ? $comments . '<span class="genericon genericon-comment"></span>' : ''; ?>
           </header>
 
-          <img src="<?php echo $instagram_item->images->standard_resolution->url; ?>" alt="<?php echo $caption; ?>" />
+          <img class="instagram-image" src="<?php echo $img ?>" srcset="<?php echo $hi_res_img ?> 2x" alt="<?php echo $caption; ?>" />
 
         </a>
       </div>

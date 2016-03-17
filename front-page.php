@@ -44,7 +44,7 @@ if ( $featured_query->have_posts() ) {
         </div>
     <?php } ?>
         <div id="featured-post-image-holder">
-          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
       </article>
 
@@ -99,7 +99,7 @@ if ( $puta_query->have_posts() ) {
       </div>
 
       <div class="col s7">
-        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+        <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('home-puta-portadazza'); ?></a>
         <?php the_excerpt(); ?>
       </div>
   <?php
@@ -160,8 +160,11 @@ wp_reset_postdata();
       <div class="col s1"></div>
 
       <div class="col s7">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+<?php
+// Leaderboard Ad
+echo IGV_get_option('_igv_ads_main_square_1');
+echo IGV_get_option('_igv_ads_main_square_2');
+?>
       </div>
 
     </div>
@@ -204,7 +207,13 @@ if ( $post_query->have_posts() ) {
         <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
           <div class="col s1"></div>
           <div class="feed-post-container col s7">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+      <?php
+      if ( $item_count == 4 ) {
+        echo IGV_get_option('_igv_ads_grid_1');
+      } else { 
+        echo IGV_get_option('_igv_ads_grid_2');
+      }
+      ?>
           </div>
         </div>
     <?php
@@ -234,7 +243,18 @@ if ( $post_query->have_posts() ) {
 
           <div class="col s7">
             <a href="<?php the_permalink() ?>">
-              <?php the_post_thumbnail(); ?>
+              <?php
+                $uncropped_thumb_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
+
+                if ($uncropped_thumb_meta) {
+                  if ($uncropped_thumb_meta['width'] >= $uncropped_thumb_meta['height']) {
+                    // landscape thumbnail
+                    the_post_thumbnail('index-post-thumb');
+                  } else {
+                    the_post_thumbnail('index-post-thumb-portrait');
+                  }
+                }
+              ?>
               <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
               <div class="feed-subtitle"><?php echo $subtitle; ?></div>

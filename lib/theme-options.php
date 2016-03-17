@@ -17,18 +17,21 @@ class IGV_Admin {
  	 * @var string
  	 */
 	private $prefix = '_igv_';
+	private $ads_prefix = '_igv_ads_';
 
 	/**
  	 * Options page metabox id
  	 * @var string
  	 */
 	private $metabox_id = 'IGV_option_metabox';
+	private $ads_metabox_id = 'IGV_ads_option_metabox';
 
 	/**
 	 * Options Page title
 	 * @var string
 	 */
 	protected $title = 'Site Options';
+	protected $ads_title = 'Ads';
 
 	/**
 	 * Options Page hook
@@ -81,6 +84,9 @@ class IGV_Admin {
 		<div class="wrap cmb2-options-page <?php echo $this->key; ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
+      <hr />
+			<h2><?php echo  $this->ads_title; ?></h2>
+			<?php cmb2_metabox_form( $this->ads_metabox_id, $this->key ); ?>
 		</div>
 		<?php
 	}
@@ -163,6 +169,110 @@ class IGV_Admin {
 			'desc'    => __( '', 'IGV' ),
 			'id'      => $this->prefix . 'theme_pattern',
 			'type'    => 'file',
+		) );
+
+    // ADS
+
+		$ads_cmb = new_cmb2_box( array(
+			'id'      => $this->ads_metabox_id,
+			'hookup'  => false,
+			'show_on' => array(
+				// These are important, don't remove
+				'key'   => 'options-page',
+				'value' => array( $this->key, )
+			),
+		) );
+
+		// Set our CMB2 fields for Ads
+
+    // -- Document Header Code
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Document Header Code', 'IGV' ),
+			'desc'    => __( '', 'IGV' ),
+			'id'      => $this->ads_prefix . 'doc_header_code',
+			'type'    => 'textarea_code',
+		) );
+
+    // -- Top Leadebord
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Top Leaderboard', 'IGV' ),
+			'desc'    => __( 'Leadeboard que aparece hasta arriba del sitio', 'IGV' ),
+			'id'      => $this->ads_prefix . 'top_leaderboard',
+			'type'    => 'textarea_code',
+		) );
+
+    // -- Home: Main squares
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Home 1', 'IGV' ),
+			'desc'    => __( 'Usados en los primeros bloques del Home', 'IGV' ),
+			'id'      => $this->ads_prefix . 'home_1',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Home 2', 'IGV' ),
+			'desc'    => __( 'Usados en los primeros bloques del Home', 'IGV' ),
+			'id'      => $this->ads_prefix . 'home_2',
+			'type'    => 'textarea_code',
+		) );
+
+    // -- Home: Grid squares
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Grid 1', 'IGV' ),
+			'desc'    => __( 'Usados en el grid del Home, categorias, etc', 'IGV' ),
+			'id'      => $this->ads_prefix . 'grid_1',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Grid 2', 'IGV' ),
+			'desc'    => __( 'Usados en el grid del Home, categorias, etc', 'IGV' ),
+			'id'      => $this->ads_prefix . 'grid_2',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Grid 3', 'IGV' ),
+			'desc'    => __( 'Usados en el grid de categorias', 'IGV' ),
+			'id'      => $this->ads_prefix . 'grid_3',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Grid 4', 'IGV' ),
+			'desc'    => __( 'Usados en el grid de categorias', 'IGV' ),
+			'id'      => $this->ads_prefix . 'grid_4',
+			'type'    => 'textarea_code',
+		) );
+
+    // -- Single
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Single 1', 'IGV' ),
+			'desc'    => __( 'Usado en el single', 'IGV' ),
+			'id'      => $this->ads_prefix . 'single_1',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Single 2', 'IGV' ),
+			'desc'    => __( 'Usado en el single', 'IGV' ),
+			'id'      => $this->ads_prefix . 'single_2',
+			'type'    => 'textarea_code',
+		) );
+
+    // -- Embed Ads
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Embed 1', 'IGV' ),
+			'desc'    => __( 'Usados en junto a los embed', 'IGV' ),
+			'id'      => $this->ads_prefix . 'embed_1',
+			'type'    => 'textarea_code',
+		) );
+
+		$ads_cmb->add_field( array(
+			'name'    => __( 'Embed 2', 'IGV' ),
+			'desc'    => __( 'Usados en junto a los embed', 'IGV' ),
+			'id'      => $this->ads_prefix . 'embed_2',
+			'type'    => 'textarea_code',
 		) );
 
 	}

@@ -25,7 +25,7 @@
     <?php } ?>
 
         <div id="featured-post-image-holder">
-          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('', array( 'id' => 'featured-post-image') ); ?></a>
+          <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
     <div>
   </header>
@@ -55,7 +55,7 @@
         <div class="col s2"></div>
         <div class="col s7">
           <?php if ($author) { ?>
-          <strong>Autor:</strong> <?php echo $author; ?>
+          <strong>Autor:</strong> <?php the_author_posts_link(); ?>
           <?php } if ($date) { ?>
           <br><strong>Fecha:</strong> <?php echo $date; ?>
           <?php } if ($tags) { ?>

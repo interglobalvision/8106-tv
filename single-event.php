@@ -50,7 +50,10 @@ if (have_posts()) {
               ?></h2>
             </div>
             <div class="col s8">
-              <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+              <?php
+                echo IGV_get_option('_igv_ads_single_1');
+                echo IGV_get_option('_igv_ads_single_2');
+              ?>
             </div>
           </div>
         </div>

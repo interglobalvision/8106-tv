@@ -39,7 +39,7 @@ if ($query->have_posts()) {
 <div id="single-more-posts" class="container">
 
   <div class="row">
-    <button id="more-music" class="see-more theme-border-color col s24"><?php echo 'Más ' . $cat_name; ?></button>
+    <a id="more-music" class="see-more theme-border-color col s24 u-pointer"><?php echo 'Más ' . $cat_name; ?></a>
   </div>
 
   <div class="row">
@@ -50,12 +50,21 @@ if ($query->have_posts()) {
 ?>
 
     <div class="col s1"> </div>
-    <article <?php post_class('col s6 single-more-post'); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class('col s7 single-more-post'); ?> id="post-<?php the_ID(); ?>">
 
       <a href="<?php the_permalink(); ?>">
+        <?php
+          $uncropped_thumb_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
 
-        <?php the_post_thumbnail(); ?>
-
+          if ($uncropped_thumb_meta) {
+            if ($uncropped_thumb_meta['width'] >= $uncropped_thumb_meta['height']) {
+              // landscape thumbnail
+              the_post_thumbnail('index-post-thumb');
+            } else {
+              the_post_thumbnail('index-post-thumb-portrait');
+            }
+          }
+        ?>
         <h3 class="feed-title"><?php the_title(); ?></h3>
 
   <?php if ($subtitle) { ?>

@@ -42,8 +42,15 @@ if( function_exists( 'add_image_size' ) ) {
   add_image_size( 'admin-thumb', 150, 150, false );
   add_image_size( 'opengraph', 1200, 630, true );
 
-  add_image_size( 'small-thumb', 124, 75, true );
+  add_image_size( 'small-thumb', 124, 82, true );
 
+  add_image_size( 'featured-post-image', 722, 481, true );
+
+  // height is 0.8 of width
+  add_image_size( 'index-post-thumb', 262, 209, true );
+  add_image_size( 'index-post-thumb-portrait', 209, 262, true );
+
+  add_image_size( 'home-puta-portadazza', 308, 9999, false );
   add_image_size( 'single-puta-portadazza', 354, 354, false );
 }
 
@@ -54,10 +61,12 @@ register_nav_menus( array(
 ) );
 */
 
+get_template_part( 'lib/shortcodes' );
 get_template_part( 'lib/gallery' );
 get_template_part( 'lib/post-types' );
 get_template_part( 'lib/meta-boxes' );
 get_template_part( 'lib/theme-options' );
+get_template_part( 'lib/instructions');
 
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 function cmb_initialize_cmb_meta_boxes() {
@@ -76,9 +85,6 @@ add_action( 'after_setup_theme', 'wpdocs_after_setup_theme' );
 // Remove WP Emoji
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
-
-// Disable that freaking admin bar
-add_filter('show_admin_bar', '__return_false');
 
 // Turn off version in meta
 function no_generator() { return ''; }

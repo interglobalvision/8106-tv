@@ -1779,8 +1779,8 @@ blockquote {
 .copy h4,
 .copy h5,
 .copy h6 {
-  margin-left: 53px;
-  margin-right: 53px;
+  margin-left: 46px;
+  margin-right: 46px;
   margin-bottom: 28px;
 }
 .copy iframe {
@@ -1798,7 +1798,10 @@ blockquote {
 #featured-copy h4,
 #featured-copy h5,
 #featured-copy h6 {
-  margin: 0 53px 28px 53px;
+  margin: 0 46px 28px 46px;
+}
+#featured-copy img {
+  margin: 49px 0;
 }
 .indent {
   margin-left: 32px;
@@ -1824,6 +1827,38 @@ img {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+.custom-embed,
+.custom-embed-with-ad {
+  margin-top: 49px;
+  margin-bottom: 49px;
+}
+.custom-embed-with-ad {
+  margin-left: 92px;
+  margin-right: 92px;
+}
+.custom-embed-with-ad .embed {
+  float: left;
+  width: 446px;
+  margin-right: 60px;
+}
+.custom-embed-with-ad .embed-ad {
+  float: left;
+  margin-top: 0 !important;
+  max-width: 216px;
+}
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 #main-content {
   padding-top: 28px;
   -webkit-transition: opacity 300ms;
@@ -1839,7 +1874,7 @@ img {
 }
 #header .logo {
   height: 3rem;
-  width: auto;
+  width: 140px;
 }
 .header-drawer {
   display: none;
@@ -1889,7 +1924,7 @@ img {
   min-height: 400px;
 }
 #featured-post-title {
-  font-size: 3rem;
+  font-size: 3.1rem;
   max-height: 50vh;
   min-height: 400px;
 }
@@ -1903,7 +1938,7 @@ img {
   margin: 0 28px;
 }
 #featured-post-subtitle {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   max-height: 50vh;
   min-height: 400px;
 }
@@ -2060,6 +2095,9 @@ img {
   vertical-align: sub;
   font-size: 1.2rem;
 }
+.instagram-image {
+  width: 100%;
+}
 #pagination {
   margin-top: 49px;
   margin-bottom: 49px;
@@ -2123,7 +2161,7 @@ img {
 }
 #footer .logo {
   width: 70%;
-  height: auto;
+  height: 63px;
 }
 #footer .logo path {
   fill: #fdfdfd;
@@ -2156,6 +2194,9 @@ body.loading #loading {
 #featured-social-widgets {
   margin-top: 28px;
   margin-bottom: 70px;
+}
+#pattern-space {
+  height: 28px;
 }
 #not-found {
   margin-bottom: 70px;

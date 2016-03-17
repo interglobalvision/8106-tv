@@ -35,15 +35,25 @@ if ( have_posts() ) {
       <div class="ad u-float">
         <div class="col s1"></div>
         <div class="feed-post-container col s7">
-          <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+      <?php
+      if ( $item_count == 4 ) {
+        echo IGV_get_option('_igv_ads_grid_1');
+      } else if ( $item_count == 12 ) { 
+        echo IGV_get_option('_igv_ads_grid_2');
+      } else if ( $item_count == 16 ) { 
+        echo IGV_get_option('_igv_ads_grid_3');
+      } else { 
+        echo IGV_get_option('_igv_ads_grid_4');
+      }
+      ?>
         </div>
       </div>
 
     <?php // End AD
     } else {
     ?>
-    
-      <?php // POST 
+
+      <?php // POST
       the_post();
       $category = get_the_category( $post->ID );
       $cat_name = $category[0]->cat_name;
@@ -61,7 +71,18 @@ if ( have_posts() ) {
 
         <div class="col s7">
           <a href="<?php the_permalink() ?>">
-            <?php the_post_thumbnail(); ?>
+            <?php
+              $uncropped_thumb_meta = wp_get_attachment_metadata(get_post_thumbnail_id());
+
+              if ($uncropped_thumb_meta) {
+                if ($uncropped_thumb_meta['width'] >= $uncropped_thumb_meta['height']) {
+                  // landscape thumbnail
+                  the_post_thumbnail('index-post-thumb');
+                } else {
+                  the_post_thumbnail('index-post-thumb-portrait');
+                }
+              }
+            ?>
             <h3 class="feed-title"><?php the_title(); ?></h3>
       <?php if ($subtitle) { ?>
             <div class="feed-subtitle"><?php echo $subtitle; ?></div>
