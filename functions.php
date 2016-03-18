@@ -275,7 +275,7 @@ add_action('admin_init', 'wpb_imagelink_setup', 10);
 
 // Change excerpt length
 function custom_excerpt_length( $length ) {
-  return 40;
+  return 34;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
