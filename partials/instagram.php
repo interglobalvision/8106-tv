@@ -5,7 +5,7 @@ $instagram_feed = get_instagram_feed( IGV_get_option( '_igv_instagram_handle' ) 
 if ($instagram_feed) {
 ?>
 
-<section id="instagram-feed" class="theme-grad-bg">
+<section id="instagram-feed" class="theme-grad-bg hide-on-mobile">
   <div class="container">
     <div class="row">
 

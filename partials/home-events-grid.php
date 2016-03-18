@@ -52,7 +52,7 @@ if ( $events_query->have_posts() ) {
     if ($post_index == 8) {
     ?>
       <div class="col s3">
-        <a id="more-events" href="<?php echo esc_url( $events_archive_link ); ?>" class="see-more u-align-center u-held">Ver Más</a>
+        <a id="more-events" href="<?php echo esc_url( $events_archive_link ); ?>" class="see-more u-align-center u-flex-center">Ver Más</a>
       </div>
       </div>
     <?php

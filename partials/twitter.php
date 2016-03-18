@@ -5,7 +5,7 @@ $twitter_feed = get_twitter_feed( IGV_get_option( '_igv_twitter_handle' ) );
 if( $twitter_feed ) {
 ?>
 
-<section id="twitter-feed" class="theme-bg">
+<section id="twitter-feed" class="theme-bg hide-on-mobile">
 
   <div id="twitter-marquee-outer">
     <div id="twitter-marquee-holder">

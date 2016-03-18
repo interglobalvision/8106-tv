@@ -19,14 +19,18 @@
         <div class="col s1"></div>
         <div class="col s15">
           <h1 id="single-title" class="js-fix-widows"><?php the_title(); ?></h1>
-          <h2 class="font-condensed js-fix-widows"><?php echo $subtitle; ?></h2>
+          <h2 id="single-subtitle" class="font-condensed js-fix-widows"><?php echo $subtitle; ?></h2>
         </div>
         <div class="col s8">
           <?php
             if ( has_category('puta-portadazza') ) {
               the_post_thumbnail('single-puta-portadazza');
             } else {
-              echo IGV_get_option('_igv_ads_single_1');
+          ?>
+            <div id="single-ad-header">
+              <?php echo IGV_get_option('_igv_ads_single_1'); ?>
+            </div>
+          <?php
             }
           ?>
         </div>

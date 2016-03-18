@@ -14,9 +14,11 @@ $venue = get_post_meta( $post->ID, '_igv_event_venue', true );
     <?php
     if ($date) {
     ?>
-      <div class="event-date s3 u-held u-align-center">
-        <span class="month font-condensed"><?php echo $month; ?></span>
-        <span class="day"><?php echo $day; ?></span>
+      <div class="event-date u-flex-center u-align-center">
+        <div>
+          <span class="month font-condensed"><?php echo $month; ?></span>
+          <span class="day"><?php echo $day; ?></span>
+        </div>
       </div>
     <?php
     }
@@ -27,7 +29,7 @@ $venue = get_post_meta( $post->ID, '_igv_event_venue', true );
       <h3 class="event-name"><?php the_title(); ?></h3>
     <?php
     if($venue) {
-    ?> 
+    ?>
       <p class="event-venue"><?php echo '@' . $venue; ?></p>
     <?php
     }
