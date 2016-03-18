@@ -3262,6 +3262,9 @@ body.loading #loading {
     width: 100%;
     margin-bottom: 70px;
   }
+  .feed-title {
+    font-size: 1.2rem;
+  }
   .feed-subtitle {
     display: none;
   }
