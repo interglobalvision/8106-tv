@@ -3348,6 +3348,14 @@ body.loading #loading {
   .single-more-post {
     margin-bottom: 49px;
   }
+  .single-more-post:before,
+  .single-more-post:after {
+    content: " ";
+    display: table;
+  }
+  .single-more-post:after {
+    clear: both;
+  }
   .single-more-post .wp-post-image,
   .single-more-post .feed-title {
     float: left;
