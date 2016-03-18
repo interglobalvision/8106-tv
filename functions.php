@@ -273,6 +273,18 @@ function wpb_imagelink_setup() {
 }
 add_action('admin_init', 'wpb_imagelink_setup', 10);
 
+// Change excerpt length
+function custom_excerpt_length( $length ) {
+  return 40;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+// Change exceprt 'more'
+function custom_excerpt_more( $more ) {
+    return '…';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
 // custom login logo
 /*
 function custom_login_logo() {

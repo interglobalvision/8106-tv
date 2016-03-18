@@ -100,7 +100,7 @@ if ( $puta_query->have_posts() ) {
 
       <div class="col s7">
         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('home-puta-portadazza'); ?></a>
-        <?php the_excerpt(); ?>
+        <div class="js-fix-widows"><?php the_excerpt(); ?></div>
       </div>
   <?php
   }
