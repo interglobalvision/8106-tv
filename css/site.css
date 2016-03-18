@@ -3245,6 +3245,9 @@ body.loading #loading {
     width: 100%;
     margin-bottom: 70px;
   }
+  .feed-subtitle {
+    display: none;
+  }
   .see-more {
     border-width: 2px;
     padding: 28px 0;
