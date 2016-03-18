@@ -3309,6 +3309,20 @@ body.loading #loading {
     padding: 28px;
     border-width: 2px;
   }
+  .custom-embed-with-ad {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .custom-embed-with-ad .embed {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 14px;
+  }
+  .custom-embed-with-ad .embed-ad {
+    float: none;
+    max-width: 100%;
+  }
   #single-header {
     margin-bottom: 28px;
     padding-bottom: 14px;
