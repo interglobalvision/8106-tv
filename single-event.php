@@ -50,10 +50,9 @@ if (have_posts()) {
               ?></h2>
             </div>
             <div class="col s8">
-              <?php
-                echo IGV_get_option('_igv_ads_single_1');
-                echo IGV_get_option('_igv_ads_single_2');
-              ?>
+              <div id="single-ad-header">
+                <?php echo IGV_get_option('_igv_ads_single_1'); ?>
+              </div>
             </div>
           </div>
         </div>
@@ -103,7 +102,7 @@ if (have_posts()) {
             </div>
             <?php get_template_part('partials/single-popular'); ?>
             <div class="col s8">
-              <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=AD&w=400&h=400">
+              <?php echo IGV_get_option('_igv_ads_single_2'); ?>
             </div>
           </div>
 

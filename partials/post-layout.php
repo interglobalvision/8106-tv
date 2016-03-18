@@ -26,7 +26,11 @@
             if ( has_category('puta-portadazza') ) {
               the_post_thumbnail('single-puta-portadazza');
             } else {
-              echo IGV_get_option('_igv_ads_single_1');
+          ?>
+            <div id="single-ad-header">
+              <?php echo IGV_get_option('_igv_ads_single_1'); ?>
+            </div>
+          <?php
             }
           ?>
         </div>
