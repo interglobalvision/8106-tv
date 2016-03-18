@@ -3306,8 +3306,11 @@ body.loading #loading {
     margin-bottom: 49px;
   }
   #pagination .pagination-block {
+    display: block;
+    width: 100%;
     padding: 28px;
     border-width: 2px;
+    margin-bottom: 14px;
   }
   .custom-embed-with-ad {
     margin-left: 0;
