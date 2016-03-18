@@ -3420,4 +3420,7 @@ body.loading #loading {
   #not-found {
     margin-bottom: 70px;
   }
+  div[id^='div-gpt-ad'] {
+    margin: 0 auto;
+  }
 }
