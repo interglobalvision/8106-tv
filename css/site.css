@@ -66,8 +66,6 @@
 .u-invisible {
   visibility: hidden;
 }
-.row:before,
-.row:after,
 .u-cf:before,
 .u-cf:after {
   content: " ";
@@ -75,7 +73,6 @@
   display: table;
 /* 2 */
 }
-.row:after,
 .u-cf:after {
   clear: both;
 }
@@ -1386,7 +1383,12 @@ th {
   margin: 0 auto;
   width: 1104px;
 }
-.row {
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.row:after {
   clear: both;
 }
 .col {
@@ -1965,10 +1967,6 @@ img {
   position: relative;
   margin-bottom: 70px;
 }
-.feed-post-container {
-  margin: 0;
-  float: right;
-}
 .feed-category {
   font-size: 2rem;
   text-align: center;
@@ -1981,6 +1979,7 @@ img {
 }
 .see-more {
   background: none;
+  display: block;
   border-width: 2px;
   border-style: solid;
   text-align: center;
@@ -3079,6 +3078,7 @@ body.loading #loading {
     padding: 0 14px;
   }
   .col {
+    float: none;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -3147,6 +3147,9 @@ body.loading #loading {
   #main-content {
     padding-top: 7px;
   }
+  .hide-on-mobile {
+    display: none;
+  }
   #header-advert-space {
     display: none;
   }
@@ -3211,11 +3214,35 @@ body.loading #loading {
   #featured-post-image {
     max-width: 100%;
   }
-  .posts-feed {
+  .attachment-index-post-thumb {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+  .attachment-index-post-thumb-portrait {
+    float: left;
+    width: 40%;
+    margin-right: 12%;
+  }
+  .ad {
+    float: none;
+    width: 100%;
+    text-align: center;
     margin-bottom: 70px;
   }
-  .feed-post,
-  .noticias-container {
+  .ad:before,
+  .ad:after {
+    content: " ";
+    display: table;
+  }
+  .ad:after {
+    clear: both;
+  }
+  .posts-feed {
+    margin-bottom: 0;
+  }
+  .feed-post {
+    width: 100%;
     margin-bottom: 70px;
   }
   .see-more {
@@ -3243,31 +3270,36 @@ body.loading #loading {
     padding: 14px;
   }
   #events .row {
-    margin-bottom: 49px;
+    margin-bottom: 0;
   }
-  .event-date {
+  .home #events {
+    margin-top: 70px;
+  }
+  .home .feed-category {
+    margin-bottom: 28px;
+  }
+  .event-item {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+  .event-item .s3 {
+    width: 48%;
+    margin-right: 4%;
+    float: left;
+  }
+  .event-item .event-date {
+    width: 100%;
     height: 124px;
+  }
+  .event-info {
+    width: 48%;
+    float: left;
+    margin-top: 2%;
   }
   #more-events {
     height: 124px;
     width: 124px;
     padding: 0 28px;
-  }
-  #twitter-feed {
-    padding: 28px 0;
-    margin: 28px 0;
-  }
-  .twitter-feed-tweet {
-    width: 538px;
-    padding: 0 28px;
-  }
-  #instagram-feed {
-    padding: 28px 0;
-    margin: 70px 0;
-  }
-  .instagram-item-header {
-    top: 7px;
-    left: 7px;
   }
   #pagination {
     margin-top: 49px;

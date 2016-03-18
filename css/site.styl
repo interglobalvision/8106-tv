@@ -19,7 +19,7 @@ $gutter = 14px
   margin: 0 auto
   width: ($col * $cols)+($gutter * $cols)
 .row
-  clear: both
+  clearfix()
 .col
   float: left
   margin-left: ($gutter/2)
@@ -310,10 +310,6 @@ img
   position: relative
   margin-bottom: $margin-large
 
-.feed-post-container
-  margin: 0
-  float: right
-
 .feed-category
   font-size: 2rem
   text-align: center
@@ -326,6 +322,7 @@ img
 
 .see-more
   background: none
+  display: block
   border-width: $border-width
   border-style: solid
   text-align: center
@@ -1129,6 +1126,7 @@ body.loading
     width: 100%
     padding: 0 $margin-small
   .col
+    float: none
     margin-left: 0
     margin-right: 0
     width: 100%
@@ -1184,6 +1182,9 @@ body.loading
   #main-content
     padding-top: $margin-tiny
 
+  .hide-on-mobile
+    display: none
+
   // HEADER
 
   #header-advert-space
@@ -1215,7 +1216,7 @@ body.loading
       padding: $margin-small $margin-tiny
 
 
-  // HOME: FEATURED POST
+  // HOME FEATURED POST
 
   #featured-post-container,
   #featured-post-title-holder,
@@ -1255,11 +1256,28 @@ body.loading
 
   // HOME POSTS FEED
 
-  .posts-feed
-    margin-bottom: $margin-large
+  .attachment-index-post-thumb
+    float: left
+    width: 48%
+    margin-right: 4%
 
-  .feed-post,
-  .noticias-container
+  .attachment-index-post-thumb-portrait
+    float: left
+    width: 40%
+    margin-right: 12%
+
+  .ad
+    float: none
+    width: 100%
+    text-align: center
+    margin-bottom: $margin-large
+    clearfix()
+
+  .posts-feed
+    margin-bottom: 0
+
+  .feed-post
+    width: 100%
     margin-bottom: $margin-large
 
   .see-more
@@ -1267,7 +1285,7 @@ body.loading
     padding: $margin-basic 0
 
 
-  // HOME: NOTICIAS
+  // SMALL POSTS
 
   .small-post-title
     margin: $margin-tiny
@@ -1289,37 +1307,42 @@ body.loading
   #search-field, #search-submit
     padding: $margin-small
 
+
   // EVENTS
+
+    // HOME
+
   #events
     .row
-      margin-bottom: $margin-mid
-  .event-date
-    height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+      margin-bottom: 0
+
+  .home
+    #events
+      margin-top: $margin-large
+    .feed-category
+      margin-bottom: $margin-basic
+
+  .event-item
+    width: 100%
+    margin-bottom: $margin-basic
+    .s3
+      width: 48%
+      margin-right: 4%
+      float: left
+    .event-date
+      width: 100%
+      height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
+
+  .event-info
+    width: 48%
+    float: left
+    margin-top: 2%
 
   #more-events
     height: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
     width: ( 3 * $col ) + ( ( 3 - 1 ) * $gutter )
     padding: 0 $margin-basic
 
-  // HOME TWITTER
-
-  #twitter-feed
-    padding: $margin-basic 0
-    margin: $margin-basic 0
-
-  .twitter-feed-tweet
-    width: ( 12 * $col ) + ( ( 12 - 1 ) * $gutter )
-    padding: 0 $margin-basic
-
-  // INSTAGRAM PARTIAL
-
-  #instagram-feed
-    padding: $margin-basic 0
-    margin: $margin-large 0
-
-  .instagram-item-header
-    top: $margin-tiny
-    left: $margin-tiny
 
   // PAGINATION
 
@@ -1329,6 +1352,7 @@ body.loading
     .pagination-block
       padding: $margin-basic
       border-width: $border-width
+
 
   // SINGLE POST
 
@@ -1364,6 +1388,7 @@ body.loading
     .feed-subtitle
       display: none
 
+
   // PAGE
 
   #page-header
@@ -1372,6 +1397,7 @@ body.loading
 
   #page-content
     margin-bottom: $margin-basic
+
 
   // FOOTER
 
@@ -1382,7 +1408,6 @@ body.loading
     .logo
       width: 30%
       margin-bottom: $margin-basic
-
 
   #featured-social-widgets
     margin-top: $margin-basic

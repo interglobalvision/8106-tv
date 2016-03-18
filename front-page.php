@@ -61,7 +61,7 @@ wp_reset_postdata();
 ?>
 
   <!-- Puta portadazza, Noticias, Ads -->
-  <section class="container posts-feed">
+  <section class="container posts-feed hide-on-mobile">
     <div class="row">
 
 <?php
@@ -206,11 +206,11 @@ if ( $post_query->have_posts() ) {
 
         <div class="ad u-float<?php if ( $item_count > 12 ) { echo ' u-hidden'; }?>">
           <div class="col s1"></div>
-          <div class="feed-post-container col s7">
+          <div class="col s7">
       <?php
       if ( $item_count == 4 ) {
         echo IGV_get_option('_igv_ads_grid_1');
-      } else { 
+      } else {
         echo IGV_get_option('_igv_ads_grid_2');
       }
       ?>
