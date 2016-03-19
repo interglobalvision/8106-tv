@@ -64,11 +64,17 @@ function embed_soundcloud_shortcode($atts) {
     return '';
   }
 
+  if( strpos($a['ad'], 'sets') >= 0 ) {
+    $height = '450';
+  } else {
+    $height = '200';
+  }
+
   if($a['ad']) {
     $ad = '<div class="embed-ad">' . IGV_get_option('_igv_ads_embed_' . $a['ad']) . '</div>';
     $html = '<div class="custom-embed-with-ad u-cf"><div class="embed"><div class="square-soundcloud"><iframe src="https://w.soundcloud.com/player/?url=' . $a['url'] . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true" width="100%" height="450" frameborder="no" scrolling="no"></iframe></div></div>' . $ad . '</div>';
   } else {
-    $html = '<div class="custom-embed"><div class="wide-soundcloud"><iframe src="https://w.soundcloud.com/player/?url=' . $a['url'] . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true" width="100%" height="200" frameborder="no" scrolling="no"></iframe></div></div>';
+    $html = '<div class="custom-embed"><div class="wide-soundcloud"><iframe src="https://w.soundcloud.com/player/?url=' . $a['url'] . '&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true" width="100%" height="'. $height .'" frameborder="no" scrolling="no"></iframe></div></div>';
   }
 
   return $html;
