@@ -64,7 +64,8 @@ function embed_soundcloud_shortcode($atts) {
     return '';
   }
 
-  if( strpos($a['ad'], 'sets') >= 0 ) {
+  // Check if the URL is a Soundcloud Set to change the embed height
+  if( strpos($a['url'], 'sets') ) {
     $height = '450';
   } else {
     $height = '200';
