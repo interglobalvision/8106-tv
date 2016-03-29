@@ -2204,14 +2204,14 @@ body.loading #loading {
   overflow: hidden;
   margin: 28px 0;
 }
-.gallery img {
-  margin-bottom: 7px;
-}
 .gallery:hover .cycle-prev {
   left: 28px;
 }
 .gallery:hover .cycle-next {
   right: 28px;
+}
+.cycle-slide img {
+  margin-bottom: 7px !important;
 }
 .gallery-caption {
   font-size: 1rem;
