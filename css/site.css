@@ -1902,26 +1902,9 @@ img {
 #featured-post-container {
   max-height: 50vh;
   min-height: 400px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: flex-start;
-  -ms-justify-content: flex-start;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-  -ms-align-items: flex-end;
-  -ms-flex-align: end;
-      align-items: flex-end;
 }
 #featured-post-title-holder {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+  display: inline-block;
   max-height: 50vh;
   min-height: 400px;
 }
@@ -1931,10 +1914,7 @@ img {
   min-height: 400px;
 }
 #featured-post-subtitle-holder {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+  display: inline-block;
   max-height: 50vh;
   min-height: 400px;
   margin: 0 28px;
@@ -1945,10 +1925,7 @@ img {
   min-height: 400px;
 }
 #featured-post-image-holder {
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  -webkit-box-flex: 1;
-          flex: 1 0 auto;
+  display: inline-block;
   max-height: 50vh;
   min-height: 400px;
   margin: 0 14px;
