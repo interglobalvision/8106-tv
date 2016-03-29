@@ -293,6 +293,49 @@ Ajaxy = {
   },
 };
 
+Featured = {
+  init: function() {
+    var _this = this;
+
+    _this.setCols();
+
+    $(window).resize( function(event) {
+      _this.setCols();
+    });
+  },
+
+  setCols: function() {
+    var _this = this;
+
+    if ( $('#featured-post-container').length ) {
+      
+      // Title
+      var $titleHolder = $('#featured-post-title-holder');
+      var titleCol = $titleHolder.attr('class').replace('col s','');
+      titleCol *= 1;
+      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 5; i++ ) {
+        $titleHolder.removeClass('s' + i).addClass('s' + (i+1));
+        titleCol = i+1;
+      }
+
+      // Subtitle
+      var $subtitleHolder = $('#featured-post-subtitle-holder');
+      var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+      subtitleCol *= 1;
+      for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < 4; i++ ) {
+        $subtitleHolder.removeClass('s' + i).addClass('s' + (i+1));
+        subtitleCol = i+1;
+      }
+
+      // Image
+      var $featuredImage = $('#featured-post-image-holder');
+      var leftCol = 24 - 1 - titleCol - subtitleCol;
+
+      $featuredImage.removeClass().addClass('s' + leftCol);
+    }
+  },
+};
+
 Site = {
   init: function() {
     var _this = this;
@@ -304,6 +347,7 @@ Site = {
     Ajaxy.init();
     Twitter.init();
     Menu.init();
+    Featured.init();
   },
 
   reinit: function() {
@@ -314,6 +358,7 @@ Site = {
     _this.fixWidows();
 
     Twitter.init();
+    Featured.setCols();
 
     // Re render fb/tw buttons
     if( typeof twttr !== 'undefined') {

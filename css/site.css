@@ -1899,41 +1899,23 @@ img {
   padding-bottom: 70px;
   margin-bottom: 70px;
 }
-#featured-post-container {
+#featured-post-container,
+#featured-post-title,
+#featured-post-subtitle {
   max-height: 50vh;
-  min-height: 400px;
-}
-#featured-post-title-holder {
-  display: inline-block;
-  max-height: 50vh;
-  min-height: 400px;
 }
 #featured-post-title {
   font-size: 3.1rem;
-  max-height: 50vh;
-  min-height: 400px;
-}
-#featured-post-subtitle-holder {
-  display: inline-block;
-  max-height: 50vh;
-  min-height: 400px;
-  margin: 0 28px;
 }
 #featured-post-subtitle {
   font-size: 2.2rem;
-  max-height: 50vh;
-  min-height: 400px;
 }
 #featured-post-image-holder {
-  display: inline-block;
+  overflow: hidden;
   max-height: 50vh;
-  min-height: 400px;
-  margin: 0 14px;
-  max-width: 722px;
 }
 #featured-post-image {
   display: block;
-  max-width: 722px;
   width: auto;
 }
 .posts-feed {
@@ -2310,36 +2292,6 @@ body.loading #loading {
   #featured-post {
     padding-bottom: 60px;
     margin-bottom: 60px;
-  }
-  #featured-post-container {
-    max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-title-holder {
-    max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-title {
-    max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-subtitle-holder {
-    max-height: 50vh;
-    min-height: 400px;
-    margin: 0 24px;
-  }
-  #featured-post-subtitle {
-    max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-image-holder {
-    max-height: 50vh;
-    min-height: 400px;
-    margin: 0 12px;
-    max-width: 580px;
-  }
-  #featured-post-image {
-    max-width: 580px;
   }
   .posts-feed {
     margin-bottom: 60px;
@@ -2754,35 +2706,17 @@ body.loading #loading {
   }
   #featured-post-container {
     max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-title-holder {
-    max-height: 50vh;
-    min-height: 400px;
   }
   #featured-post-title {
     font-size: 2rem;
     max-height: 50vh;
-    min-height: 400px;
-  }
-  #featured-post-subtitle-holder {
-    max-height: 50vh;
-    min-height: 400px;
-    margin: 0 20px;
   }
   #featured-post-subtitle {
     font-size: 1.5rem;
     max-height: 50vh;
-    min-height: 400px;
   }
   #featured-post-image-holder {
     max-height: 50vh;
-    min-height: 400px;
-    margin: 0 10px;
-    max-width: 470px;
-  }
-  #featured-post-image {
-    max-width: 470px;
   }
   .posts-feed {
     margin-bottom: 50px;

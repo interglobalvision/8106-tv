@@ -9,22 +9,23 @@
 <article <?php post_class(); ?> id="single-featured-<?php the_ID(); ?>">
 
   <header id="featured-single-header" class="theme-grad-bg">
-    <div class="container" id="featured-post-container">
-      <div id="featured-post-title-holder">
-          <h3 id="featured-post-title" class="rotate-text js-fix-widows">
+    <div class="container u-cf" id="featured-post-container">
+      <div id="featured-post-title-holder" class="col s2">
+          <h3 id="featured-post-title" class="rotate-text">
             <?php the_title(); ?>
           </h3>
         </div>
 
     <?php if ($subtitle) { ?>
-        <div id="featured-post-subtitle-holder">
-          <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+        <div id="featured-post-subtitle-holder" class="col s2">
+          <h4 id="featured-post-subtitle" class="rotate-text font-condensed">
             <?php echo $subtitle; ?>
           </h4>
         </div>
     <?php } ?>
 
-        <div id="featured-post-image-holder">
+        <div class="col s1"></div>
+        <div id="featured-post-image-holder" class="col s19">
           <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
     <div>

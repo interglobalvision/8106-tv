@@ -30,20 +30,21 @@ if ( $featured_query->have_posts() ) {
     $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
   ?>
 
-      <article <?php post_class(); ?> id="featured-post-container">
-        <div id="featured-post-title-holder">
-          <h3 id="featured-post-title" class="rotate-text js-fix-widows">
+      <article <?php post_class('row'); ?> id="featured-post-container">
+        <div id="featured-post-title-holder" class="col s2">
+          <h3 id="featured-post-title" class="rotate-text">
             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
           </h3>
         </div>
     <?php if ($subtitle) { ?>
-        <div id="featured-post-subtitle-holder">
-          <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
+        <div id="featured-post-subtitle-holder" class="col s2">
+          <h4 id="featured-post-subtitle" class="rotate-text font-condensed">
             <a href="<?php the_permalink() ?>"><?php echo $subtitle; ?></a>
           </h4>
         </div>
     <?php } ?>
-        <div id="featured-post-image-holder">
+        <div class="col s1"></div>
+        <div id="featured-post-image-holder" class="col s19">
           <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
         </div>
       </article>
