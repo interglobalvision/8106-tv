@@ -82,13 +82,14 @@ function my_gallery_shortcode($attr) {
 
 	$selector = "gallery-{$instance}";
 
-	$gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='scrollHorz' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div'>
-	<nav class='cycle-prev'></nav>
-    <nav class='cycle-next'></nav>
+	$gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='fade' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div'>
+	<nav class='cycle-prev u-pointer'><span class='genericon genericon-expand'></span></nav>
+  <nav class='cycle-next u-pointer'><span class='genericon genericon-expand'></span></nav>
     ";
 	$output = $gallery_div;
 
 	$i = 0;
+  $attachment_size = count($attachments);
 	foreach ( $attachments as $id => $attachment ) {
 
 		$tag = '';
@@ -97,16 +98,20 @@ function my_gallery_shortcode($attr) {
 /*
 		$largeimg = wp_get_attachment_image_src($id, 'single');
 		$large = $largeimg[0];
-*/
+ */
 
-if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$tag = "
-				<{$captiontag} class='wp-caption-text gallery-caption'>
-				" . wptexturize($attachment->post_excerpt) . "
-				</{$captiontag}>";
-		} else {
-			$tag = null;
-		}
+    $counter = $i+1 . ' / ' . $attachment_size;
+
+    $tag .= "<{$captiontag} class='wp-caption-text gallery-caption u-align-center'>";
+
+    if ( $captiontag && trim($attachment->post_excerpt) ) {
+      $counter .= ': ';
+      $tag .= $counter . wptexturize($attachment->post_excerpt);
+    } else {
+      $tag .= $counter;
+    }
+
+    $tag .= "</{$captiontag}>";
 
 		/*
 
@@ -123,6 +128,7 @@ if ( $captiontag && trim($attachment->post_excerpt) ) {
 
 
 		$output .= "<div><img src='{$img[0]}'>{$tag}</div>";
+    $i++;
 		}
 
 	$output .= "</div>\n";

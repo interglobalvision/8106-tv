@@ -547,6 +547,54 @@ body.loading
 #not-found
   margin-bottom: $margin-large
 
+// GALLERY
+.gallery
+  overflow: hidden
+  margin: $margin-basic 0
+
+  img
+    margin-bottom: $margin-tiny
+
+  &:hover
+    .cycle-prev
+      left: $margin-basic
+
+    .cycle-next
+      right: $margin-basic 
+    
+.gallery-caption
+  font-size: 1rem;
+  display: block
+
+.cycle-prev,
+.cycle-next
+  position: absolute
+  top: 50%
+  margin-top: -41px
+  z-index: 999
+  display: block
+  z-index: 101
+  transition all 300ms
+  
+  .genericon
+    font-size: 60px
+    line-height: 60px
+
+.cycle-prev
+  left: 0
+  transform: rotate(90deg)
+
+.cycle-next
+  right: 0
+  transform: rotate(-90deg)
+
+.no-touch
+  .cycle-prev
+    left: -60px
+
+  .cycle-next
+    right: -60px
+
 // MEDIA QUERIES
 
 // Smaller screens
