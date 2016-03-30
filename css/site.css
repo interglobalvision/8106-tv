@@ -2210,8 +2210,11 @@ body.loading #loading {
 .gallery:hover .cycle-next {
   right: 28px;
 }
+.cycle-slide {
+  width: 100%;
+}
 .cycle-slide img {
-  margin-bottom: 7px !important;
+  margin: 0 auto 7px !important;
 }
 .gallery-caption {
   font-size: 1rem;

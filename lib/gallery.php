@@ -25,6 +25,8 @@ function my_gallery_shortcode($attr) {
 			unset( $attr['orderby'] );
 	}
 
+  $image_size = has_category( 'featured' ) ? 'featured-gallery' : 'gallery';
+
 	extract(shortcode_atts(array(
 		'order'      => 'ASC',
 		'orderby'    => 'menu_order ID',
@@ -33,7 +35,7 @@ function my_gallery_shortcode($attr) {
 		'icontag'    => 'li',
 		'captiontag' => 'span',
 		'columns'    => 3,
-		'size'       => 'gallery',
+		'size'       => $image_size,
 		'include'    => '',
 		'exclude'    => ''
 	), $attr));
@@ -82,7 +84,7 @@ function my_gallery_shortcode($attr) {
 
 	$selector = "gallery-{$instance}";
 
-	$gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='fade' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div'>
+  $gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='fade' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div' data-cycle-auto-height='container'>
 	<nav class='cycle-prev u-pointer'><span class='genericon genericon-expand'></span></nav>
   <nav class='cycle-next u-pointer'><span class='genericon genericon-expand'></span></nav>
     ";
