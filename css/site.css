@@ -2234,20 +2234,14 @@ body.loading #loading {
   line-height: 60px;
 }
 .cycle-prev {
-  left: 0;
+  left: -60px;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .cycle-next {
-  right: 0;
+  right: -60px;
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
-}
-.no-touch .cycle-prev {
-  left: -60px;
-}
-.no-touch .cycle-next {
-  right: -60px;
 }
 @media screen and (max-width: 1118px) {
   .container {
