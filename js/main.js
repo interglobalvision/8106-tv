@@ -338,6 +338,9 @@ Featured = {
       // Calc left space (in 'col' units) :]
       var leftCol = 24 - 1 - titleCol - subtitleCol;
 
+      // leftCol can be max. 14.
+      leftCol = leftCol <= 14 ? leftCol : 14;
+
       // Set Image col size
       $('#featured-post-image-holder').removeClass().addClass('col s' + leftCol);
 

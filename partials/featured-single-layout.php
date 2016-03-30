@@ -25,7 +25,7 @@
     <?php } ?>
 
       <div class="col s1"></div>
-      <div id="featured-post-image-holder" class="col s19">
+      <div id="featured-post-image-holder" class="col s14">
         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('featured-post-image', array( 'id' => 'featured-post-image') ); ?></a>
       </div>
     </div>
