@@ -53,7 +53,7 @@ if ( $featured_query->have_posts() ) {
   }
   ?>
 
-    <div>
+    </div>
   </section>
 
 <?php

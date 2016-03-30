@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Ajaxy, WP */
+/* global $, jQuery, document, Modernizr, Ajaxy, WP, FB, googletag, Site, Featured, GlobieHypeBeast, twttr */
 
 var basicAnimationSpeed = 800;
 var fastAnimationSpeed = basicAnimationSpeed / 2;
@@ -312,26 +312,35 @@ Featured = {
       // Title
       var $titleHolder = $('#featured-post-title-holder');
       var titleCol = $titleHolder.attr('class').replace('col s','');
+
+      // Turn string into int
       titleCol *= 1;
+      
+      // Set col size
       for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 5; i++ ) {
-        $titleHolder.removeClass('s' + i).addClass('s' + (i+1));
-        titleCol = i+1;
+        $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
+        titleCol = i + 1;
       }
 
       // Subtitle
       var $subtitleHolder = $('#featured-post-subtitle-holder');
       var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+
+      // Turn string into int
       subtitleCol *= 1;
+      
+      // Set col size
       for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < 4; i++ ) {
-        $subtitleHolder.removeClass('s' + i).addClass('s' + (i+1));
-        subtitleCol = i+1;
+        $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
+        subtitleCol = i + 1;
       }
 
-      // Image
-      var $featuredImage = $('#featured-post-image-holder');
+      // Calc left space (in 'col' units) :]
       var leftCol = 24 - 1 - titleCol - subtitleCol;
 
-      $featuredImage.removeClass().addClass('s' + leftCol);
+      // Set Image col size
+      $('#featured-post-image-holder').removeClass().addClass('col s' + leftCol);
+
     }
   },
 };
