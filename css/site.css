@@ -2235,13 +2235,13 @@ body.loading #loading {
   left: 0;
 }
 .cycle-prev svg {
-  left: 0;
+  left: 7px;
 }
 .cycle-next {
   right: 0;
 }
 .cycle-next svg {
-  right: 0;
+  right: 7px;
 }
 @media screen and (max-width: 1118px) {
   .container {
