@@ -2216,7 +2216,7 @@ body.loading #loading {
 }
 .cycle-prev,
 .cycle-next {
-  width: 30%;
+  width: 50%;
   height: 100%;
   position: absolute;
   z-index: 101;
@@ -2224,29 +2224,23 @@ body.loading #loading {
   transition: all 300ms;
   bottom: 0;
 }
-.cycle-prev .genericon,
-.cycle-next .genericon {
-  font-size: 30px;
-  line-height: 11px;
+.cycle-prev svg,
+.cycle-next svg {
+  margin: 6px 0 !important;
   position: absolute;
   bottom: 0;
-  height: 22px;
-  width: 22px;
+  height: 15px;
 }
 .cycle-prev {
   left: 0;
 }
-.cycle-prev .genericon {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
+.cycle-prev svg {
   left: 0;
 }
 .cycle-next {
   right: 0;
 }
-.cycle-next .genericon {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+.cycle-next svg {
   right: 0;
 }
 @media screen and (max-width: 1118px) {

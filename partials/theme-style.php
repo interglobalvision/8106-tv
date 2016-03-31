@@ -33,8 +33,8 @@ $soft_white = 'rgb(253, 253, 253)';
   background-image: url(<?php echo $theme_pattern; ?>);
 }
 
-.cycle-prev .genericon ,
-.cycle-next .genericon{
-  color: <?php echo $theme_color; ?>;
+.cycle-prev svg ,
+.cycle-next svg {
+  fill: <?php echo $theme_color; ?>;
 }
 </style>
