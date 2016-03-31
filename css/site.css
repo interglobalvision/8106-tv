@@ -2203,6 +2203,7 @@ body.loading #loading {
 .gallery {
   overflow: hidden;
   margin: 28px 0;
+  height: 0px;
 }
 .cycle-slide {
   width: 100%;
