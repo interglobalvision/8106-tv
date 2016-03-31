@@ -1793,6 +1793,9 @@ blockquote {
   display: block;
   margin: 0 auto 28px auto;
 }
+.copy a {
+  text-decoration: underline;
+}
 #featured-copy p,
 #featured-copy h1,
 #featured-copy h2,
