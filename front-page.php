@@ -180,12 +180,18 @@ echo IGV_get_option('_igv_ads_main_square_2');
 <?php get_template_part('partials/twitter'); ?><!-- Twitter feed -->
 
 <?php
-// WP_Query arguments
+// Build an array with the id of posts used in loops above here
 array_push($excluded_posts, $featured_id, $puta_id);
 
+// Get Sponsored cat ID
+$sponsored_cat = get_category_by_slug('sponsored');
+$sponsored_id = '-' . $sponsored_cat->cat_ID;
+
+// WP_Query arguments
 $args = array (
   'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '16',
+  'cat'             => array( $sponsored_id ),
 );
 
 // The Query
