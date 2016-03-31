@@ -32,4 +32,9 @@ $soft_white = 'rgb(253, 253, 253)';
 .theme-pattern-bg {
   background-image: url(<?php echo $theme_pattern; ?>);
 }
+
+.cycle-prev svg ,
+.cycle-next svg {
+  fill: <?php echo $theme_color; ?>;
+}
 </style>

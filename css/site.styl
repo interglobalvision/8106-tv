@@ -567,6 +567,45 @@ body.loading
 #not-found
   margin-bottom: $margin-large
 
+// GALLERY
+.gallery
+  overflow: hidden
+  margin: $margin-basic 0
+  height: 0px
+
+.cycle-slide
+  width: 100%
+  img
+    margin: 0 auto $margin-tiny !important
+
+.gallery-caption
+  font-size: 1rem
+  display: block
+
+.cycle-prev,
+.cycle-next
+  width: 50%
+  height: 100%
+  position: absolute
+  z-index: 101
+  transition all 300ms
+  bottom: 0
+  svg
+    margin: 6px 0 !important
+    position: absolute
+    bottom: 0
+    height: 15px
+
+.cycle-prev
+  left: 0
+  svg
+    left: $margin-tiny
+
+.cycle-next
+  right: 0
+  svg
+    right: $margin-tiny
+
 // MEDIA QUERIES
 
 // Smaller screens
@@ -824,6 +863,23 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
+
 
 // iPad / tablet size
 
@@ -1104,6 +1160,21 @@ body.loading
   #not-found
     margin-bottom: $margin-large
 
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
 
 // MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
 
@@ -1477,6 +1548,22 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
 
   // Ads
   div[id^='div-gpt-ad']
