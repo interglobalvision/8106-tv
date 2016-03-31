@@ -108,12 +108,24 @@ if ($radio_embed) {
     </div>
   </header>
 
+<?php
+
+// Get Sponsored cat ID
+$sponsored_cat = get_category_by_slug('sponsored');
+$sponsored_id = '-' . $sponsored_cat->cat_ID;
+
+?>
+
   <div id="drawer-categorias" class="header-drawer theme-grad-bg u-fc">
     <div class="container">
       <div class="row">
         <div class="col s24">
           <ul id="drawer-categorias-list" class="font-century-gothic">
-            <?php wp_list_categories(array('title_li' => '',)); ?>
+<?php 
+wp_list_categories( array(
+  'title_li' => '',
+  'exclude'  => $sponsored_id,
+)); ?>
           </ul>
         </div>
       </div>

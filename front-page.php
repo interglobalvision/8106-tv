@@ -191,7 +191,7 @@ $sponsored_id = '-' . $sponsored_cat->cat_ID;
 $args = array (
   'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '16',
-  'cat'             => array( $sponsored_id ),
+  'cat'             => $sponsored_id,
 );
 
 // The Query
