@@ -74,7 +74,7 @@ wp_reset_postdata();
 $args = array (
   'category_name'   => 'puta-portadazza',
   'posts_per_page'  => '1',
-  'cat'             => $sponsored_id,
+  'category__not_in' => $sponsored_id,
 );
 
 // PORTADAZZA: The Query
@@ -126,7 +126,7 @@ wp_reset_postdata();
 $args = array (
   'category_name'   => 'noticias',
   'posts_per_page'  => '5',
-  'cat'             => $sponsored_id,
+  'category__not_in' => $sponsored_id,
 );
 
 // NOTICIAS: The Query
@@ -194,7 +194,7 @@ array_push($excluded_posts, $featured_id, $puta_id);
 $args = array (
   'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '16',
-  'cat'             => $sponsored_id,
+  'category__not_in' => $sponsored_id,
 );
 
 // The Query

@@ -10,11 +10,9 @@ get_header();
 if( !is_search() ) {
   // Get Sponsored cat ID
   $sponsored_cat = get_category_by_slug('sponsored');
-  $sponsored_id = '-' . $sponsored_cat->cat_ID;
+  $sponsored_id = $sponsored_cat->cat_ID;
 
-  query_posts( array(
-    'cat' => $sponsored_id,
-  ));
+  query_posts($query_string . '&category__not_in=' . $sponsored_id);
 }
 
 // The Loop
