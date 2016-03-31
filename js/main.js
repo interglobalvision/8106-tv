@@ -315,6 +315,8 @@ Featured = {
       // Set max heights
       if( $(window).width() > 720 ) {
         $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
+      } else {
+        $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', 'initial');
       }
 
       // Title
