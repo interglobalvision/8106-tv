@@ -2511,6 +2511,18 @@ body.loading #loading {
   #not-found {
     margin-bottom: 60px;
   }
+  .gallery {
+    margin: 24px 0;
+  }
+  .cycle-slide img {
+    margin: 0 auto 6px !important;
+  }
+  .cycle-prev svg {
+    left: 6px;
+  }
+  .cycle-next svg {
+    right: 6px;
+  }
 }
 @media screen and (max-width: 1118px) and (min-width: 601px) {
   .m1 {
@@ -2954,6 +2966,18 @@ body.loading #loading {
   }
   #not-found {
     margin-bottom: 50px;
+  }
+  .gallery {
+    margin: 20px 0;
+  }
+  .cycle-slide img {
+    margin: 0 auto 5px !important;
+  }
+  .cycle-prev svg {
+    left: 5px;
+  }
+  .cycle-next svg {
+    right: 5px;
   }
 }
 @media screen and (max-width: 902px) and (min-width: 601px) {
@@ -3462,6 +3486,18 @@ body.loading #loading {
   }
   #not-found {
     margin-bottom: 70px;
+  }
+  .gallery {
+    margin: 28px 0;
+  }
+  .cycle-slide img {
+    margin: 0 auto 7px !important;
+  }
+  .cycle-prev svg {
+    left: 7px;
+  }
+  .cycle-next svg {
+    right: 7px;
   }
   div[id^='div-gpt-ad'] {
     margin: 0 auto;

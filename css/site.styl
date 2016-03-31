@@ -554,12 +554,11 @@ body.loading
 
 .cycle-slide
   width: 100%
-
   img
     margin: 0 auto $margin-tiny !important
 
 .gallery-caption
-  font-size: 1rem;
+  font-size: 1rem
   display: block
 
 .cycle-prev,
@@ -844,6 +843,23 @@ body.loading
   #not-found
     margin-bottom: $margin-large
 
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
+
+
 // iPad / tablet size
 
 @media screen and (max-width: 888px + $gutter)
@@ -1123,6 +1139,21 @@ body.loading
   #not-found
     margin-bottom: $margin-large
 
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
 
 // MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
 
@@ -1496,6 +1527,22 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
 
   // Ads
   div[id^='div-gpt-ad']
