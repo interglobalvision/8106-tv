@@ -304,6 +304,7 @@ Site = {
     Ajaxy.init();
     Twitter.init();
     Menu.init();
+
   },
 
   reinit: function() {
@@ -315,15 +316,17 @@ Site = {
 
     Twitter.init();
 
+    $('.cycle-slideshow').cycle();
+
     // Re render fb/tw buttons
     if( typeof twttr !== 'undefined') {
       twttr.widgets.load();
     }
-    
+
     if( typeof FB !== 'undefined') {
       FB.XFBML.parse();
     }
-    
+
     // Reload Ads
     if( typeof googletag !== 'undefined') {
       googletag.cmd.push(function() {
