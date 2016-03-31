@@ -335,15 +335,17 @@ Featured = {
 
       // Subtitle
       var $subtitleHolder = $('#featured-post-subtitle-holder');
-      var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+      if( $subtitleHolder.length ) {
+        var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
 
-      // Turn string into int
-      subtitleCol *= 1;
-      
-      // Set col size
-      for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
-        $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
-        subtitleCol = i + 1;
+        // Turn string into int
+        subtitleCol *= 1;
+        
+        // Set col size
+        for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
+          $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
+          subtitleCol = i + 1;
+        }
       }
 
       $('#featured-post-container').css('opacity', 1);
