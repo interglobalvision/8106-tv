@@ -1,3 +1,10 @@
+<?php
+
+// Get Sponsored cat ID
+$sponsored_cat = get_category_by_slug('sponsored');
+$sponsored_id = '-' . $sponsored_cat->cat_ID;
+
+?>
     <div id="pattern-space" class="theme-pattern-bg"></div>
     <footer id="footer" class="u-align-center font-condensed">
       <div class="container">
@@ -7,7 +14,14 @@
           </div>
           <div class="col s6">
             <ul>
-              <?php wp_list_categories(array('title_li' => '', 'orderby' => 'count', 'order' => 'DESC', 'hide_empty' => true)); ?>
+<?php 
+wp_list_categories( array(
+  'title_li' => '',
+  'orderby' => 'count', 
+  'order' => 'DESC', 
+  'hide_empty' => true,
+  'exclude'  => $sponsored_id,
+)); ?>
             </ul>
           </div>
           <div class="col s6">
