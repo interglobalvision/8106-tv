@@ -1803,6 +1803,9 @@ blockquote {
   font-style: italic;
   font-size: 0.8rem;
 }
+.copy a {
+  text-decoration: underline;
+}
 #featured-copy p,
 #featured-copy h1,
 #featured-copy h2,
