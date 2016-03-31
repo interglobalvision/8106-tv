@@ -310,11 +310,11 @@ Featured = {
     if ( $('#featured-post-container').length ) {
 
       // Get image height
-      $maxHeight = $('#featured-post-image-holder img').height();
+      $maxHeight = $('#featured-post-image').height();
       
       // Set max heights
       if( $(window).width() > 720 ) {
-        $('#featured-post-container, #featured-post-title-holder, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
+        $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
       }
 
       // Title
