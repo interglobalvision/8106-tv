@@ -314,7 +314,7 @@ Featured = {
       
       // Set max heights
       if( $(window).width() > 720 ) {
-        $('#featured-post-container, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
+        $('#featured-post-container, #featured-post-title-holder, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
       }
 
       // Title
@@ -363,7 +363,10 @@ Site = {
     Ajaxy.init();
     Twitter.init();
     Menu.init();
-    Featured.init();
+
+    $(window).load( function() {
+      Featured.init();
+    });
   },
 
   reinit: function() {
