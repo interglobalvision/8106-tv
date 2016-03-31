@@ -147,6 +147,19 @@ blockquote
     display: block
     margin: 0 auto $margin-basic auto
 
+  .wp-caption
+    max-width: 100% !important
+
+    img
+      margin-bottom: $margin-tiny
+
+  .wp-caption-text
+    font-style: italic
+    font-size: 0.8rem
+
+  a
+    text-decoration: underline
+
 #featured-copy
   p, h1, h2, h3, h4, h5, h6
     margin: 0 ($col + $gutter) $margin-basic ($col + $gutter)
@@ -242,10 +255,14 @@ img
 // CATEGORIES
 
 #drawer-categorias-list
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+
   li.cat-item
     display: inline-block
     padding: $margin-basic $margin-mid
-
 
 // FOLLOW
 
@@ -331,6 +348,9 @@ img
   padding: $margin-basic 0
   font-style: italic
 
+// PORTADAZZA
+#portadazza-title
+  margin: $margin-tiny 0
 
 // HOME: NOTICIAS
 
