@@ -552,13 +552,6 @@ body.loading
   overflow: hidden
   margin: $margin-basic 0
 
-  &:hover
-    .cycle-prev
-      left: $margin-basic
-
-    .cycle-next
-      right: $margin-basic 
-
 .cycle-slide
   width: 100%
 
@@ -571,25 +564,34 @@ body.loading
 
 .cycle-prev,
 .cycle-next
+  width: 30%
+  height: 100%
   position: absolute
-  top: 50%
-  margin-top: -41px
-  z-index: 999
-  display: block
   z-index: 101
   transition all 300ms
+  bottom: 0
   
   .genericon
-    font-size: 60px
-    line-height: 60px
+    font-size: 30px
+    line-height: 11px
+    position: absolute
+    bottom: 0
+    height: 22px
+    width: 22px
 
 .cycle-prev
-  left: -60px
-  transform: rotate(90deg)
+  left: 0
+
+  .genericon
+    transform: rotate(90deg)
+    left: 0
 
 .cycle-next
-  right: -60px
-  transform: rotate(-90deg)
+  right: 0
+
+  .genericon
+    transform: rotate(-90deg)
+    right: 0
 
 // MEDIA QUERIES
 

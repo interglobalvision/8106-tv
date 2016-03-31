@@ -102,7 +102,7 @@ function my_gallery_shortcode($attr) {
 		$large = $largeimg[0];
  */
 
-    $counter = $i+1 . ' / ' . $attachment_size;
+    $counter = $i+1 . '/' . $attachment_size;
 
     $tag .= "<{$captiontag} class='wp-caption-text gallery-caption u-align-center'>";
 
