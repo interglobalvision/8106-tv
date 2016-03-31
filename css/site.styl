@@ -259,9 +259,9 @@ img
   padding-bottom: $margin-large
   margin-bottom: $margin-large
 
-#featured-post-container,
-#featured-post-title,
-#featured-post-subtitle
+#featured-post-container
+  opacity: 0
+  transition: opacity 300ms
   max-height: 50vh
 
 #featured-post-title
@@ -274,7 +274,6 @@ img
 
 #featured-post-image-holder
   overflow: hidden
-  max-height: 50vh
 
 #featured-post-image
   display: block
@@ -879,19 +878,11 @@ body.loading
     padding-bottom: $margin-large
     margin-bottom: $margin-large
 
-  #featured-post-container
-    max-height: 50vh
-
   #featured-post-title
     font-size: 2rem
-    max-height: 50vh
 
   #featured-post-subtitle
     font-size: 1.5rem
-    max-height: 50vh
-
-  #featured-post-image-holder
-    max-height: 50vh
 
   // HOME POSTS FEED
 
@@ -1014,21 +1005,6 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
-
-
-// MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
-
-@media screen and (max-aspect-ratio: 1/1)
-
-  #featured-post-container,
-  #featured-post-title-holder,
-  #featured-post-title,
-  #featured-post-subtitle-holder,
-  #featured-post-subtitle,
-  #featured-post-image-holder
-    max-height: 30vh
-    min-height: 250px
-
 
 // MOBILE
 

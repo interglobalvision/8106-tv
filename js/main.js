@@ -308,7 +308,15 @@ Featured = {
     var _this = this;
 
     if ( $('#featured-post-container').length ) {
+
+      // Get image height
+      $maxHeight = $('#featured-post-image-holder img').height();
       
+      // Set max heights
+      if( $(window).width() > 720 ) {
+        $('#featured-post-container, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
+      }
+
       // Title
       var $titleHolder = $('#featured-post-title-holder');
       var titleCol = $titleHolder.attr('class').replace('col s','');
@@ -317,10 +325,13 @@ Featured = {
       titleCol *= 1;
       
       // Set col size
-      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 5; i++ ) {
+      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 9; i++ ) {
         $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
         titleCol = i + 1;
       }
+
+      // Calc left space (in 'col' units) :]
+      var leftCol = 10 - 1 - titleCol;
 
       // Subtitle
       var $subtitleHolder = $('#featured-post-subtitle-holder');
@@ -330,19 +341,12 @@ Featured = {
       subtitleCol *= 1;
       
       // Set col size
-      for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < 4; i++ ) {
+      for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
         $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
         subtitleCol = i + 1;
       }
 
-      // Calc left space (in 'col' units) :]
-      var leftCol = 24 - 1 - titleCol - subtitleCol;
-
-      // leftCol can be max. 14.
-      leftCol = leftCol <= 14 ? leftCol : 14;
-
-      // Set Image col size
-      $('#featured-post-image-holder').removeClass().addClass('col s' + leftCol);
+      $('#featured-post-container').css('opacity', 1);
 
     }
   },
