@@ -368,7 +368,7 @@ Site = {
     Twitter.init();
     Menu.init();
 
-    $(window).load( function() {
+    $('#featured-post-container').imagesLoaded(function() {
       Featured.init();
     });
   },
