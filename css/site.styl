@@ -147,6 +147,19 @@ blockquote
     display: block
     margin: 0 auto $margin-basic auto
 
+  .wp-caption
+    max-width: 100% !important
+
+    img
+      margin-bottom: $margin-tiny
+
+  .wp-caption-text
+    font-style: italic
+    font-size: 0.8rem
+
+  a
+    text-decoration: underline
+
 #featured-copy
   p, h1, h2, h3, h4, h5, h6
     margin: 0 ($col + $gutter) $margin-basic ($col + $gutter)
@@ -242,10 +255,14 @@ img
 // CATEGORIES
 
 #drawer-categorias-list
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+
   li.cat-item
     display: inline-block
     padding: $margin-basic $margin-mid
-
 
 // FOLLOW
 
@@ -311,6 +328,9 @@ img
   padding: $margin-basic 0
   font-style: italic
 
+// PORTADAZZA
+#portadazza-title
+  margin: $margin-tiny 0
 
 // HOME: NOTICIAS
 
@@ -526,6 +546,45 @@ body.loading
 // 404
 #not-found
   margin-bottom: $margin-large
+
+// GALLERY
+.gallery
+  overflow: hidden
+  margin: $margin-basic 0
+  height: 0px
+
+.cycle-slide
+  width: 100%
+  img
+    margin: 0 auto $margin-tiny !important
+
+.gallery-caption
+  font-size: 1rem
+  display: block
+
+.cycle-prev,
+.cycle-next
+  width: 50%
+  height: 100%
+  position: absolute
+  z-index: 101
+  transition all 300ms
+  bottom: 0
+  svg
+    margin: 6px 0 !important
+    position: absolute
+    bottom: 0
+    height: 15px
+
+.cycle-prev
+  left: 0
+  svg
+    left: $margin-tiny
+
+.cycle-next
+  right: 0
+  svg
+    right: $margin-tiny
 
 // MEDIA QUERIES
 
@@ -753,6 +812,23 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
+
 
 // iPad / tablet size
 
@@ -1006,6 +1082,39 @@ body.loading
   #not-found
     margin-bottom: $margin-large
 
+<<<<<<< HEAD
+=======
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
+
+// MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
+
+@media screen and (max-aspect-ratio: 1/1)
+
+  #featured-post-container,
+  #featured-post-title-holder,
+  #featured-post-title,
+  #featured-post-subtitle-holder,
+  #featured-post-subtitle,
+  #featured-post-image-holder
+    max-height: 30vh
+    min-height: 250px
+
+
+>>>>>>> master
 // MOBILE
 
 @media screen and (max-width: 720px)
@@ -1364,6 +1473,22 @@ body.loading
   // 404
   #not-found
     margin-bottom: $margin-large
+
+  // GALLERY
+  .gallery
+    margin: $margin-basic 0
+
+  .cycle-slide
+    img
+      margin: 0 auto $margin-tiny !important
+
+  .cycle-prev
+    svg
+      left: $margin-tiny
+
+  .cycle-next
+    svg
+      right: $margin-tiny
 
   // Ads
   div[id^='div-gpt-ad']

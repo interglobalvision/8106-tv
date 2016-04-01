@@ -311,7 +311,7 @@ Featured = {
 
       // Get image height
       $maxHeight = $('#featured-post-image').height();
-      
+
       // Set max heights
       if( $(window).width() > 720 ) {
         $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
@@ -325,7 +325,7 @@ Featured = {
 
       // Turn string into int
       titleCol *= 1;
-      
+
       // Set col size
       for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 9; i++ ) {
         $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
@@ -342,7 +342,7 @@ Featured = {
 
         // Turn string into int
         subtitleCol *= 1;
-        
+
         // Set col size
         for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
           $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
@@ -383,15 +383,17 @@ Site = {
     Twitter.init();
     Featured.setCols();
 
+    $('.cycle-slideshow').cycle();
+
     // Re render fb/tw buttons
     if( typeof twttr !== 'undefined') {
       twttr.widgets.load();
     }
-    
+
     if( typeof FB !== 'undefined') {
       FB.XFBML.parse();
     }
-    
+
     // Reload Ads
     if( typeof googletag !== 'undefined') {
       googletag.cmd.push(function() {

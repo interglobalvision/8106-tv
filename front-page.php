@@ -91,6 +91,9 @@ if ( $puta_query->have_posts() ) {
   <?php
   while ( $puta_query->have_posts() ) {
     $puta_query->the_post();
+
+    $subtitle = get_post_meta( $post->ID, '_igv_post_subtitle', true );
+    $title = $post->post_title . ' — ' . $subtitle;
     $puta_id = $post->ID;
   ?>
       <div class="col s1">
@@ -105,7 +108,10 @@ if ( $puta_query->have_posts() ) {
 
       <div class="col s7">
         <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('home-puta-portadazza'); ?></a>
-        <div class="js-fix-widows"><?php the_excerpt(); ?></div>
+        <div class="js-fix-widows">
+        <h4 id="portadazza-title"><?php echo $title; ?></h4>
+          <?php the_excerpt(); ?>
+        </div>
       </div>
   <?php
   }

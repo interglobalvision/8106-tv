@@ -56,6 +56,8 @@ if( function_exists( 'add_image_size' ) ) {
 
   add_image_size( 'home-puta-portadazza', 308, 9999, false );
   add_image_size( 'single-puta-portadazza', 354, 354, false );
+  add_image_size( 'featured-gallery', 905, 604, false );
+  add_image_size( 'gallery', 676, 451, false );
 }
 
 // Register Nav Menus
