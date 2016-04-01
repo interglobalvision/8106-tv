@@ -15,8 +15,8 @@
       </div>
 
     <?php if ($subtitle) { ?>
-      <div id="featured-post-subtitle-holder" class="col s2 js-fix-widows">
-        <h4 id="featured-post-subtitle" class="rotate-text font-condensed"><?php echo $subtitle; ?></h4>
+      <div id="featured-post-subtitle-holder" class="col s2">
+        <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows"><?php echo $subtitle; ?></h4>
       </div>
     <?php } ?>
 
