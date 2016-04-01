@@ -7,10 +7,12 @@ var fastAnimationSpeed = basicAnimationSpeed / 2;
 var Twitter = {
   tweetsWidth: undefined,
   animation: undefined,
-  $twitterFeed: $('#twitter-feed'),
-  $holder: $('#twitter-marquee-holder'),
   init: function() {
     var _this = this;
+
+    _this.$twitterFeed = $('#twitter-feed');
+    _this.$holder = $('#twitter-marquee-holder');
+
     var tweets = $('.twitter-marquee').first();
 
     // clone tweets to avoid blank space
@@ -239,6 +241,7 @@ Ajaxy = {
     }
 
     Menu.closeBelowMenu(search);
+    Twitter.stopAnimation();
 
     $('body').addClass('loading');
     $('body, html').animate({
