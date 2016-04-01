@@ -84,7 +84,7 @@ function my_gallery_shortcode($attr) {
 
 	$selector = "gallery-{$instance}";
 
-  $gallery_div = "<div id='$selector' class='cycle-slideshow gallery galleryid-{$id}' data-cycle-fx='fade' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div' data-cycle-auto-height='container'>
+  $gallery_div = "<div id='$selector' class='cycle-slider gallery galleryid-{$id}' data-cycle-fx='fade' data-cycle-timeout='0' data-cycle-swipe=true data-cycle-slides='div' data-cycle-auto-height='container'>
 	<nav class='cycle-prev u-pointer'><svg viewBox='50 0 205 310'><polygon xmlns='http://www.w3.org/2000/svg' points='247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153'/></svg></span></nav>
   <nav class='cycle-next u-pointer'><svg viewBox='50 0 205 310'><polygon xmlns='http://www.w3.org/2000/svg' points='58.65,267.75 175.95,153 58.65,35.7 94.35,0 247.35,153 94.35,306   '/></svg></nav>";
 	$output = $gallery_div;
