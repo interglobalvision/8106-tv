@@ -11,16 +11,12 @@
   <header id="featured-single-header" class="theme-grad-bg">
     <div class="container u-cf" id="featured-post-container">
       <div id="featured-post-title-holder" class="col s2">
-        <h3 id="featured-post-title" class="rotate-text js-fix-widows">
-          <?php the_title(); ?>
-        </h3>
+        <h3 id="featured-post-title" class="rotate-text js-fix-widows"><?php the_title(); ?></h3>
       </div>
 
     <?php if ($subtitle) { ?>
       <div id="featured-post-subtitle-holder" class="col s2 js-fix-widows">
-        <h4 id="featured-post-subtitle" class="rotate-text font-condensed">
-          <?php echo $subtitle; ?>
-        </h4>
+        <h4 id="featured-post-subtitle" class="rotate-text font-condensed"><?php echo $subtitle; ?></h4>
       </div>
     <?php } ?>
 

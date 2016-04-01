@@ -33,17 +33,13 @@ if ( $featured_query->have_posts() ) {
       <article <?php post_class('row'); ?> id="featured-post-container">
         <div id="featured-post-title-holder" class="col s2">
           <a href="<?php the_permalink() ?>">
-            <h3 id="featured-post-title" class="rotate-text js-fix-widows">
-              <?php the_title(); ?>
-            </h3>
+            <h3 id="featured-post-title" class="rotate-text js-fix-widows"><?php the_title(); ?></h3>
           </a>
         </div>
     <?php if ($subtitle) { ?>
         <div id="featured-post-subtitle-holder" class="col s2">
           <a href="<?php the_permalink() ?>">
-            <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows">
-              <?php echo $subtitle; ?>
-            </h4>
+            <h4 id="featured-post-subtitle" class="rotate-text font-condensed js-fix-widows"><?php echo $subtitle; ?></h4>
           </a>
         </div>
     <?php } ?>
