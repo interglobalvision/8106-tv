@@ -28,10 +28,21 @@ if( is_home() ) {
   <meta name="twitter:card" value="<?php bloginfo('description'); ?>">
 <?php
 } elseif( is_single() ) {
+  $subtitle  = get_post_meta( get_the_ID(), '_igv_post_subtitle', true );
 ?>
   <meta property="og:url" content="<?php the_permalink(); ?>"/>
   <meta property="og:title" content="<?php the_title(); ?>" />
-  <meta property="og:description" content="<?php echo htmlspecialchars($excerpt) ?>" />
+  <?php
+  if( empty($subtitle) ) { 
+  ?>
+  <meta property="og:description" content="<?php echo htmlspecialchars($excerpt); ?>" />
+  <?php
+  } else {
+  ?>
+  <meta property="og:description" content="<?php echo $subtitle;?>" />
+  <?php
+  }
+  ?>
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
 <?php
