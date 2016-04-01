@@ -195,11 +195,18 @@ echo IGV_get_option('_igv_ads_home_2');
 // Build an array with the id of posts used in loops above here
 array_push($excluded_posts, $featured_id, $puta_id);
 
+// Get Sponsored cat ID
+$noticias_cat = get_category_by_slug('noticias');
+$noticias_id = '-' . $noticias_cat->cat_ID;
+
 // WP_Query arguments
 $args = array (
   'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '16',
-  'category__not_in' => $sponsored_id,
+  'category__not_in' => array(
+    $sponsored_id,
+    $noticias_id,
+  ),
 );
 
 // The Query
