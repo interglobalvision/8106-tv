@@ -337,6 +337,7 @@ Featured = {
 
       // Subtitle
       var $subtitleHolder = $('#featured-post-subtitle-holder');
+
       if( $subtitleHolder.length ) {
         var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
 
@@ -381,7 +382,10 @@ Site = {
     _this.fixWidows();
 
     Twitter.init();
-    Featured.setCols();
+
+    $('#featured-post-container').imagesLoaded(function() {
+      Featured.setCols();
+    });
 
     $('.cycle-slideshow').cycle();
 
