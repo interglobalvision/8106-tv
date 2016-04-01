@@ -1919,12 +1919,31 @@ img {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-#drawer-categorias-list li.cat-item {
+.social-icon svg {
+  width: 28px;
+  height: 28px;
+}
+.social-icon li.cat-item {
   display: inline-block;
   padding: 28px 49px;
 }
 #drawer-follow {
   text-align: center;
+}
+#drawer-follow .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: ks-row no-wrap;
+  -ms-flex: ks-row no-wrap;
+  -webkit-box-flex: ks-row;
+          flex: ks-row no-wrap;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #featured-post {
   padding-bottom: 70px;
