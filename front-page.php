@@ -7,6 +7,11 @@ get_header();
 
 
 <?php
+
+// Get Sponsored cat ID
+$sponsored_cat = get_category_by_slug('sponsored');
+$sponsored_id = '-' . $sponsored_cat->cat_ID;
+
 // FEATURED: WP_Query arguments
 $args = array (
   'category_name'   => 'featured',
@@ -70,6 +75,7 @@ wp_reset_postdata();
 $args = array (
   'category_name'   => 'puta-portadazza',
   'posts_per_page'  => '1',
+  'category__not_in' => $sponsored_id,
 );
 
 // PORTADAZZA: The Query
@@ -121,6 +127,7 @@ wp_reset_postdata();
 $args = array (
   'category_name'   => 'noticias',
   'posts_per_page'  => '5',
+  'category__not_in' => $sponsored_id,
 );
 
 // NOTICIAS: The Query
@@ -181,12 +188,14 @@ echo IGV_get_option('_igv_ads_main_square_2');
 <?php get_template_part('partials/twitter'); ?><!-- Twitter feed -->
 
 <?php
-// WP_Query arguments
+// Build an array with the id of posts used in loops above here
 array_push($excluded_posts, $featured_id, $puta_id);
 
+// WP_Query arguments
 $args = array (
   'post__not_in'    => $excluded_posts,
   'posts_per_page'  => '16',
+  'category__not_in' => $sponsored_id,
 );
 
 // The Query

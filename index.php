@@ -6,6 +6,15 @@ get_header();
 <main id="main-content">
 
 <?php
+// Exclude Sponsored posts, unless is search
+if( !is_search() ) {
+  // Get Sponsored cat ID
+  $sponsored_cat = get_category_by_slug('sponsored');
+  $sponsored_id = $sponsored_cat->cat_ID;
+
+  query_posts($query_string . '&category__not_in=' . $sponsored_id);
+}
+
 // The Loop
 if ( have_posts() ) {
 ?>
