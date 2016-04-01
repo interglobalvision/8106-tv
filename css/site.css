@@ -2424,6 +2424,10 @@ body.loading #loading {
   #drawer-radio {
     padding-bottom: 42px;
   }
+  .social-icon svg {
+    width: 24px;
+    height: 24px;
+  }
   #drawer-categorias-list li.cat-item {
     padding: 24px 42px;
   }
@@ -2880,6 +2884,10 @@ body.loading #loading {
   #drawer-categorias-list li.cat-item {
     padding: 20px 35px;
   }
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
   #featured-post {
     padding-bottom: 50px;
     margin-bottom: 50px;
@@ -3295,6 +3303,10 @@ body.loading #loading {
   }
   #drawer-radio {
     padding-bottom: 14px;
+  }
+  .social-icon svg {
+    width: 28px;
+    height: 28px;
   }
   #search-field-holder {
     width: 70%;
