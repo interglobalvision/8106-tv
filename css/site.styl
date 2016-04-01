@@ -287,43 +287,25 @@ img
   margin-bottom: $margin-large
 
 #featured-post-container
+  opacity: 0
+  transition: opacity 300ms
   max-height: 50vh
-  min-height: 400px
-  display: flex
-  justify-content: flex-start
-  align-items: flex-end
-
-#featured-post-title-holder
-  flex: 1 0 auto
-  max-height: 50vh
-  min-height: 400px
 
 #featured-post-title
   font-size: 3.1rem
-  max-height: 50vh
-  min-height: 400px
-
-#featured-post-subtitle-holder
-  flex: 1 0 auto
-  max-height: 50vh
-  min-height: 400px
-  margin: 0 $margin-basic
+  line-height: 1.4
+  height: 100%
 
 #featured-post-subtitle
   font-size: 2.2rem
-  max-height: 50vh
-  min-height: 400px
+  line-height: 1.6
+  height: 100%
 
 #featured-post-image-holder
-  flex: 1 0 auto
-  max-height: 50vh
-  min-height: 400px
-  margin: 0 $margin-small
-  max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
+  overflow: hidden
 
 #featured-post-image
   display: block
-  max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
   width: auto
 
 
@@ -727,37 +709,6 @@ body.loading
     padding-bottom: $margin-large
     margin-bottom: $margin-large
 
-  #featured-post-container
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-title-holder
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-title
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-subtitle-holder
-    max-height: 50vh
-    min-height: 400px
-    margin: 0 $margin-basic
-
-  #featured-post-subtitle
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-image-holder
-    max-height: 50vh
-    min-height: 400px
-    margin: 0 $margin-small
-    max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
-
-  #featured-post-image
-    max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
-
-
   // HOME POSTS FEED
 
   .posts-feed
@@ -1025,38 +976,11 @@ body.loading
     padding-bottom: $margin-large
     margin-bottom: $margin-large
 
-  #featured-post-container
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-title-holder
-    max-height: 50vh
-    min-height: 400px
-
   #featured-post-title
     font-size: 2rem
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-subtitle-holder
-    max-height: 50vh
-    min-height: 400px
-    margin: 0 $margin-basic
 
   #featured-post-subtitle
     font-size: 1.5rem
-    max-height: 50vh
-    min-height: 400px
-
-  #featured-post-image-holder
-    max-height: 50vh
-    min-height: 400px
-    margin: 0 $margin-small
-    max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
-
-  #featured-post-image
-    max-width: ( 16 * $col ) + ( ( 16 - 1 ) * $gutter )
-
 
   // HOME POSTS FEED
 
@@ -1195,20 +1119,6 @@ body.loading
   .cycle-next
     svg
       right: $margin-tiny
-
-// MEDIA QUERY FOR PORTRAIT NOT LANDSCAPE for featured header layout
-
-@media screen and (max-aspect-ratio: 1/1)
-
-  #featured-post-container,
-  #featured-post-title-holder,
-  #featured-post-title,
-  #featured-post-subtitle-holder,
-  #featured-post-subtitle,
-  #featured-post-image-holder
-    max-height: 30vh
-    min-height: 250px
-
 
 // MOBILE
 

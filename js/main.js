@@ -1,5 +1,5 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Ajaxy, WP */
+/* global $, jQuery, document, Modernizr, Ajaxy, WP, FB, googletag, Site, Featured, GlobieHypeBeast, twttr */
 
 var basicAnimationSpeed = 800;
 var fastAnimationSpeed = basicAnimationSpeed / 2;
@@ -293,6 +293,69 @@ Ajaxy = {
   },
 };
 
+Featured = {
+  init: function() {
+    var _this = this;
+
+    _this.setCols();
+
+    $(window).resize( function(event) {
+      _this.setCols();
+    });
+  },
+
+  setCols: function() {
+    var _this = this;
+
+    if ( $('#featured-post-container').length ) {
+
+      // Get image height
+      $maxHeight = $('#featured-post-image').height();
+
+      // Set max heights
+      if( $(window).width() > 720 ) {
+        $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', $maxHeight + 'px');
+      } else {
+        $('#featured-post-container, #featured-post-title-holder, #featured-post-title, #featured-post-subtitle-holder, #featured-post-subtitle, #featured-post-image-holder').css('max-height', 'initial');
+      }
+
+      // Title
+      var $titleHolder = $('#featured-post-title-holder');
+      var titleCol = $titleHolder.attr('class').replace('col s','');
+
+      // Turn string into int
+      titleCol *= 1;
+
+      // Set col size
+      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 9; i++ ) {
+        $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
+        titleCol = i + 1;
+      }
+
+      // Calc left space (in 'col' units) :]
+      var leftCol = 10 - 1 - titleCol;
+
+      // Subtitle
+      var $subtitleHolder = $('#featured-post-subtitle-holder');
+      if( $subtitleHolder.length ) {
+        var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+
+        // Turn string into int
+        subtitleCol *= 1;
+
+        // Set col size
+        for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
+          $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
+          subtitleCol = i + 1;
+        }
+      }
+
+      $('#featured-post-container').css('opacity', 1);
+
+    }
+  },
+};
+
 Site = {
   init: function() {
     var _this = this;
@@ -305,6 +368,9 @@ Site = {
     Twitter.init();
     Menu.init();
 
+    $('#featured-post-container').imagesLoaded(function() {
+      Featured.init();
+    });
   },
 
   reinit: function() {
@@ -315,6 +381,7 @@ Site = {
     _this.fixWidows();
 
     Twitter.init();
+    Featured.setCols();
 
     $('.cycle-slideshow').cycle();
 
