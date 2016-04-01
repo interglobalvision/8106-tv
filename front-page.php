@@ -174,9 +174,13 @@ wp_reset_postdata();
       <div class="col s1"></div>
 
       <div class="col s7">
+        <div class="ad">
 <?php
-// Leaderboard Ad
+// Home side Ads
 echo IGV_get_option('_igv_ads_home_1');
+?>
+        </div>
+<?php
 echo IGV_get_option('_igv_ads_home_2');
 ?>
       </div>

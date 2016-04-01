@@ -2017,6 +2017,9 @@ img {
 .small-post img {
   float: left;
 }
+.ad {
+  margin-bottom: 7px;
+}
 #search-field,
 #search-submit {
   box-sizing: border-box;
@@ -2417,6 +2420,9 @@ body.loading #loading {
   .small-post {
     border-top: 2px solid;
     margin-bottom: 12px;
+  }
+  .ad {
+    margin-bottom: 6px;
   }
   #search-field,
   #search-submit {
@@ -2851,6 +2857,9 @@ body.loading #loading {
     border-top: 2px solid;
     margin-bottom: 10px;
   }
+  .ad {
+    margin-bottom: 5px;
+  }
   #search-field,
   #search-submit {
     padding: 10px;
@@ -3205,6 +3214,9 @@ body.loading #loading {
   .social-icon svg {
     width: 28px;
     height: 28px;
+  }
+  .ad {
+    margin-bottom: 7px;
   }
   #search-field-holder {
     width: 70%;
