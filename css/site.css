@@ -1919,13 +1919,13 @@ img {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+#drawer-categorias-list li.cat-item {
+  display: inline-block;
+  padding: 28px 49px;
+}
 .social-icon svg {
   width: 28px;
   height: 28px;
-}
-.social-icon li.cat-item {
-  display: inline-block;
-  padding: 28px 49px;
 }
 #drawer-follow {
   text-align: center;
