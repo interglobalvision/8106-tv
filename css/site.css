@@ -3202,7 +3202,7 @@ body.loading #loading {
   }
   #header .logo {
     height: 2rem;
-    width: 100%;
+    width: 100px;
     padding-right: 28px;
   }
   .header-drawer {
