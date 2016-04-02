@@ -1205,7 +1205,7 @@ body.loading
     margin-bottom: $margin-small
 
   .rotate-text
-    writing-mode: unset
+    writing-mode: horizontal-tb
     transform: rotate(0deg)
 
   // STRUCTURE
@@ -1228,6 +1228,7 @@ body.loading
       display: flex
     .logo
       height: 2rem
+      width: 100%
       padding-right: $margin-basic
 
   // DRAWERS
@@ -1281,7 +1282,7 @@ body.loading
   #featured-post-subtitle,
   #featured-post-image-holder
     max-height: initial
-    min-height: auto
+    min-height: initial
 
   #featured-post, #featured-single-header
     padding-bottom: $margin-basic
@@ -1291,7 +1292,7 @@ body.loading
     display: block
 
   #featured-post-title-holder
-    min-height: auto
+    min-height: initial
 
   #featured-post-title
     font-size: 2rem
