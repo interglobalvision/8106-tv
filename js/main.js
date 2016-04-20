@@ -329,8 +329,8 @@ Featured = {
       // Turn string into int
       titleCol *= 1;
 
-      // Set col size
-      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 9; i++ ) {
+      // Set col siz5
+      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 6; i++ ) {
         $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
         titleCol = i + 1;
       }
