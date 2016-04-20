@@ -1971,6 +1971,7 @@ img {
   overflow: hidden;
 }
 #featured-post-image {
+  padding-top: 70px;
   display: block;
   width: auto;
 }

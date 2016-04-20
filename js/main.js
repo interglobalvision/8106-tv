@@ -313,7 +313,7 @@ Featured = {
     if ( $('#featured-post-container').length ) {
 
       // Get image height
-      $maxHeight = $('#featured-post-image').height();
+      $maxHeight = $('#featured-post-image').outerHeight();
 
       // Set max heights
       if( $(window).width() > 720 ) {
