@@ -324,13 +324,16 @@ Featured = {
 
       // Title
       var $titleHolder = $('#featured-post-title-holder');
-      var titleCol = $titleHolder.attr('class').replace('col s','');
 
-      // Turn string into int
-      titleCol *= 1;
+      // Get all classes except for s* ones
+      var cleanClasses = $titleHolder.attr('class').replace(/s\d+/,'');
 
-      // Set col siz5
-      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 6; i++ ) {
+      // Replace title classes with clean ones
+      $titleHolder.removeClass().addClass(cleanClasses);
+
+      // Set col size
+      var titleCol = 0;
+      for (var i = 0; $titleHolder.width() < $('#featured-post-title').width() && i < 6; i++ ) {
         $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
         titleCol = i + 1;
       }
@@ -342,13 +345,14 @@ Featured = {
       var $subtitleHolder = $('#featured-post-subtitle-holder');
 
       if( $subtitleHolder.length ) {
-        var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+        // Get all classes except for s* ones
+        var cleanClasses = $titleHolder.attr('class').replace(/s\d+/,'');
 
-        // Turn string into int
-        subtitleCol *= 1;
+        // Replace title classes with clean ones
+        $titleHolder.removeClass().addClass(cleanClasses);
 
         // Set col size
-        for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
+        for (var i = 0; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
           $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
           subtitleCol = i + 1;
         }
