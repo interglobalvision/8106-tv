@@ -2,7 +2,6 @@
 // Get theme color
 $theme_color = IGV_get_option( '_igv_theme_color');
 $theme_mid_color = hex2rgba($theme_color, '0.3');
-pr($theme_mid_color);
 $theme_pattern = IGV_get_option( '_igv_theme_pattern');
 $soft_white = 'rgb(253, 253, 253)';
 ?>
