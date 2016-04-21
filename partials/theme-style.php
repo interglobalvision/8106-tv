@@ -1,6 +1,7 @@
 <?php
 // Get theme color
 $theme_color = IGV_get_option( '_igv_theme_color');
+$theme_mid_color = hex2rgba($theme_color, '0.3');
 $theme_pattern = IGV_get_option( '_igv_theme_pattern');
 $soft_white = 'rgb(253, 253, 253)';
 ?>
@@ -19,9 +20,9 @@ $soft_white = 'rgb(253, 253, 253)';
 
 .theme-hard-grad-bg {
   background: #ffffff;
-  background: -moz-linear-gradient(top,  <?php echo $soft_white; ?> 0%, #edf4f2 12%, <?php echo $theme_color; ?> 100%);
-  background: -webkit-linear-gradient(top,  <?php echo $soft_white; ?> 0%,#edf4f2 12%,<?php echo $theme_color; ?> 100%);
-  background: linear-gradient(to bottom,  <?php echo $soft_white; ?> 0%,#edf4f2 12%,<?php echo $theme_color; ?> 100%);
+  background: -moz-linear-gradient(top,  <?php echo $soft_white; ?> 0%, <?php echo $theme_mid_color; ?> 9%, <?php echo $theme_color; ?> 100%);
+  background: -webkit-linear-gradient(top,  <?php echo $soft_white; ?> 0%, <?php echo $theme_mid_color; ?> 9%,<?php echo $theme_color; ?> 100%);
+  background: linear-gradient(to bottom,  <?php echo $soft_white; ?> 0%, <?php echo $theme_mid_color; ?> 9%,<?php echo $theme_color; ?> 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<?php echo $soft_white; ?>', endColorstr='<?php echo $theme_color; ?>',GradientType=0 );
 }
 
