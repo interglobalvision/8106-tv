@@ -2009,13 +2009,15 @@ img {
 }
 .small-post-title {
   margin: 7px;
+  width: 170px;
+  float: left;
   font-family: 'Gotham HTF';
 }
 .small-post {
   border-top: 2px solid;
   margin-bottom: 14px;
 }
-.small-post img {
+.small-post .size-small-thumb {
   float: left;
 }
 .ad-margin {
@@ -2418,6 +2420,7 @@ body.loading #loading {
   }
   .small-post-title {
     margin: 6px;
+    width: 111px;
   }
   .small-post {
     border-top: 2px solid;
@@ -2854,10 +2857,15 @@ body.loading #loading {
   }
   .small-post-title {
     margin: 5px;
+    width: 90px;
   }
   .small-post {
     border-top: 2px solid;
     margin-bottom: 10px;
+  }
+  .small-post .size-small-thumb {
+    float: left;
+    width: 100px;
   }
   .ad {
     margin-bottom: 5px;
@@ -3320,12 +3328,13 @@ body.loading #loading {
   }
   .small-post-title {
     margin: 7px;
+    width: 170px;
   }
   .small-post {
     border-top: 2px solid;
     margin-bottom: 14px;
   }
-  .small-post img {
+  .small-post .size-small-thumb {
     float: left;
     max-width: 48%;
     margin-right: 4%;

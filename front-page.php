@@ -161,7 +161,7 @@ if ( $noticias_query->have_posts() && $category ) {
       <article <?php post_class('small-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
         <a href="<?php the_permalink() ?>">
           <?php the_post_thumbnail('small-thumb'); ?>
-          <h4 class="small-post-title col s4"><?php the_title(); ?></h4>
+          <h4 class="small-post-title"><?php the_title(); ?></h4>
         </a>
       </article>
 
