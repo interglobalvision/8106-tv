@@ -3336,6 +3336,7 @@ body.loading #loading {
   }
   .small-post .size-small-thumb {
     float: left;
+    width: auto;
     max-width: 48%;
     margin-right: 4%;
   }
