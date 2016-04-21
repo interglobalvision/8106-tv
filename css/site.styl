@@ -349,13 +349,14 @@ img
 
 .small-post-title
   margin: $margin-tiny
+  width: ( ( 7 * $col ) + ( 6 * $gutter ) - 124px - ($margin-tiny * 2))
+  float: left
   font-family: 'Gotham HTF'
 
 .small-post
   border-top: $border-width solid
   margin-bottom: $margin-small
-
-  img
+  .size-small-thumb
     float: left
 
 // Ads
@@ -732,6 +733,7 @@ body.loading
 
   .small-post-title
     margin: $margin-tiny
+    width: ( ( 7 * $col ) + ( 6 * $gutter ) - 124px - ($margin-tiny * 2))
 
   .small-post
     border-top: $border-width solid
@@ -1008,11 +1010,14 @@ body.loading
 
   .small-post-title
     margin: $margin-tiny
+    width: ( ( 7 * $col ) + ( 6 * $gutter ) - 100px - ($margin-tiny * 2))
 
   .small-post
     border-top: $border-width solid
     margin-bottom: $margin-small
-
+    .size-small-thumb
+      float: left
+      width: 100px
   // Ads
   .ad
     margin-bottom: $margin-tiny
@@ -1353,12 +1358,14 @@ body.loading
 
   .small-post-title
     margin: $margin-tiny
+    width: ( ( 7 * $col ) + ( 6 * $gutter ) - 124px - ($margin-tiny * 2))
 
   .small-post
     border-top: $border-width solid
     margin-bottom: $margin-small
-    img
+    .size-small-thumb
       float: left
+      width: auto
       max-width: 48%
       margin-right: 4%
     h4

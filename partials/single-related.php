@@ -9,7 +9,7 @@
       </span>
     </div>
 
-    <div class="col s6">
+    <div class="col s7">
 
 <?php
     while ($related_query->have_posts()) {
@@ -20,7 +20,7 @@
         <a href="<?php the_permalink() ?>">
 
           <?php the_post_thumbnail('small-thumb'); ?>
-          <h4 class="small-post-title col s3"><?php the_title(); ?></h4>
+          <h4 class="small-post-title"><?php the_title(); ?></h4>
 
         </a>
 

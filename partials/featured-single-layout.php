@@ -49,7 +49,7 @@
       <div class="row">
         <div class="col s4"></div>
         <?php get_template_part('partials/single-related'); ?>
-        <div class="col s2"></div>
+        <div class="col s1"></div>
         <div class="col s7">
           <?php if ($author) { ?>
           <strong>Autor:</strong> <?php the_author_posts_link(); ?>
