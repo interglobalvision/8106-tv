@@ -1,11 +1,6 @@
 <?php
-  // needs related posts query
-  $args = array (
-    'posts_per_page' => '3',
-    'post__not_in'   => array($post->ID,),
-  );
-  $query = new WP_Query($args);
-  if ($query->have_posts()) {
+  $related_query = get_related_posts();
+  if ($related_query->have_posts()) {
 ?>
 
     <div class="col s1 feed-category">
@@ -17,8 +12,8 @@
     <div class="col s6">
 
 <?php
-    while ($query->have_posts()) {
-      $query->the_post();
+    while ($related_query->have_posts()) {
+      $related_query->the_post();
 ?>
       <article <?php post_class('small-post theme-border-color u-cf'); ?> id="post-<?php the_ID(); ?>">
 

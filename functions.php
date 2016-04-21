@@ -306,6 +306,43 @@ function get_template_part_with_data($part, $data) {
   include(locate_template($part . '.php', false, false));
 }
 
+function get_related_posts() {
+  // Check if we are on a single page, if not, return false
+  if ( !is_single() )
+    return false;
+
+  // Get the current post id
+  $post_id = get_queried_object_id();
+
+  // Get all the tags of the current post
+  $tags = wp_get_post_tags($post_id);
+
+  if ($tags) {
+    $tag_ids = array();
+
+    //Get the id of every tag and add it to the array
+    foreach( $tags as $individual_tag ) {
+      $tag_ids[] = $individual_tag->term_id;
+    }
+
+    //args for the query which will get the related posts
+    $args = array(
+      'tag__in' => $tag_ids,
+      'post__not_in' => array($post_id),
+      'posts_per_page' => 3,
+      'ignore_sticky_posts' => true,
+      'order' => 'DESC',
+      'orderby' => 'post_date',
+    );
+  } else {
+    $args = array (
+      'posts_per_page' => '3',
+      'post__not_in'   => array($post->ID,),
+    );
+  }
+  return new WP_Query($args);
+}
+
 // to replace file_get_contents
 function url_get_contents($Url) {
   if (!function_exists('curl_init')){
