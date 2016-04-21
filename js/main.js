@@ -333,9 +333,9 @@ Featured = {
 
       // Set col size
       var titleCol = 0;
-      for (var i = 0; $titleHolder.width() < $('#featured-post-title').width() && i < 6; i++ ) {
-        $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
-        titleCol = i + 1;
+      for (var i = 1; $titleHolder.width() < $('#featured-post-title').width() && i <= 6; i++ ) {
+        $titleHolder.removeClass('s' + (i - 1) ).addClass('s' + i );
+        titleCol = i;
       }
 
       // Calc left space (in 'col' units) :]
@@ -352,9 +352,9 @@ Featured = {
         $subtitleHolder.removeClass().addClass(cleanClasses);
 
         // Set col size
-        for (var i = 0; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
-          $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
-          subtitleCol = i + 1;
+        for (var i = 1; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
+          $subtitleHolder.removeClass('s' + (i - 1)).addClass('s' + i);
+          subtitleCol = i;
         }
       }
 
