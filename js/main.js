@@ -346,10 +346,10 @@ Featured = {
 
       if( $subtitleHolder.length ) {
         // Get all classes except for s* ones
-        var cleanClasses = $titleHolder.attr('class').replace(/s\d+/,'');
+        var cleanClasses = $subtitleHolder.attr('class').replace(/s\d+/,'');
 
         // Replace title classes with clean ones
-        $titleHolder.removeClass().addClass(cleanClasses);
+        $subtitleHolder.removeClass().addClass(cleanClasses);
 
         // Set col size
         for (var i = 0; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
