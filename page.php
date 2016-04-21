@@ -34,10 +34,10 @@ if( have_posts() ) {
             </div>
           </div>
           <div class="col s8">
-          <?php
-            echo IGV_get_option('_igv_ads_single_1');
-            echo IGV_get_option('_igv_ads_single_2');
-          ?>
+            <div class="ad-margin">
+          <?php echo IGV_get_option('_igv_ads_single_1'); ?>
+            </div>
+          <?php echo IGV_get_option('_igv_ads_single_2'); ?>
           </div>
         </div>
       </div>
