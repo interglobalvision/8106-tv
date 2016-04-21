@@ -313,7 +313,7 @@ Featured = {
     if ( $('#featured-post-container').length ) {
 
       // Get image height
-      $maxHeight = $('#featured-post-image').height();
+      $maxHeight = $('#featured-post-image').outerHeight();
 
       // Set max heights
       if( $(window).width() > 720 ) {
@@ -324,15 +324,18 @@ Featured = {
 
       // Title
       var $titleHolder = $('#featured-post-title-holder');
-      var titleCol = $titleHolder.attr('class').replace('col s','');
 
-      // Turn string into int
-      titleCol *= 1;
+      // Get all classes except for s* ones
+      var cleanClasses = $titleHolder.attr('class').replace(/s\d+/,'');
+
+      // Replace title classes with clean ones
+      $titleHolder.removeClass().addClass(cleanClasses);
 
       // Set col size
-      for (var i = titleCol; $titleHolder.width() < $('#featured-post-title').width() && i < 9; i++ ) {
-        $titleHolder.removeClass('s' + i).addClass('s' + (i + 1));
-        titleCol = i + 1;
+      var titleCol = 0;
+      for (var i = 1; $titleHolder.width() < $('#featured-post-title').width() && i <= 6; i++ ) {
+        $titleHolder.removeClass('s' + (i - 1) ).addClass('s' + i );
+        titleCol = i;
       }
 
       // Calc left space (in 'col' units) :]
@@ -342,15 +345,16 @@ Featured = {
       var $subtitleHolder = $('#featured-post-subtitle-holder');
 
       if( $subtitleHolder.length ) {
-        var subtitleCol = $subtitleHolder.attr('class').replace('col s','');
+        // Get all classes except for s* ones
+        var cleanClasses = $subtitleHolder.attr('class').replace(/s\d+/,'');
 
-        // Turn string into int
-        subtitleCol *= 1;
+        // Replace title classes with clean ones
+        $subtitleHolder.removeClass().addClass(cleanClasses);
 
         // Set col size
-        for (var i = subtitleCol; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
-          $subtitleHolder.removeClass('s' + i).addClass('s' + (i + 1));
-          subtitleCol = i + 1;
+        for (var i = 1; $subtitleHolder.width() < $('#featured-post-subtitle').width() && i < leftCol; i++ ) {
+          $subtitleHolder.removeClass('s' + (i - 1)).addClass('s' + i);
+          subtitleCol = i;
         }
       }
 
