@@ -21,7 +21,7 @@ var Twitter = {
     // set width for animation
     _this.tweetsWidth = tweets.width();
 
-    // setup animation
+    // start animation
     _this.startAnimation();
 
     // bind hovers
@@ -52,23 +52,30 @@ var Twitter = {
   startAnimation: function() {
     var _this = this;
 
-    return _this.animation = setInterval(function() {
+    _this.animationFrame = window.requestAnimationFrame(function(){_this.animation()});
+  },
 
-      var left = parseInt(_this.$holder.css('left'));
+  animation: function(holder) {
+    var _this = this;
 
-      if (left < - _this.tweetsWidth) {
-        _this.$holder.css('left', '0px');
-      } else {
-        _this.$holder.css('left', (left - 1) + 'px');
-      }
+    var left = parseInt(_this.$holder.css('left'));
 
-    }, 25);
+    if (left < - _this.tweetsWidth) {
+      _this.$holder.css('left', '0px');
+    } else {
+      _this.$holder.css('left', (left - 1) + 'px');
+    }
+
+    // Save animation frame id for later use in stopAnimation()
+    _this.animationFrame = window.requestAnimationFrame(function(){_this.animation()});
 
   },
 
   stopAnimation: function() {
+    var _this = this;
 
-    return clearInterval(this.animation);
+    // cancelAnimationFrame() is a global
+    cancelAnimationFrame(_this.animationFrame); 
 
   },
 };
