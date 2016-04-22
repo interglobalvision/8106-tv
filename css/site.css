@@ -3208,11 +3208,22 @@ body.loading #loading {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   #header .logo {
     height: 2rem;
     width: 100px;
-    padding-right: 28px;
+  }
+  #header .col {
+    width: auto;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -webkit-box-flex: 1;
+            flex: 1 1 auto;
   }
   .header-drawer {
     font-size: 1.1rem;
