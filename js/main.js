@@ -55,7 +55,7 @@ var Twitter = {
     _this.animationFrame = window.requestAnimationFrame(function(){_this.animation()});
   },
 
-  animation: function(holder) {
+  animation: function() {
     var _this = this;
 
     var left = parseInt(_this.$holder.css('left'));
