@@ -5,7 +5,6 @@ var basicAnimationSpeed = 800;
 
 var Twitter = {
   tweetsWidth: undefined,
-  animation: undefined,
   init: function() {
     var _this = this;
 
@@ -367,7 +366,6 @@ Featured = {
         // Set col size
         for (var i = 1; i < leftCol; i++ ) {
           $subtitleHolder.removeClass('s' + (i - 1)).addClass('s' + i);
-          subtitleCol = i;
           if ( $subtitleHolder.width() > $('#featured-post-subtitle').width() ) {
             break;
           }
