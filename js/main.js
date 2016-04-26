@@ -411,7 +411,9 @@ Site = {
       Featured.setCols();
     });
 
-    $('.cycle-slider').cycle();
+    $('.cycle-slider').imagesLoaded(function() {
+      $('.cycle-slider').cycle();
+    });
 
     // Re render fb/tw buttons
     if( typeof twttr !== 'undefined') {
