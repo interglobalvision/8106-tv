@@ -2228,6 +2228,7 @@ body.loading #loading {
   overflow: hidden;
   margin: 28px 0;
   height: 0px;
+  position: relative;
 }
 .cycle-slide {
   width: 100%;
