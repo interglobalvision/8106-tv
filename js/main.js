@@ -1,12 +1,10 @@
 /* jshint browser: true, devel: true, indent: 2, curly: true, eqeqeq: true, futurehostile: true, latedef: true, undef: true, unused: true */
-/* global $, jQuery, document, Modernizr, Ajaxy, WP, FB, googletag, Site, Featured, GlobieHypeBeast, twttr */
+/* global $, jQuery, document, Ajaxy, WP, FB, googletag, Site, Featured, GlobieHypeBeast, twttr */
 
 var basicAnimationSpeed = 800;
-var fastAnimationSpeed = basicAnimationSpeed / 2;
 
 var Twitter = {
   tweetsWidth: undefined,
-  animation: undefined,
   init: function() {
     var _this = this;
 
@@ -52,7 +50,9 @@ var Twitter = {
   startAnimation: function() {
     var _this = this;
 
-    _this.animationFrame = window.requestAnimationFrame(function(){_this.animation()});
+    _this.animationFrame = window.requestAnimationFrame(function() {
+      _this.animation();
+    });
   },
 
   animation: function() {
@@ -67,7 +67,9 @@ var Twitter = {
     }
 
     // Save animation frame id for later use in stopAnimation()
-    _this.animationFrame = window.requestAnimationFrame(function(){_this.animation()});
+    _this.animationFrame = window.requestAnimationFrame(function() {
+      _this.animation();
+    });
 
   },
 
@@ -75,7 +77,7 @@ var Twitter = {
     var _this = this;
 
     // cancelAnimationFrame() is a global
-    cancelAnimationFrame(_this.animationFrame); 
+    cancelAnimationFrame(_this.animationFrame);
 
   },
 };
@@ -143,7 +145,7 @@ Ajaxy = {
     _this.bindLinks();
     _this.bindSearchForm();
 
-    $(window).bind('popstate', function(event) {
+    $(window).bind('popstate', function() {
       if( !_this.firstLoad ) {
         _this.load(document.location.origin + document.location.pathname, false);
       }
@@ -240,7 +242,6 @@ Ajaxy = {
 
   ajaxBefore: function(url) {
     var _this = this;
-
     var search = false;
 
     if( url.indexOf('/?s=') > -1) {
@@ -269,7 +270,7 @@ Ajaxy = {
   },
 
   ajaxErrorHandler: function(jqXHR, textStatus) {
-    //alert(textStatus);
+    console.log(textStatus);
     console.log(jqXHR);
   },
 
@@ -309,7 +310,7 @@ Featured = {
 
     _this.setCols();
 
-    $(window).resize( function(event) {
+    $(window).resize( function() {
       _this.setCols();
     });
   },
@@ -320,7 +321,7 @@ Featured = {
     if ( $('#featured-post-container').length ) {
 
       // Get image height
-      $maxHeight = $('#featured-post-image').outerHeight();
+      var $maxHeight = $('#featured-post-image').outerHeight();
 
       // Set max heights
       if( $(window).width() > 720 ) {
@@ -340,6 +341,7 @@ Featured = {
 
       // Set col size
       var titleCol = 0;
+
       for (var i = 1; i <= 6; i++ ) {
         $titleHolder.removeClass('s' + (i - 1) ).addClass('s' + i );
         titleCol = i;
@@ -364,7 +366,6 @@ Featured = {
         // Set col size
         for (var i = 1; i < leftCol; i++ ) {
           $subtitleHolder.removeClass('s' + (i - 1)).addClass('s' + i);
-          subtitleCol = i;
           if ( $subtitleHolder.width() > $('#featured-post-subtitle').width() ) {
             break;
           }
@@ -436,7 +437,7 @@ Site = {
   // ver mas link on homepage
   bindVerMas: function() {
     $('#more-posts').on({
-      click: function(e) {
+      click: function() {
         var $this = $(this);
         var offset = $this.offset();
 
@@ -457,7 +458,7 @@ Site = {
 
   bindMoreScroll: function() {
     $('#more-music').on({
-      click: function(e) {
+      click: function() {
         var $this = $(this);
         var offset = $this.offset();
 
