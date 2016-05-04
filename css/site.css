@@ -1816,7 +1816,7 @@ blockquote {
   margin: 0 46px 28px 46px;
 }
 #featured-copy img {
-  margin: 49px 0;
+  margin: 49px auto;
 }
 .indent {
   margin-left: 32px;
